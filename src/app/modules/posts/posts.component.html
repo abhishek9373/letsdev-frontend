@@ -1,0 +1,49 @@
+<header class="header">
+  <p class="logo">Logo</p>
+
+  <nav class="navbar">
+    <ul class="navbar-list">
+      <li><a class="navbar-link" routerLink="/posts">Posts</a></li>
+      <li><a class="navbar-link" routerLink="/questions">Questions</a></li>
+      <li><a class="navbar-link" routerLink="/chats">Chat</a></li>
+      <li><a class="navbar-link" routerLink="/courses">Courses</a></li>
+      <li><a class="navbar-link" routerLink="/placements">Placements</a></li>
+    </ul>
+  </nav>
+
+  <div class="avatar">
+    <img class="avatar-image" src="assets/images/profile.png" alt="">
+  </div>
+
+
+</header>
+
+<div class="main-content">
+
+  <div class="post-temp">
+    <p class="upload-time">1 min ago</p>
+    <div class="user-info">
+      <img src="assets/images/profile.png" alt="" class="post-avatar">
+      <p class="user-name">John Doe</p>
+      <p class="hastags">#nodejs #mongoDB #Express</p>
+    </div>
+
+    <div class="main-post">
+      <div class="post">The latest version of Node. js v19. 0.0 was released on 19th October 2022 with an update of
+        the V8 JavaScript engine and many other features by the Node. js team.</div>
+      <div>
+        <img class="post-image" src="assets/images/demopost.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="stats">
+      <button class="upvote"><ion-icon name="arrow-up"></ion-icon>&nbsp;20K</button>
+      <button class="downvote"><ion-icon name="arrow-down"></ion-icon>&nbsp;20K</button>
+      <button class="comments"><ion-icon name="chatbubbles"></ion-icon></button>
+      <button class="share"><ion-icon name="share-social"></ion-icon></button>
+    </div>
+
+  </div>
+
+  <button class="new-post"><ion-icon name="add-outline"></ion-icon></button>
+</div>

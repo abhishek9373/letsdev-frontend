@@ -1,0 +1,10 @@
+.container {
+  margin: 25%;
+  margin-left: 65rem;
+}
+
+p{
+  font-size: 3rem;
+  font-weight: bolder;
+  color: white;
+}
