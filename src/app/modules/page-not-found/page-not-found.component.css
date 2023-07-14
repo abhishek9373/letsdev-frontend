@@ -8,3 +8,19 @@ p{
   font-weight: bolder;
   color: white;
 }
+
+
+.back{
+  position: relative;
+  top: 5rem;
+  left:-18rem;
+  background-color: rgba(43, 20, 133, 75%);
+  width: 8rem;
+  height: 3rem;
+  color: white;
+  font-family: Istok Web;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+
+}

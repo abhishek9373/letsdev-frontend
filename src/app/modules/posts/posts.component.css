@@ -1,140 +1,94 @@
-.header{
-  width: 100%;
-  height: 9rem;
-  position: fixed;
-  background-color: #102984;
-  display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
-  align-items: center;
-  z-index: 9999;
-
-}
-
-.navbar-list{
+.main-content {
   display: flex;
-  justify-content:space-evenly;
+  padding-top: 90px;
+  flex-direction: column;
   align-items: center;
-  list-style: none;
-  text-decoration: none;
-  font-size: 2.5rem;
-  font-family: Istok Web, Inter;
-
-
-
-}
-.navbar-list a{
-  text-decoration: none;
-  color: white;
-  font-family: Istok Web, Inter;
+  overflow-x: hidden;
 }
 
-.avatar{
+.post-temp {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
   display: flex;
-  justify-content:flex-end;
+  flex-direction: column;
   align-items: center;
-  margin-right: 5em;
+  border-radius: 0.3rem;
 }
 
-
-.avatar-image{
-  width: 28%;
-}
-
-.logo{
-  padding: 3rem;
-  font-size: 2.5rem;
-  color: white;
-
-
-}
-
-
-.main-content{
-  position: absolute;
-  top:9rem;
-  left: 20rem;
-  right:20rem;
-  bottom: 0;
-  background-color: white;
-}
-
-.post-temp{
-  position: absolute;
-  top: 2rem;
-  left: 3rem;
-  right: 3rem;
-  background-color: #D9D9D9;
-  border-radius: 1rem;
-}
-
-.upload-time{
-  position: relative;
-  top:2.3rem;
-  left:74rem;
-  font-family: Inter;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.user-info{
+.user-info {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  margin-left: 1rem;
-  margin-top:-0.5rem;
 }
 
-.post-avatar{
-  width: 5%;
-  margin-right: 1.5rem;
+.post-avatar {
+  width: 30px;
+  height: 30px;
 }
 
-.user-name{
-  margin-right: 1.5rem;
+.user-name {
+  margin-left: 10px;
   font-weight: bold;
   font-size: 16px;
-  font-family: Istok Web;
+  font-family: 'Istok Web';
 }
 
-.hastags{
+.hastags {
   font-size: 12px;
-  font-family: Istok Web;
+  font-family: 'Istok Web';
   font-weight: bold;
   color: black;
 }
 
-.main-post{
-  width: 70%;
-  margin-left: 13rem;
-  margin-top: 3rem;
+.upload-time {
+  position: relative;
+  left: 2rem;
+  font-family: 'Inter';
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.post{
-  font-family: Inter;
+.main-post {
+  width: 75%;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align-last: left;
+  cursor: pointer;
+}
+
+.post {
+  font-family: 'Inter';
   font-size: 12px;
   font-weight: bold;
   margin-bottom: 2rem;
+  text-align: center;
+  text-decoration: none;
 }
 
-.post-image{
+.post-image {
   width: 100%;
 }
 
-.stats{
+.stats {
   margin-top: 1rem;
-  /* vertical-align:middle; */
   display: flex;
   align-items: center;
 }
 
-.upvote, .downvote, .comments, .share{
+.upvote,
+.downvote,
+.comments,
+.share {
   display: flex;
   align-items: center;
   background: transparent;
   outline: none;
   border: none;
   cursor: pointer;
-  margin:0.5rem;
+  margin: 0.5rem;
   font-weight: bold;
 }
 
@@ -142,14 +96,14 @@ ion-icon {
   font-size: 2.5rem;
 }
 
-.new-post{
+.new-post {
   position: fixed;
   bottom: 3rem;
-  right:25rem;
+  right: 29rem;
   height: 5rem;
   width: 5rem;
   border-radius: 4rem;
-  background-color: #0A2DA7;
+  background-color: #0a2da7;
   color: white;
   border: none;
   outline: none;
@@ -160,14 +114,4 @@ ion-icon {
   font-size: 4rem;
   font-weight: bold;
   font-weight: bolder;
-
 }
-
-
-
-
-
-
-
-
-

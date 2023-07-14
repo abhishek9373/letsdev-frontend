@@ -15,6 +15,7 @@ import { DomainselectionComponent } from './modules/authentication/domainselecti
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { PostviewComponent } from './modules/postview/postview.component';
 import { CreatepostComponent } from './modules/createpost/createpost.component';
+import { NavbarComponent } from './modules/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CreatepostComponent } from './modules/createpost/createpost.component';
     PageNotFoundComponent,
     PostviewComponent,
     CreatepostComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
