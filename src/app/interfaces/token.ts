@@ -1,4 +1,4 @@
 export interface Token {
-  authToken:string,
-  isOnboarded:boolean | false
+  _id:string,
+  email: string
 }

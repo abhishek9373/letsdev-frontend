@@ -7,7 +7,9 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TokenInterceptor implements HttpInterceptor {
 
   constructor() {}
@@ -17,7 +19,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if(authToken){
       const authRequest = request.clone({
         setHeaders: {
-          Authorization : `Bearer ${authToken}`
+          authorization : `Bearer ${authToken}`
         }
       });
       return next.handle(authRequest);

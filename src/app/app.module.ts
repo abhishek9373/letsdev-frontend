@@ -20,10 +20,15 @@ import { ViewComponent } from './modules/questions/view/view.component';
 import { ConnectionsComponent } from './modules/chats/connections/connections.component';
 import { ChatpageComponent } from './modules/chats/chatpage/chatpage.component';
 import { EditComponent } from './modules/profile/edit/edit.component';
+import { FormsModule } from '@angular/forms';
 
 import { ProfileModule } from './modules/profile/profile.module';
 import { AnswerComponent } from './modules/questions/answer/answer.component';
 import { MylistComponent } from './modules/questions/mylist/mylist.component';
+import { LoginComponent } from './modules/authentication/login/login.component';
+
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,14 +49,18 @@ import { MylistComponent } from './modules/questions/mylist/mylist.component';
     EditComponent,
     AnswerComponent,
     MylistComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ProfileModule
+    ProfileModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent],
   schemas : [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
