@@ -7,7 +7,8 @@
   display: grid;
   grid-template-columns: 0.5fr 2fr 0.5fr;
   align-items: center;
-  z-index: 9999;
+  z-index: 999;
+
 }
 
 .navbar-list{
@@ -44,6 +45,8 @@
   padding: 3rem;
   font-size: 2.5rem;
   color: white;
+
+
 }
 
 
@@ -52,19 +55,52 @@
   top:9rem;
   left: 20rem;
   right:20rem;
+  /* bottom:0; */
   background-color: white;
 }
 
-.post-temp{
-  background-color: #D9D9D9;
-  border-radius: 1rem;
-  margin:2rem;
+
+
+.heading{
+  display: flex;
+  justify-content:flex-start;
+  text-align:center;
+  margin-left: 4rem;
+  margin-top: 4rem;
 }
 
+.back{
+  position: relative;
+  top: -2rem;
+  left:-2rem;
+  background-color: rgba(43, 20, 133, 75%);
+  width: 8rem;
+  height: 3rem;
+  color: white;
+  font-family: Istok Web;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.heading-text{
+  font-size: 24px;
+  font-family: Istok web;
+  margin-top: -1.8rem;
+  margin-left: 22rem;
+}
+
+.question{
+  background-color: #D4D2D2;
+  margin-top: 2rem;
+  width: 80%;
+  margin-left: 10rem;
+}
 .upload-time{
   position: relative;
-  top:2.3rem;
-  left:90rem;
+  top:2rem;
+  left:60rem;
   font-family: Inter;
   font-size: 14px;
   font-weight: bold;
@@ -99,66 +135,35 @@
 
 .main-post{
   width: 70%;
-  margin-left: 13rem;
+  margin-left: 5rem;
   margin-top: 3rem;
 }
 
 .post{
   font-family: Inter;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 2rem;
 }
 
-.post-image{
-  width: 100%;
+.post1{
+  font-size: 14px;
+  font-family: istok web;
+  margin-bottom: 2rem;
 }
 
-.stats{
-  margin-top: 1rem;
-  /* vertical-align:middle; */
+.post3{
+  font-size: 12px;
+  font-family: istok web;
+  margin-bottom: 2rem;
+  padding-left: 2rem;
+}
+
+.user-info{
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
 }
-
-.upvote, .downvote, .comments, .share{
-  display: flex;
-  align-items: center;
-  background: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  margin:0.5rem;
-  font-weight: bold;
-}
-
-ion-icon {
-  font-size: 2.5rem;
-}
-
-.new-post{
-  position: fixed;
-  bottom: 3rem;
-  right:25rem;
-  height: 5rem;
-  width: 5rem;
-  border-radius: 4rem;
-  background-color: #0A2DA7;
-  color: white;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.new-post ion-icon {
-  font-size: 4rem;
-  font-weight: bold;
-  font-weight: bolder;
-
-}
-
-
-
 
 
 

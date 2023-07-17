@@ -18,7 +18,7 @@ export class OnBoardGuard implements CanActivate {
     if (this.token) {
       return true;
     }
-    this.router.navigate(['/auth'])
+    this.router.navigate(['/auth']);
     return false;
   }
 }
