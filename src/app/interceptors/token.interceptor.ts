@@ -22,6 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
           authorization : `Bearer ${authToken}`
         }
       });
+      // create a middleware to accept usermodel and set to User
       return next.handle(authRequest);
     }
     return next.handle(request);

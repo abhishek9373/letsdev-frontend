@@ -1,17 +1,27 @@
-import { User } from "../interfaces/user";
+import { Injectable } from "@angular/core";
 
-export class UserModel {
+export interface UserModel {
   name: string;
   gender: number;
-  branch!: string;
-  _id!: string;
-  email!: string;
-  constructor(user: User) {
-    this.email = user.email;
-    this._id = user._id;
-    this.name = user.name;
-    this.gender = user.gender;
-    this.branch = user.branch;
+  branch: string;
+  _id: string;
+  email: string;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  private user!: UserModel;
+
+  constructor() { }
+
+  setUser(user: UserModel){
+    this.user = user;
+  }
+
+  getUser(){
+    return this.user;
   }
 }
 

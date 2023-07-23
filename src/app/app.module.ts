@@ -21,11 +21,14 @@ import { ConnectionsComponent } from './modules/chats/connections/connections.co
 import { ChatpageComponent } from './modules/chats/chatpage/chatpage.component';
 import { EditComponent } from './modules/profile/edit/edit.component';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth/auth.service';
+import { UserService } from './services/user/user.service';
 
 import { ProfileModule } from './modules/profile/profile.module';
 import { AnswerComponent } from './modules/questions/answer/answer.component';
 import { MylistComponent } from './modules/questions/mylist/mylist.component';
 import { LoginComponent } from './modules/authentication/login/login.component';
+import { UserService as userService } from './models/user.model';
 
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -59,7 +62,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     FormsModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    AuthService,
+    userService,
+    UserService
   ],
   bootstrap: [AppComponent],
   schemas : [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

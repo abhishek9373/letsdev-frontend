@@ -3,30 +3,28 @@ import { BaseService } from '../base.service';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { UserService } from '../user/user.service';
+import { UserService as UserModelService } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements OnInit {
 
-  constructor(private baseservice: BaseService, private userService: UserService) { }
+  constructor(private baseservice: BaseService, private userService: UserService, private userModelService:UserModelService) { }
 
-  ngOnInit(): void {
-    console.log(navigator.mediaDevices.getUserMedia);
-  }
+  ngOnInit(): void { }
 
   login(email: string, password: string) {
     try {
-
-      return this.baseservice.fetch({ method: "POST", url: "/auth/login", options: { body : { email : "abhishekgund500@gmail.com", password : "Abhibgund@500" }}})
+      return this.baseservice.fetch({ method: "POST", url: "/auth/login", options: { body: { email: "abhishekgund500@gmail.com", password: "Abhibgund@500" } } })
         .pipe(
           tap(response => {
-              if (response.data) {
-                localStorage.setItem('authToken', `${response.data.accessToken}`);
-                this.userService.get();
-              };
-              return false;
-            }
+            if (response.data) {
+              localStorage.setItem('authToken', `${response.data.accessToken}`);
+              this.userService.get();
+            };
+            return false;
+          }
           )
         );
     } catch (err) {
@@ -36,32 +34,29 @@ export class AuthService implements OnInit {
 
   verify(): Observable<boolean> {
     try {
-      return this.baseservice.fetch({ method: "POST", url: "/auth/verify", options: {} })
+      return this.baseservice.fetch({ method: "POST", url: "/user/verify", options: {} })
         .pipe(
           map(response => {
-            if (response.status === 200) {
-              if (response.data) {
-                this.userService.get();
-                return response.data.data;
-              };
-              return false;
-            }
+            if (response.data) {
+              this.userService.get();
+              return response.data;
+            };
+            return false;
           })
         );
+
     } catch (err) {
       throw (err);
     }
   }
 
-  logout() {
-
-  }
+  logout() { }
 
 
 }
 
 // interfaces
-interface loginBody{
+interface loginBody {
   deviceId: string,
   deviceOS: string,
   appVersion: string,

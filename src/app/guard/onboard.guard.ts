@@ -1,25 +1,26 @@
 import { CanActivate } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 import { Injectable } from '@angular/core';
-import { UserService } from '../services/user/user.service';
-import { Token } from '../models/tmplog.model';
+import { UserModel, UserService } from '../models/user.model';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class OnBoardGuard implements CanActivate {
-
-  token?: Token;
-  constructor(private userService: UserService, private router: Router) {
-    // this.token = this.userService.getTokenModel();
-  }
-
+export class OnboardGuard implements CanActivate {
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
   canActivate(route: any, state: any): boolean {
-    this.token = this.userService.getTokenModel();
-    if (this.token) {
+
+    const user: UserModel = this.userService.getUser();
+    if(user){
+      if(user.name){
+        this.router.navigate(['/posts']);
+        return false;
+      }
       return true;
     }
     this.router.navigate(['/auth']);
     return false;
+
   }
 }
