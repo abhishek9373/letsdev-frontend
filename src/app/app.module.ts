@@ -21,8 +21,8 @@ import { ConnectionsComponent } from './modules/chats/connections/connections.co
 import { ChatpageComponent } from './modules/chats/chatpage/chatpage.component';
 import { EditComponent } from './modules/profile/edit/edit.component';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from './services/auth/auth.service';
-import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 import { ProfileModule } from './modules/profile/profile.module';
 import { AnswerComponent } from './modules/questions/answer/answer.component';

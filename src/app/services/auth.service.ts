@@ -1,8 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
-import { BaseService } from '../base.service';
+import { BaseService } from './base.service';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { UserService } from '../user/user.service';
+import { UserService } from './user.service';
 import { UserService as UserModelService } from 'src/app/models/user.model';
 
 @Injectable({

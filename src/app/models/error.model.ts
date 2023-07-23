@@ -1,4 +1,4 @@
-import { ToastService } from "../services/toast/toast.service";
+import { ToastService } from "../services/toast.service";
 
 export class Utility {
   static decide(code: number, message?: string) {

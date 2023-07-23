@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BaseService } from '../base.service';
+import { BaseService } from './base.service';
 import { UserModel } from 'src/app/models/user.model';
 import { UserService as userService } from 'src/app/models/user.model';
 
