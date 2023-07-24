@@ -18,14 +18,12 @@
   text-decoration: none;
   font-size: 2.5rem;
   font-family: Istok Web, Inter;
-
-
-
 }
 .navbar-list a{
   text-decoration: none;
   color: white;
   font-family: Istok Web, Inter;
+  cursor: pointer;
 }
 
 .avatar{
@@ -33,7 +31,6 @@
   justify-content:flex-end;
   align-items: center;
   margin-right: 5em;
-  cursor: pointer;
 }
 
 

@@ -14,9 +14,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   canActivate(route: any, state: any): boolean {
     // check conditionaly
     // check usermodel set or not
-    if(this.userService.getUser()){
+    if (this.userService.getUser()) {
       const user: UserModel = this.userService.getUser();
-      if(user?.name){
+      if (user?.name) {
         // if user's name present in usermodel then user is inboarded move allow routing
         return true;
       }
@@ -28,30 +28,30 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     const token: string | null = localStorage.getItem('authToken');
     let isOnboarded = true;
 
-    if(token){
+    if (token) {
       // if token is present then verify it
       const res: Observable<boolean> = this.authService.verify();
-      res.subscribe(r=>{
-        if(r) {
+      res.subscribe(r => {
+        if (r) {
           const user: UserModel = this.userService.getUser();
           // if token is valid then check if user is onboarded;
-          if(!user?.name){ isOnboarded = false };
+          if (!user?.name) { isOnboarded = false };
           return true;
         };
         return false;
       })
     }
-    else{
+    else {
       // if token is not present navigate to login page
       this.router.navigate(['/auth']);
       return false;
     }
 
-    if(!isOnboarded){
+    if (!isOnboarded) {
       // check isOnboarded condition
       this.router.navigate(['/auth/onboard']);
       return false;
-    }else{
+    } else {
       // this.router.navigate(['/posts']);
       return true;
     }
@@ -59,38 +59,44 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
   canActivateChild(route: any, state: any): boolean {
     // check conditionaly
-    if(this.userService.getUser()){
+    if (this.userService.getUser()) {
       const user: UserModel = this.userService.getUser();
-      if(user?.name){
+      if (user?.name) {
+        // if user's name present in usermodel then user is inboarded move allow routing
         return true;
       }
       this.router.navigate(['/auth/onboard']);
+      // otherwise show onboarding page
       return false;
     }
+    // usemodel is not present check token
     const token: string | null = localStorage.getItem('authToken');
     let isOnboarded = true;
 
-    if(token){
+    if (token) {
+      // if token is present then verify it
       const res: Observable<boolean> = this.authService.verify();
-      res.subscribe(r=>{
-        if(r) {
+      res.subscribe(r => {
+        if (r) {
           const user: UserModel = this.userService.getUser();
-          if(!user?.name){ isOnboarded = false };
+          // if token is valid then check if user is onboarded;
+          if (!user?.name) { isOnboarded = false };
           return true;
         };
         return false;
       })
     }
-    else{
-      console.log("object")
+    else {
+      // if token is not present navigate to login page
       this.router.navigate(['/auth']);
       return false;
     }
 
-    if(!isOnboarded){
+    if (!isOnboarded) {
+      // check isOnboarded condition
       this.router.navigate(['/auth/onboard']);
       return false;
-    }else{
+    } else {
       // this.router.navigate(['/posts']);
       return true;
     }

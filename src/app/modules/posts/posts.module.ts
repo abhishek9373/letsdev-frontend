@@ -1,21 +1,23 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewComponent } from './view/view.component';
-import { ProfileRoutingModule } from './profile-routing.module';
+import { PostsComponent } from "./posts/posts.component";
+import { PostviewComponent } from "./postview/postview.component";
+import { CreatepostComponent } from "./createpost/createpost.component";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
+import { PostsRoutingModule } from './posts.routing.module';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/models/user.model';
-import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
-    ViewComponent,
-    EditComponent,
+    PostsComponent,
+    PostviewComponent,
+    CreatepostComponent,
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule,
+    PostsRoutingModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
@@ -24,4 +26,4 @@ import { EditComponent } from './edit/edit.component';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
-export class ProfileModule { };
+export class PostsModule { }
