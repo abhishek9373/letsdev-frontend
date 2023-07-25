@@ -1,0 +1,17 @@
+.alert{
+  width: 20rem;
+  z-index: 999;
+  background-color: aqua;
+  position: fixed;
+  top: 10rem;
+  right: 2rem;
+  border-radius: 3PX;
+  /* height: 5rem; */
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  opacity: 0.8;
+}

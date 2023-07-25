@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
+import { ToastService } from './services/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,25 @@ import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.c
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router, private route: ActivatedRoute){}
+  toastText?: string;
+  hideToast: boolean = true;
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    ToastService.toaster$.subscribe((message: string) => {
+      this.showToast(message);
+    })
+  }
+
+  showToast(message: string) {
+    this.toastText = message;
+    this.hideToast = false;
+    setTimeout(() => {
+      this.hideToast = true;
+    }, 5000)
+  }
 
   isLoginPage(): boolean {
-    return (this.router.url.startsWith('/auth') || (this.route.firstChild?.component === PageNotFoundComponent)) ? true : false;
+    return (this.router.url.startsWith('/auth') || (this.route.firstChild?.component === PageNotFoundComponent) || this.router.url == '/') ? true : false;
   }
 
   title = 'letsdev';

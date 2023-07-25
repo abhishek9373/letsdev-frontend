@@ -8,6 +8,8 @@ import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 import { PostsRoutingModule } from './posts.routing.module';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/models/user.model';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { UserService } from 'src/app/models/user.model';
   imports: [
     CommonModule,
     PostsRoutingModule,
+    FormsModule,
+    MatIconModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

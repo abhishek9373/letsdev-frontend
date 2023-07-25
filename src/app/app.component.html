@@ -1,4 +1,5 @@
 <ng-container *ngIf="!isLoginPage()">
   <navbar></navbar>
 </ng-container>
+<div class="alert" [hidden]="hideToast">{{toastText}}</div>
 <router-outlet></router-outlet>

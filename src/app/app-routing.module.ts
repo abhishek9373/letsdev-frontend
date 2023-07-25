@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/questions/questions.module').then((m) => m.QuestionsModule)
   },
   {
-    path: 'chats', // <-- Use 'loadChildren' instead of 'loadComponent'
+    path: 'chats',
     canActivate: [AuthGuard],
     loadChildren: () => import('./modules/chats/chats.module').then((m) => m.ChatsModule)
   },
