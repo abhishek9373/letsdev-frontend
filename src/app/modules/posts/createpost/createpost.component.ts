@@ -32,7 +32,6 @@ export class CreatepostComponent {
         const res: any = await this.postService.create(data);
         if(res){
           res.subscribe((data: any)=>{
-            console.log(data)
             if(data) ToastService.toast("Post created successfully");
           })
         }
