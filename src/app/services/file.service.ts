@@ -3,6 +3,7 @@ import { BaseService } from './base.service';
 import { Inpute } from '../interfaces/fetch.inpute';
 import { fileRequest } from '../interfaces/common.interface';
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -25,17 +26,17 @@ export class FileService {
 
   upload(file: File, uploadInfo: any): Observable<any> {
     const formData = new FormData;
-    console.log(uploadInfo.url);
-    formData.append("thumbnail", file, `${uploadInfo.key}.${uploadInfo.extension}`);
-    const requestObject = {
-      // method: "PUT",
+    formData.append("thumbnail", file);
+    const headers = new HttpHeaders({
+      'Accept': '*/*',
+      'Content-Type': `image/${uploadInfo.extension}`,
+    })
+    const requestObject: Inpute = {
+      method: "PUT",
       url: uploadInfo.url,
-      headers: {
-          'Accept': '*/*',
-          'Content-Type': `image/${uploadInfo.extension}`,
-        },
-      body: {
-        file: formData
+      options: {
+        body: file,
+        headers: headers
       }
     }
     return this.baseService.fetchForFile(requestObject);

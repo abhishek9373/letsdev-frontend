@@ -16,6 +16,7 @@ export class BaseService {
 
   private serverUrl: string = "https://devbuilder.tech/services";
 
+  // main api service
   fetch(req: Inpute): Observable<any> {
     const url: string = this.serverUrl + req.url;
     return this.http.request(req.method, url, req.options).pipe(
@@ -26,9 +27,9 @@ export class BaseService {
     );
   }
 
+  //another method to skip baseUrl for file upload
   fetchForFile(req: any): Observable<any> {
-    const url: string = req.url;
-    return this.http.put(url, req.headers, req.body).pipe(
+    return this.http.request(req.method, req.url, req.options).pipe(
       catchError((error: HttpErrorResponse) => {
         this.handleErrorResponse(error);
         return throwError(error);
