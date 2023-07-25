@@ -39,7 +39,7 @@ export class PostService {
           switchMap((fileUploadResponse: any)=>{
             if(!fileUploadResponse){ ToastService.toast("something went wrong")};
             // create postRequest object
-            const requestObject: Inpute = { method: "POST", options: { body: {...post, fileId: fileResponse.data[0].id} }, url: "/post" };
+            const requestObject: Inpute = { method: "PATCH", options: { body: {...post, fileId: fileResponse.data[0].id} }, url: "/post" };
             return this.baseService.fetch(requestObject);
           }))
       })
