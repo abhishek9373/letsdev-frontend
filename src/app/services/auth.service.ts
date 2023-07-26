@@ -16,7 +16,7 @@ export class AuthService implements OnInit {
 
   login(email: string, password: string) {
     try {
-      return this.baseservice.fetch({ method: "POST", url: "/auth/login", options: { body: { email: "abhishekgund500@gmail.com", password: "Abhibgund@500" } } })
+      return this.baseservice.fetch({ method: "POST", url: "/auth/login", options: { body: { email, password } } })
         .pipe(
           tap(response => {
             if (response.data) {
