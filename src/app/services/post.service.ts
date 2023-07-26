@@ -14,37 +14,42 @@ export class PostService {
   constructor(private baseService: BaseService, private fileService: FileService) { }
 
   // get initial posts
-  bootStrap() {
+  bootStrap(): Observable<any> {
     try {
-      const paramObject: Inpute = { method: "GET", options: { params: { page: 0 } }, url: "/posts" }
-      this.baseService.fetch(paramObject).subscribe((data) => {
-        if (data) {
-          return data.data;
-        }
-      })
+      const page: number = 0;
+      const paramObject: Inpute = { method: "GET", options: { }, url: `/post?page=${page}` }
+      return this.baseService.fetch(paramObject).pipe(
+        map((data: any) => data)
+      );
     } catch (error) {
       throw (error);
     }
   }
 
   create(post: RawPost): Observable<any> {
-
     // get file upload urls
     const extension: any = post.file.name.split('.').pop();
     const fileRequestObject: fileRequest = { module: "post", requirement: [{ order: 0, extension: extension } ]}
+
+    // get signed url for file
     return this.fileService.file(fileRequestObject).pipe(
       switchMap((fileResponse: fileResponse)=>{
         if(!fileResponse){ ToastService.toast("something went wrong")}
+
+        // upload file
         return this.fileService.upload(post.file, fileResponse.data[0]).pipe(
           switchMap((fileUploadResponse: any)=>{
             if(!fileUploadResponse){ ToastService.toast("something went wrong")};
             // create postRequest object
-            const requestObject: Inpute = { method: "PATCH", options: { body: {...post, fileId: fileResponse.data[0].id} }, url: "/post" };
+            // omit file from body to create post
+            const body: any = { ...post };
+            delete body.file;
+            delete body.image;
+            // create post
+            const requestObject: Inpute = { method: "POST", options: { body: {...body, fileId: fileResponse.data[0].id} }, url: "/post" };
             return this.baseService.fetch(requestObject);
           }))
       })
     )
-
-
   }
 }
