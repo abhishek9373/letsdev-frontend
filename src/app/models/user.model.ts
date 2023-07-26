@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 
 export interface UserModel {
+  isVerified: boolean;
   name: string;
   gender: number;
   branch: string;

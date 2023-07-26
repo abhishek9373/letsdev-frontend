@@ -5,6 +5,8 @@ import { OnboardGuard } from 'src/app/guard/onboard.guard';
 import { OnboardComponent } from './onboard/onboard.component';
 import { DomainselectionComponent } from './domainselection/domainselection.component';
 import { AuthGuard } from 'src/app/guard/auth.guard';
+import { VerificationGuard } from 'src/app/guard/verification.guard';
+import { EmailverificationComponent } from './emailverification/emailverification.component';
 
 const routes: Routes = [
     {
@@ -20,7 +22,12 @@ const routes: Routes = [
       path: "domainselection",
       component: DomainselectionComponent,
       canActivate: [AuthGuard]
-    }
+    },
+    {
+      path: 'verifyemail',
+      canActivate: [VerificationGuard],
+      component: EmailverificationComponent,
+    },
 ];
 
 @NgModule({
