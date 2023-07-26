@@ -16,6 +16,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     // check usermodel set or not
     if (this.userService.getUser()) {
       const user: UserModel = this.userService.getUser();
+
       if (user?.name) {
         // if user's name present in usermodel then user is inboarded move allow routing
         return true;
@@ -29,6 +30,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     let isOnboarded = true;
 
     if (token) {
+
       // if token is present then verify it
       const res: Observable<boolean> = this.authService.verify();
       res.subscribe(r => {
@@ -74,6 +76,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     let isOnboarded = true;
 
     if (token) {
+
       // if token is present then verify it
       const res: Observable<boolean> = this.authService.verify();
       res.subscribe(r => {
