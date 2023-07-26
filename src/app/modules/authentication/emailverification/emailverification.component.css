@@ -1,0 +1,27 @@
+
+.root{
+  display: flex;
+  justify-content: center;
+}
+
+.center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container{
+  margin-top:18rem;
+  background-color: #123182;
+  width: 70vw;
+  padding: 4rem;
+}
+
+.heading{
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 2rem;
+  color: white;
+}
+
