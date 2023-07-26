@@ -21,7 +21,7 @@ export class LoginComponent {
     }
     this.authService.login(email, password).subscribe(data=>{
       if(data.data.accessToken){
-        this.router.navigate(['/auth/onboard']);
+        this.router.navigate(['/auth/verifyemail']);
       }else{
         alert("login failed");
       }
