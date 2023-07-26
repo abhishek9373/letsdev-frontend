@@ -29,7 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

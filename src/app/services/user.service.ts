@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { UserModel } from 'src/app/models/user.model';
 import { UserService as userService } from 'src/app/models/user.model';
+import { Observable } from 'rxjs'
 
 
 @Injectable({
@@ -20,4 +21,9 @@ export class UserService {
       }
     })
   }
+
+  getOnly(): Observable<any> {
+    return this.baseservice.getUser({ method: "GET", url: "/user", options: {} });
+  }
+
 }
