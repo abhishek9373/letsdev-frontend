@@ -12,6 +12,7 @@ import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/models/user.model';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CommonModule,
     AuthenticationRoutingModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

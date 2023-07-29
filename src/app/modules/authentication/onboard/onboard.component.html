@@ -1,18 +1,22 @@
-<div class="main-container">
-  <p class="heading">Personal Information</p>
-  <div class="email">
-    <label for="email" class="email-text">Name</label>
-    <input type="email" id="email" name="email" placeholder="Name">
-  </div>
-  <div class="password">
-    <label for="password" class="password-text">Gender</label>
-    <input type="password" id="password" name="password" placeholder="Gender">
-  </div>
+<form [formGroup]="onboardForm" (ngSubmit)="onboard()">
+  <div class="main-container">
+    <p class="heading">Personal Information</p>
+    <div class="email">
+      <label for="email" class="email-text">Name</label>
+      <span *ngIf="name && name.invalid && name.touched" class="indicator">name field is required</span>
+      <input type="text" id="email" name="name" required placeholder="name" formControlName="name">
+    </div>
+    <div class="password">
+      <label for="password" class="password-text">Gender</label>
+      <span *ngIf="gender && gender.invalid && gender.touched" class="indicator">these field is required</span>
+      <input type="text" id="password" name="gender" placeholder="Gender" formControlName="gender" required>
+    </div>
 
-  <div class="password">
-    <label for="password" class="password-text">Branch</label>
-    <input type="password" id="password" name="password" placeholder="Branch">
+    <div class="password">
+      <label for="password" class="password-text">Branch</label>
+      <span *ngIf="branch && branch.invalid && branch.touched" class="indicator">these field is required</span>
+      <input type="text" id="password" name="branch" placeholder="Branch" formControlName="branch" required>
+    </div>
+    <button class="login-button">Submit</button>
   </div>
-  <button class="login-button">Login</button>
-
-</div>
+</form>
