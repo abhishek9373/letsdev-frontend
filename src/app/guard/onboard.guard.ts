@@ -19,7 +19,7 @@ export class OnboardGuard implements CanActivate {
           this.router.navigate(['/posts']);
           return false;
         } else {
-          if(user.isVerified){
+          if(user?.isVerified){
             return true;
           }
           this.router.navigate(['/auth/verifyemail']);

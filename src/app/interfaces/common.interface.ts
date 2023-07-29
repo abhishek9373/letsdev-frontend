@@ -19,3 +19,9 @@ interface fileRequirement{
   order: number,
   extension: string
 }
+
+export interface onboard {
+  name: string,
+  gender: string,
+  branch: string
+}
