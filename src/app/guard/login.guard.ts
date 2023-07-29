@@ -15,7 +15,7 @@ export class LoginGuard implements CanActivate {
     if (!token) {
       return true;
     }
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/posts']);
     return false;
   //   try {
   //     const data = await this.userModelService.getOnly().toPromise();

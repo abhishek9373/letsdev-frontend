@@ -11,9 +11,9 @@ export class VerificationGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) { }
 
   canActivate(route: any, state: any): boolean {
-
     const user: User = this.userService.getUser();
     if(user?.isVerified){
+      this.router.navigate(['/auth/onboard'])
       return false;
     }
     return true;
