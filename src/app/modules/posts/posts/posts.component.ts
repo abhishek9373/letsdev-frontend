@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoaderService } from 'src/app/services/loader.service';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -12,9 +13,9 @@ export class PostsComponent implements OnInit {
 
   constructor (private postService: PostService){}
   ngOnInit(): void {
+    LoaderService.loader(true);
     this.postService.bootStrap().subscribe((data: any)=>{
       this.posts.push(...data.data);
-      console.log(this.posts);
     })
   }
 }

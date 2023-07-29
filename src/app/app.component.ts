@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { ToastService } from './services/toast.service';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,22 @@ import { ToastService } from './services/toast.service';
 export class AppComponent {
   toastText?: string;
   hideToast: boolean = true;
+  loaderStyle = { "display": "none" };
 
   constructor(private router: Router, private route: ActivatedRoute) {
     ToastService.toaster$.subscribe((message: string) => {
       this.showToast(message);
     })
+    LoaderService.loader$.subscribe((message: string) => {
+      this.showLoader(message)
+    })
+  }
+
+  showLoader(message: string) {
+    this.loaderStyle = { "display": `${message}` };
+    setTimeout(() => {
+      this.loaderStyle = { "display": "none" };
+    }, 2000)
   }
 
   showToast(message: string) {

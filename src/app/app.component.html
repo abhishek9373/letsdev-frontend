@@ -2,4 +2,7 @@
   <navbar></navbar>
 </ng-container>
 <div class="alert" [hidden]="hideToast">{{toastText}}</div>
+<div class="loader" [style]="loaderStyle">
+  <mat-spinner></mat-spinner>
+</div>
 <router-outlet></router-outlet>

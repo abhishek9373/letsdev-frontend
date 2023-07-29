@@ -16,6 +16,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NavbarComponent } from './modules/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
