@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { ErrorService } from './error.service';
 import { UserModel } from '../models/user.model';
 import { Utility } from '../models/error.model';
 import { Inpute } from '../interfaces/fetch.inpute';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
 
-  constructor(private http: HttpClient, private errorService: ErrorService) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  private serverUrl: string = "https://devbuilder.tech/services";
+  private serverUrl: string = "http://localhost:3015";
 
   // main api service
   fetch(req: Inpute): Observable<any> {
@@ -51,6 +52,14 @@ export class BaseService {
   private handleErrorResponse(error: HttpErrorResponse): void {
     const statusCode = error.status;
     const message = error.message || '';
+    if(statusCode == 401){
+      localStorage.clear();
+      this.router.navigate(['/auth']);
+    }
+    if(error.error?.message){
+      Utility.decide(statusCode, error.error.message);
+      return;
+    }
     Utility.decide(statusCode, message);
   }
 }

@@ -25,7 +25,9 @@ export class EmailverificationComponent implements OnInit, OnDestroy{
           }
         })
       }catch(err: any){
-        ToastService.toast(err.message)
+        // ToastService.toast(err.message);
+        this.router.navigate(['/auth']);
+
       }
 
     }, 3000)

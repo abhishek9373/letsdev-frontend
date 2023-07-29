@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { UserService } from './user.service';
 import { UserService as UserModelService } from 'src/app/models/user.model';
+import { onboard } from '../interfaces/common.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements OnInit {
 
-  constructor(private baseservice: BaseService, private userService: UserService, private userModelService:UserModelService) { }
+  constructor(private baseservice: BaseService, private userService: UserService, private userModelService: UserModelService) { }
 
   ngOnInit(): void { }
 
@@ -21,6 +22,23 @@ export class AuthService implements OnInit {
           tap(response => {
             if (response.data) {
               localStorage.setItem('authToken', `${response.data.accessToken}`);
+              this.userService.get();
+            };
+            return false;
+          }
+          )
+        );
+    } catch (err) {
+      throw (err);
+    }
+  }
+
+  onboard(data: onboard) {
+    try {
+      return this.baseservice.fetch({ method: "PATCH", url: "/user", options: { body: {...data} } })
+        .pipe(
+          tap(response => {
+            if (response.data) {
               this.userService.get();
             };
             return false;
