@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     }
     // usemodel is not present check token
     const token: string | null = localStorage.getItem('authToken');
-    let isOnboarded = true;
+    let isOnboarded: boolean = true;
 
     if (token) {
 
@@ -37,8 +37,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
         if (r) {
           const user: UserModel = this.userService.getUser();
           // if token is valid then check if user is onboarded;
-          if (!user?.name) { isOnboarded = false };
-          return true;
+          if (user?.name == undefined) {
+            this.router.navigate(['/auth/onboard']);
+            isOnboarded = false;
+          };
+          return false;
         };
         return false;
       })
@@ -48,10 +51,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       this.router.navigate(['/auth']);
       return false;
     }
-
     if (!isOnboarded) {
       // check isOnboarded condition
-      this.router.navigate(['/auth/onboard']);
+      // this.router.navigate(['/auth/onboard']);
       return false;
     } else {
       // this.router.navigate(['/posts']);
