@@ -7,10 +7,12 @@ import { DomainselectionComponent } from './domainselection/domainselection.comp
 import { AuthGuard } from 'src/app/guard/auth.guard';
 import { VerificationGuard } from 'src/app/guard/verification.guard';
 import { EmailverificationComponent } from './emailverification/emailverification.component';
+import { LoginGuard } from 'src/app/guard/login.guard';
 
 const routes: Routes = [
     {
       path: '',
+      canActivate: [LoginGuard],
       component: LoginComponent,
     },
     {
