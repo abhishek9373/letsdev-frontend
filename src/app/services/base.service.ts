@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { ErrorService } from './error.service';
 import { UserModel } from '../models/user.model';
 import { Utility } from '../models/error.model';
 import { Inpute } from '../interfaces/fetch.inpute';
