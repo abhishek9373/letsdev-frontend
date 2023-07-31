@@ -8,9 +8,9 @@ import { CreatepostComponent } from "./createpost/createpost.component";
 import { AuthGuard } from "src/app/guard/auth.guard";
 
 const routes: Routes = [
-      { path: '', component: PostsComponent, canActivate: [AuthGuard] },
-      { path: 'create', component: CreatepostComponent, canActivate: [AuthGuard]},
-      { path: ':id', component: PostviewComponent, canActivate: [AuthGuard]}
+      { path: '', component: PostsComponent},
+      { path: 'create', component: CreatepostComponent},
+      { path: ':id', component: PostviewComponent}
 ];
 
 @NgModule({
