@@ -17,20 +17,5 @@ export class LoginGuard implements CanActivate {
     }
     this.router.navigate(['/posts']);
     return false;
-  //   try {
-  //     const data = await this.userModelService.getOnly().toPromise();
-
-  //     if (!data) {
-  //       return true;
-  //     } else {
-  //       this.router.navigate(['/posts']);
-  //       return false;
-  //     }
-  //   } catch (error) {
-  //     // Handle any errors that might occur during the API call
-  //     return true;
-  //   }
-  // }
-    return true;
   }
 }
