@@ -2,6 +2,7 @@ import { CanActivate } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core';
 import { UserModel, UserService } from '../models/user.model';
+import { UserService as UserModelService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CanActivateChild } from '@angular/router';
@@ -10,7 +11,7 @@ import { CanActivateChild } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router, private userModelService: UserModelService) { }
   canActivate(route: any, state: any): boolean {
     // check conditionaly
     // check usermodel set or not
@@ -19,6 +20,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
       if (user?.name) {
         // if user's name present in usermodel then user is inboarded move allow routing
+
         return true;
       }
       this.router.navigate(['/auth/onboard']);
@@ -30,12 +32,12 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     let isOnboarded: boolean = true;
 
     if (token) {
-
+      // make only one request
       // if token is present then verify it
       const res: Observable<boolean> = this.authService.verify();
-      res.subscribe(r => {
+      res.subscribe(async r => {
         if (r) {
-          const user: UserModel = this.userService.getUser();
+          const user: UserModel =  await this.userModelService.getOnly().toPromise();
           // if token is valid then check if user is onboarded;
           if (user?.name == undefined) {
             this.router.navigate(['/auth/onboard']);
@@ -78,7 +80,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     let isOnboarded = true;
 
     if (token) {
-
+      // make only one request
       // if token is present then verify it
       const res: Observable<boolean> = this.authService.verify();
       res.subscribe(r => {
@@ -108,3 +110,119 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
 }
+
+
+
+
+// import { CanActivate } from '@angular/router';
+// import { AuthService } from '../services/auth.service';
+// import { Injectable } from '@angular/core';
+// import { UserModel, UserService } from '../models/user.model';
+// import { Router } from '@angular/router';
+// import { Observable } from 'rxjs';
+// import { CanActivateChild } from '@angular/router';
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class AuthGuard implements CanActivate, CanActivateChild {
+//   constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
+//   canActivate(route: any, state: any): boolean {
+//     // check conditionaly
+//     // check usermodel set or not
+//     if (this.userService.getUser()) {
+//       const user: UserModel = this.userService.getUser();
+
+//       if (user?.name) {
+//         // if user's name present in usermodel then user is inboarded move allow routing
+
+//         return true;
+//       }
+//       this.router.navigate(['/auth/onboard']);
+//       // otherwise show onboarding page
+//       return false;
+//     }
+//     // usemodel is not present check token
+//     const token: string | null = localStorage.getItem('authToken');
+//     let isOnboarded: boolean = true;
+
+//     if (token) {
+//       // make inly one request
+//       // if token is present then verify it
+//       const res: Observable<boolean> = this.authService.verify();
+//       res.subscribe(r => {
+//         if (r) {
+//           const user: UserModel = this.userService.getUser();
+//           // if token is valid then check if user is onboarded;
+//           if (user?.name == undefined) {
+//             console.log("object")
+//             this.router.navigate(['/auth/onboard']);
+//             isOnboarded = false;
+//           };
+//           return false;
+//         };
+//         return false;
+//       })
+//     }
+//     else {
+//       // if token is not present navigate to login page
+//       this.router.navigate(['/auth']);
+//       return false;
+//     }
+//     if (!isOnboarded) {
+//       // check isOnboarded condition
+//       // this.router.navigate(['/auth/onboard']);
+//       return false;
+//     } else {
+//       // this.router.navigate(['/posts']);
+//       return true;
+//     }
+//   }
+
+//   canActivateChild(route: any, state: any): boolean {
+//     // check conditionaly
+//     if (this.userService.getUser()) {
+//       const user: UserModel = this.userService.getUser();
+//       if (user?.name) {
+//         // if user's name present in usermodel then user is inboarded move allow routing
+//         return true;
+//       }
+//       this.router.navigate(['/auth/onboard']);
+//       // otherwise show onboarding page
+//       return false;
+//     }
+//     // usemodel is not present check token
+//     const token: string | null = localStorage.getItem('authToken');
+//     let isOnboarded = true;
+
+//     if (token) {
+//       // make only one request
+//       // if token is present then verify it
+//       const res: Observable<boolean> = this.authService.verify();
+//       res.subscribe(r => {
+//         if (r) {
+//           const user: UserModel = this.userService.getUser();
+//           // if token is valid then check if user is onboarded;
+//           if (!user?.name) { isOnboarded = false };
+//           return true;
+//         };
+//         return false;
+//       })
+//     }
+//     else {
+//       // if token is not present navigate to login page
+//       this.router.navigate(['/auth']);
+//       return false;
+//     }
+
+//     if (!isOnboarded) {
+//       // check isOnboarded condition
+//       this.router.navigate(['/auth/onboard']);
+//       return false;
+//     } else {
+//       // this.router.navigate(['/posts']);
+//       return true;
+//     }
+//   }
+
+// }
