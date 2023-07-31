@@ -17,7 +17,7 @@ export class PostService {
   bootStrap(): Observable<any> {
     try {
       const page: number = 0;
-      const paramObject: Inpute = { method: "GET", options: { }, url: `/post?page=${page}` }
+      const paramObject: Inpute = { method: "GET", options: {}, url: `/post?page=${page}` }
       return this.baseService.fetch(paramObject).pipe(
         map((data: any) => data)
       );
@@ -29,27 +29,79 @@ export class PostService {
   create(post: RawPost): Observable<any> {
     // get file upload urls
     const extension: any = post.file.name.split('.').pop();
-    const fileRequestObject: fileRequest = { module: "post", requirement: [{ order: 0, extension: extension } ]}
+    const fileRequestObject: fileRequest = { module: "post", requirement: [{ order: 0, extension: extension }] }
 
     // get signed url for file
     return this.fileService.file(fileRequestObject).pipe(
-      switchMap((fileResponse: fileResponse)=>{
-        if(!fileResponse){ ToastService.toast("something went wrong")}
+      switchMap((fileResponse: fileResponse) => {
+        if (!fileResponse) { ToastService.toast("something went wrong") }
 
         // upload file
         return this.fileService.upload(post.file, fileResponse.data[0]).pipe(
-          switchMap((fileUploadResponse: any)=>{
-            if(!fileUploadResponse){ ToastService.toast("something went wrong")};
+          switchMap((fileUploadResponse: any) => {
+            if (!fileUploadResponse) { ToastService.toast("something went wrong") };
             // create postRequest object
             // omit file from body to create post
             const body: any = { ...post };
             delete body.file;
             delete body.image;
             // create post
-            const requestObject: Inpute = { method: "POST", options: { body: {...body, fileId: fileResponse.data[0].id} }, url: "/post" };
+            const requestObject: Inpute = { method: "POST", options: { body: { ...body, fileId: fileResponse.data[0].id } }, url: "/post" };
             return this.baseService.fetch(requestObject);
           }))
       })
     )
   }
+
+  // like post
+  like(postId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "PATCH", url: `/post/${postId}/like`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  // remove like
+  rmLike(postId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "DELETE", url: `/post/${postId}/like`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  // dislike post
+  dislike(postId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "PATCH", url: `/post/${postId}/dislike`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+    //remove dislike
+    rmDislike(postId: string): Observable<boolean> {
+      try {
+        const reqObj: Inpute = { method: "DELETE", url: `/post/${postId}/dislike`, options: {} };
+        return this.baseService.fetch(reqObj).pipe(tap((data) => {
+          return data;
+        }))
+      } catch (error: any) {
+        ToastService.toast(error.message);
+        throw (error);
+      }
+    }
 }
