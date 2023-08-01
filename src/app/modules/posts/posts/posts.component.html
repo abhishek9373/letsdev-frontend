@@ -9,17 +9,17 @@
     </div>
 
     <div class="main-post">
-      <div class="post">{{post.title}}</div>
-      <div class="post" routerLink="/posts/id">{{post.body}}</div>
+      <div class="post post-title">{{post.title}}</div>
+      <div class="post" [routerLink]="['/posts', post._id]">{{post.body}}</div>
       <div>
-        <img class="post-image" [src]="post.image[0].url" alt="" routerLink="/posts/id">
+        <img class="post-image" [src]="post.image[0].url" alt="" [routerLink]="['/posts', post._id]">
       </div>
     </div>
 
     <div class="stats">
       <button class="upvote" (click)="like(post)"><ion-icon name="arrow-up" [style]="post.interaction.isliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{post.preferences.likes}}</button>
       <button class="downvote" (click)="dislike(post)"><ion-icon name="arrow-down" [style]="post.interaction.isdisliked ? 'color:red;' : 'color:black;'"></ion-icon >&nbsp;{{post.preferences.dislikes}}</button>
-      <button class="comments" routerLink="/posts/id"><ion-icon name="chatbubbles"></ion-icon></button>
+      <button class="comments" [routerLink]="['/posts', post._id]"><ion-icon name="chatbubbles"></ion-icon></button>
       <button class="share"><ion-icon name="share-social"></ion-icon></button>
     </div>
 
@@ -49,6 +49,5 @@
     </div>
 
   </div> -->
-
   <button class="new-post" routerLink="/posts/create"><ion-icon name="add-outline"></ion-icon></button>
 </div>

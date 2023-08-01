@@ -5,7 +5,8 @@ import { RawPost } from '../modules/posts/createpost/createpost.component';
 import { ToastService } from './toast.service';
 import { FileService } from './file.service';
 import { Observable, map, switchMap, tap } from 'rxjs';
-import { fileRequest, fileResponse } from '../interfaces/common.interface';
+import { fileRequest, fileResponse, patchResponse } from '../interfaces/common.interface';
+import { PostInterface } from '../interfaces/Post.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -92,11 +93,50 @@ export class PostService {
     }
   }
 
-    //remove dislike
-    rmDislike(postId: string): Observable<boolean> {
+  //remove dislike
+  rmDislike(postId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "DELETE", url: `/post/${postId}/dislike`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  //get post by id
+  getPost(postId: string): Observable<PostInterface> {
+    try {
+      const reqObj: Inpute = { method: "GET", url: `/post/${postId}`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data: PostInterface) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+    //list comments
+    listComments(postId: string, page = 0): Observable<any> {
       try {
-        const reqObj: Inpute = { method: "DELETE", url: `/post/${postId}/dislike`, options: {} };
+        const reqObj: Inpute = { method: "GET", url: `/post/${postId}/comments?page=${page}`, options: {} };
         return this.baseService.fetch(reqObj).pipe(tap((data) => {
+          return data;
+        }))
+      } catch (error: any) {
+        ToastService.toast(error.message);
+        throw (error);
+      }
+    }
+
+    // create comment
+    createComment(postId: string, text: string): Observable<any> {
+      try {
+        const reqObj: Inpute = { method: "POST", url: `/post/${postId}/comments`, options: { body: { text } } };
+        return this.baseService.fetch(reqObj).pipe(tap((data: patchResponse) => {
           return data;
         }))
       } catch (error: any) {

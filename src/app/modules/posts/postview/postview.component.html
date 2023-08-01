@@ -3,24 +3,32 @@
   <p class="upload-time">1 min ago</p>
   <div class="user-info">
     <img src="assets/images/profile.png" alt="" class="post-avatar">
-    <p class="user-name">John Doe</p>
-    <p class="hastags">#nodejs #mongoDB #Express</p>
+    <p class="user-name">{{post.user.name}}</p>
+    <p class="hastags">{{post.tags[0]}}</p>
   </div>
 
   <div class="main-post">
-    <div class="post">The latest version of Node. js v19. 0.0 was released on 19th October 2022 with an update of the V8
-      JavaScript engine and many other features by the Node. js team.The latest version of Node. js v19. 0.0 was
-      released on 19th October 2022 with an update of the V8 JavaScript engine and many other features by the Node. js
-      team.
-    </div>
-
+    <div class="post post-title">{{post.title}}</div>
+    <div class="post">{{post.body}}</div>
     <div>
-      <img class="post-image" src="assets/images/demopost.jpg" alt="">
+      <img class="post-image" [src]="post.image[0].url" alt="">
     </div>
   </div>
 
-  <div class="comment-sec">
+  <div class="comment-sec" id="comment-div" *ngFor="let comment of comments">
     <div class="user">
+      <img src="assets/images/profile.png" alt="" class="comment-user-avatar">
+      <p class="user-name">{{comment.user.name}}</p>
+    </div>
+    <div class="comment">
+      <p class="comment-text">{{comment.text}}</p>
+    </div>
+    <div class="comment-stats">
+      <button class="upvote"><ion-icon name="arrow-up"></ion-icon>&nbsp;{{comment.likes}}</button>
+      <button class="downvote"><ion-icon name="arrow-down"></ion-icon>&nbsp;{{comment.dislikes}}</button>
+    </div>
+
+    <!-- <div class="user">
       <img src="assets/images/profile.png" alt="" class="comment-user-avatar">
       <p class="user-name">John Doe</p>
     </div>
@@ -30,19 +38,15 @@
     <div class="comment-stats">
       <button class="upvote"><ion-icon name="arrow-up"></ion-icon>&nbsp;45</button>
       <button class="downvote"><ion-icon name="arrow-down"></ion-icon>&nbsp;9</button>
-    </div>
-
-    <div class="user">
-      <img src="assets/images/profile.png" alt="" class="comment-user-avatar">
-      <p class="user-name">John Doe</p>
-    </div>
-    <div class="comment">
-      <p class="comment-text">New version of nodejs is not stable it needs a time.</p>
-    </div>
-    <div class="comment-stats">
-      <button class="upvote"><ion-icon name="arrow-up"></ion-icon>&nbsp;45</button>
-      <button class="downvote"><ion-icon name="arrow-down"></ion-icon>&nbsp;9</button>
-    </div>
+    </div> -->
   </div>
 
+  <!-- commnt input -->
 </div>
+
+<form [formGroup]="commentForm" (ngSubmit)="createComment()">
+  <div class="comment-box">
+    <input class="comment-input" type="text" name="comment" placeholder="type here!..." formControlName="comment">
+    <button class="submit-post">post</button>
+  </div>
+</form>

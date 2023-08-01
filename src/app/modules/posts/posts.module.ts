@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/models/user.model';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     PostsRoutingModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

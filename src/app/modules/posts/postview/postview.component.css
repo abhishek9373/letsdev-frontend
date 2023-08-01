@@ -62,12 +62,11 @@
 }
 
 .hastags{
-  font-size: 12px;
-  font-family: Istok Web;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
   color: black;
 }
-
 .main-post{
   width: 70%;
   margin-left: 13rem;
@@ -76,13 +75,23 @@
 
 .post{
   font-family: Inter;
-  font-size: 12px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.post-title{
+  font-family: Inter;
+  font-size: 1.7rem;
   font-weight: bold;
   margin-bottom: 2rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .post-image{
   width: 100%;
+  border-radius: 5px;
 }
 
 .stats{
@@ -147,7 +156,7 @@ ion-icon {
 }
 
 .comment-user-avatar{
-  width:10%;
+  width:4rem;
   margin-right: 3rem;
 }
 
@@ -184,6 +193,41 @@ ion-icon {
   font-weight: bolder;
 
 }
+
+.comment-box{
+  position: fixed;
+  bottom: 1rem;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.comment-input{
+  width: 40vw;
+  height: 4rem;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border: none;
+  border: 2px solid #908989;
+  font-size: large;
+  padding-left: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.submit-post{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 2px solid #908989;
+  border-left: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+
 
 
 
