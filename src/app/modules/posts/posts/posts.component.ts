@@ -27,7 +27,7 @@ export class PostsComponent implements OnInit {
         this.postService.rmLike(post._id).subscribe((result: any)=>{
           post.interaction.isliked = false;
           post.preferences.likes--;
-          ToastService.toast("post disliked!")
+          ToastService.toast("post unliked!")
           return;
         })
       }else{

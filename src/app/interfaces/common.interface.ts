@@ -25,3 +25,7 @@ export interface onboard {
   gender: string,
   branch: string
 }
+
+export interface patchResponse {
+  data: true
+}
