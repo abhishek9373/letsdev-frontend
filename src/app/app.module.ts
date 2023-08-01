@@ -17,6 +17,7 @@ import { NavbarComponent } from './modules/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CustomRouteReuseStrategy } from './services/norefresh.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
     AuthService,
     userService,
-    UserService
+    UserService,
+    { provide: CustomRouteReuseStrategy, useClass: CustomRouteReuseStrategy }
   ],
   bootstrap: [AppComponent],
   schemas : [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
