@@ -28,7 +28,7 @@ export class AppComponent {
     this.loaderStyle = { "display": `${message}` };
     setTimeout(() => {
       this.loaderStyle = { "display": "none" };
-    }, 2000)
+    }, 700)
   }
 
   showToast(message: string) {
