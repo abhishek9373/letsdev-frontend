@@ -1,4 +1,4 @@
-<div class="post-temp">
+<div class="post-temp" infinite-scroll [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
   <button class="back" routerLink="/posts">Back</button>
   <p class="upload-time">1 min ago</p>
   <div class="user-info">
@@ -24,8 +24,10 @@
       <p class="comment-text">{{comment.text}}</p>
     </div>
     <div class="comment-stats">
-      <button class="upvote"><ion-icon name="arrow-up"></ion-icon>&nbsp;{{comment.likes}}</button>
-      <button class="downvote"><ion-icon name="arrow-down"></ion-icon>&nbsp;{{comment.dislikes}}</button>
+      <button class="upvote" (click)="like(comment)"><ion-icon name="arrow-up"
+          [style]="comment.interaction.isliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{comment.likes}}</button>
+      <button class="downvote" (click)="dislike(comment)"><ion-icon name="arrow-down"
+          [style]="comment.interaction.isdisliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{comment.dislikes}}</button>
     </div>
 
     <!-- <div class="user">

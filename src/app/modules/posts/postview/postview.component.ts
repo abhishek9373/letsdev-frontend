@@ -5,7 +5,6 @@ import { PostService } from 'src/app/services/post.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { patchResponse } from 'src/app/interfaces/common.interface';
 import { comment, commentResponse } from 'src/app/interfaces/Comment.interface';
 import { User } from 'src/app/interfaces/user';
 
@@ -17,6 +16,9 @@ import { User } from 'src/app/interfaces/user';
 export class PostviewComponent implements OnInit {
 
   user!: User;
+  postId!: string;
+  page: number = 0;
+  isEnd: boolean = false;
 
   constructor(private postService: PostService, private activatedRoute: ActivatedRoute, private router: Router) { }
   post: PostInterfaceFinal = {
@@ -30,7 +32,6 @@ export class PostviewComponent implements OnInit {
     preferences: { likes: 0, dislikes: 0, shares: 0 },
     interaction: { isliked: false, isdisliked: false }
   };
-  postId!: string;
 
   // inital Posts empty
   comments: Array<comment> = [{
@@ -60,6 +61,9 @@ export class PostviewComponent implements OnInit {
 
     try {
       this.postService.listComments(this.postId, 0).subscribe((data: commentResponse) => {
+        if (data.data.length < 30) {
+          this.isEnd = false;
+        }
         this.comments = data.data;
       })
     } catch (error: any) {
@@ -83,25 +87,20 @@ export class PostviewComponent implements OnInit {
       const text: any = this.commentForm.value.comment;
       this.postService.createComment(this.postId, text).subscribe((data: any) => {
         this.commentForm.reset();
-        console.log(data)
         // insert new comment into comment array
         const newComment = data.data;
         delete newComment.updatedAt;
         delete newComment.postId;
         delete newComment.userId;
-        this.comments.push(newComment);
+        this.comments.unshift(newComment);
 
-
-        setTimeout(() => {
-          const scrollDiv = document.documentElement || document.body;
-          scrollDiv.scrollTo({
-            top: scrollDiv.scrollHeight,
-            behavior: "smooth",
-          });
-        }, 100);
-
-
-
+        // setTimeout(() => {
+        //   const scrollDiv = document.documentElement || document.body;
+        //   scrollDiv.scrollTo({
+        //     top: scrollDiv.scrollHeight,
+        //     behavior: "smooth",
+        //   });
+        // }, 100);
       })
     } catch (error: any) {
       ToastService.toast(error.message);
@@ -109,4 +108,70 @@ export class PostviewComponent implements OnInit {
     }
   }
 
+  // like post
+  like(comment: any) {
+    try {
+      console.log(comment)
+      if (comment.interaction.isliked) {
+        this.postService.rmCommentLike(comment._id).subscribe((result: any) => {
+          comment.interaction.isliked = false;
+          comment.likes--;
+          ToastService.toast("comment unliked!")
+          return;
+        })
+      } else {
+        this.postService.likeComment(comment._id).subscribe((result: any) => {
+          comment.interaction.isliked = true;
+          comment.likes++;
+          ToastService.toast("comment liked!")
+          return;
+        })
+      }
+    } catch (error: any) {
+      ToastService.toast(error.message)
+      throw (error);
+    }
+  }
+
+
+  dislike(comment: any) {
+    try {
+      if (comment.interaction.isdisliked) {
+        this.postService.rmCommentDislike(comment._id).subscribe((result: any) => {
+          comment.interaction.isdisliked = false;
+          comment.dislikes--;
+          ToastService.toast("comment disliked!")
+          return;
+        })
+      } else {
+        this.postService.dislikeComment(comment._id).subscribe((result: any) => {
+          comment.interaction.isdisliked = true;
+          comment.dislikes++;
+          ToastService.toast("comment removed!");
+          return;
+        })
+      }
+    } catch (error: any) {
+      ToastService.toast(error.message)
+      throw (error);
+    }
+  }
+
+  onScroll(): void {
+    if (this.isEnd) {
+      return;
+    }
+    else {
+      this.postService
+        .listComments(this.postId, ++this.page)
+        .subscribe((data: commentResponse) => {
+          if(data.data.length < 30){
+            this.isEnd = true;
+            this.comments.push(...data.data);
+          }else{
+            this.comments.push(...data.data);
+          }
+        });
+    }
+  }
 }

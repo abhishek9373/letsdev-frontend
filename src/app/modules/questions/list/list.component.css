@@ -18,9 +18,6 @@
   text-decoration: none;
   font-size: 2.5rem;
   font-family: Istok Web, Inter;
-
-
-
 }
 .navbar-list a{
   text-decoration: none;
@@ -54,7 +51,6 @@
   top: 9rem;
   left: 20rem;
   right: 20rem;
-  bottom: 0;
   background-color: white;
   padding: 5rem;
 }

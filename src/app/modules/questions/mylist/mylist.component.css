@@ -19,9 +19,6 @@
   text-decoration: none;
   font-size: 2.5rem;
   font-family: Istok Web, Inter;
-
-
-
 }
 .navbar-list a{
   text-decoration: none;
@@ -45,8 +42,6 @@
   padding: 3rem;
   font-size: 2.5rem;
   color: white;
-
-
 }
 
 
@@ -58,8 +53,6 @@
   /* bottom:0; */
   background-color: white;
 }
-
-
 
 .heading{
   display: flex;
@@ -81,7 +74,7 @@
   font-size: 20px;
   border: none;
   border-radius: 5px;
-
+  cursor: pointer;
 }
 
 .heading-text{

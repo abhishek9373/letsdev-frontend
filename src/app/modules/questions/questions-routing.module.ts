@@ -11,11 +11,11 @@ import { ViewComponent } from './view/view.component';
 const routes: Routes = [
       { path: '', component: ListComponent},
       { path: 'create', component: CreateComponent },
+      { path: 'myquestions', component: MylistComponent },
       { path: ':id', children: [
         { path: '', component: ViewComponent },
         { path: 'answer', component: AnswerComponent },
       ] },
-      { path: 'myquestions', component: MylistComponent },
 ];
 
 @NgModule({

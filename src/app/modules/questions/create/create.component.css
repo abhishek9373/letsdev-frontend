@@ -1,4 +1,3 @@
-
 .header{
   width: 100%;
   height: 9rem;
@@ -8,7 +7,6 @@
   grid-template-columns: 0.5fr 2fr 0.5fr;
   align-items: center;
   z-index: 999;
-
 }
 
 .navbar-list{
@@ -20,6 +18,7 @@
   font-size: 2.5rem;
   font-family: Istok Web, Inter;
 }
+
 .navbar-list a{
   text-decoration: none;
   color: white;
@@ -33,7 +32,6 @@
   margin-right: 5em;
 }
 
-
 .avatar-image{
   width: 28%;
 }
@@ -42,8 +40,6 @@
   padding: 3rem;
   font-size: 2.5rem;
   color: white;
-
-
 }
 
 .create-post{
@@ -67,7 +63,7 @@
   font-size: 20px;
   border: none;
   border-radius: 5px;
-
+  cursor: pointer;
 }
 
 .heading{
@@ -92,10 +88,7 @@
   font-family: Istok Web;
   font-size: 15px;
   margin-top: 2rem;
-
 }
-
-
 
 .input-area{
   display: flex;
@@ -110,7 +103,6 @@
 
 .language{
   width: 50%;
-
 }
 
 textarea#code {
@@ -131,11 +123,5 @@ textarea#code {
 }
 
 #image{
-
   height:5rem;
 }
-
-
-
-
-

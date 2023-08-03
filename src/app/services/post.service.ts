@@ -15,10 +15,10 @@ export class PostService {
   constructor(private baseService: BaseService, private fileService: FileService) { }
 
   // get initial posts
-  bootStrap(): Observable<any> {
+  bootStrap(page = 0): Observable<any> {
     try {
-      const page: number = 0;
-      const paramObject: Inpute = { method: "GET", options: {}, url: `/post?page=${page}` }
+      const pagenNumber: number = page;
+      const paramObject: Inpute = { method: "GET", options: {}, url: `/post?page=${pagenNumber}` }
       return this.baseService.fetch(paramObject).pipe(
         map((data: any) => data)
       );
@@ -97,6 +97,58 @@ export class PostService {
   rmDislike(postId: string): Observable<boolean> {
     try {
       const reqObj: Inpute = { method: "DELETE", url: `/post/${postId}/dislike`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  // like post
+  likeComment(commentId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "PATCH", url: `/post/comment/${commentId}/like`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  // remove like
+  rmCommentLike(commentId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "DELETE", url: `/post/comment/${commentId}/like`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  // dislike post
+  dislikeComment(commentId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "PATCH", url: `/post/comment/${commentId}/dislike`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  //remove dislike
+  rmCommentDislike(commentId: string): Observable<boolean> {
+    try {
+      const reqObj: Inpute = { method: "DELETE", url: `/post/comment/${commentId}/dislike`, options: {} };
       return this.baseService.fetch(reqObj).pipe(tap((data) => {
         return data;
       }))
