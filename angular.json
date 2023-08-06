@@ -13,7 +13,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/letsdev", 
+            "allowedCommonJsDependencies": [
+              "highlight.js"
+            ],
+            "outputPath": "dist/letsdev",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -28,7 +31,7 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/ace-builds/src-min-noconflict/ace.js"]
           },
           "configurations": {
             "production": {
@@ -91,7 +94,7 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/ace-builds/src-min-noconflict/ace.js"]
           }
         }
       }

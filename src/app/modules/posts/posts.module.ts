@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     FormsModule,
     MatIconModule,
     ReactiveFormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    SharedModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

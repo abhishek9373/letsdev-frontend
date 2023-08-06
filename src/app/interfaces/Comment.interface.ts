@@ -12,3 +12,10 @@ export interface comment {
     likes: number,
     dislikes: number
 }
+
+export interface questionRequestObject{
+  title:string;
+  description:string;
+  output: string,
+  code: string
+}

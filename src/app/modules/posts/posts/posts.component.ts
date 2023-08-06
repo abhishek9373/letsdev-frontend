@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { LoaderService } from 'src/app/services/loader.service';
 import { PostService } from 'src/app/services/post.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { TimeAgoPipe } from 'src/app/pipes/time-ago.pipe';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
 

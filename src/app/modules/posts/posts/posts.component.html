@@ -1,11 +1,12 @@
 <div class="main-content" infinite-scroll [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
-
   <div class="post-temp" *ngFor="let post of posts">
-    <p class="upload-time">1 min ago</p>
-    <div class="user-info">
-      <img src="assets/images/profile.png" alt="" class="post-avatar">
-      <p class="user-name">{{post.user.name}}</p>
-      <p class="hastags">#nodejs #mongoDB #Express</p>
+    <div class="time-userinfo">
+      <div class="user-info">
+        <img src="assets/images/profile.png" alt="" class="post-avatar">
+        <p class="user-name">{{post.user.name}}</p>
+        <p class="hastags">#nodejs #mongoDB #Express</p>
+      </div>
+      <div class="upload-time">{{ post.createdAt | timeAgo }}</div>
     </div>
 
     <div class="main-post">

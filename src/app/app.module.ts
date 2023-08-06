@@ -23,7 +23,7 @@ import { CustomRouteReuseStrategy } from './services/norefresh.service';
   declarations: [
     AppComponent,
     LandingPageComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
