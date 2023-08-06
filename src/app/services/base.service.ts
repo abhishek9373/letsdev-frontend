@@ -14,7 +14,7 @@ export class BaseService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  private serverUrl: string = "http://localhost:3015";
+  private serverUrl: string = "https://devbuilder.tech/services";
 
   // main api service
   fetch(req: Inpute): Observable<any> {
