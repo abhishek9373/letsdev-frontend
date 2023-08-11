@@ -11,10 +11,10 @@
 
     <div class="main-post">
       <div class="post post-title">{{post.title}}</div>
-      <div class="post" [routerLink]="['/posts', post._id]">{{post.body}}</div>
-      <div>
-        <img class="post-image" [src]="post.image[0].url" alt="" [routerLink]="['/posts', post._id]">
+      <div class="img-container">
+        <img class="post-image" [src]="post.image[0].url" alt="" [routerLink]="['/posts', post._id]" loading="lazy">
       </div>
+      <div class="post" [routerLink]="['/posts', post._id]">{{post.body}}</div>
     </div>
 
     <div class="stats">
