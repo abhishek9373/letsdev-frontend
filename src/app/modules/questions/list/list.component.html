@@ -1,5 +1,7 @@
 <div class="post-temp">
-  <button class="back" routerLink="/questions/myquestions">My question</button>
+  <div class="nav-button">
+    <button class="back" routerLink="/questions/myquestions">My question</button>
+  </div>
   <div class="question" *ngFor="let question of questions">
     <p class="upload-time">{{ question.createdAt.toString() | timeAgo }}</p>
     <div class="user-info">
@@ -9,11 +11,11 @@
     </div>
 
     <div class="main-post">
-      <div class="post">{{question.title}}</div>
+      <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
       <div class="post1">
         {{question.output}}
       </div>
-      <pre><code [highlight]="question.code.code"></code></pre>
+      <!-- <pre><code [highlight]="question.code.code"></code></pre> -->
     </div>
   </div>
   <button class="new-post" routerLink="/questions/create"><ion-icon name="add-outline"></ion-icon></button>
