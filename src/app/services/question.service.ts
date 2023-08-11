@@ -39,4 +39,17 @@ export class QuestionService {
       }
     }
 
+        //list questions
+        get(questionId: string): Observable<any> {
+          try {
+            const reqObj: Inpute = { method: "GET", url: `/question/${questionId}`, options: { } };
+            return this.baseService.fetch(reqObj).pipe(tap((data) => {
+              return data;
+            }))
+          } catch (error: any) {
+            ToastService.toast(error.message);
+            throw (error);
+          }
+        }
+
 }

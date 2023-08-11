@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { HighlightModule } from 'ngx-highlightjs';
+import { ViewComponent } from './view/view.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HighlightModule } from 'ngx-highlightjs';
     MylistComponent,
     ListComponent,
     CreateComponent,
+    ViewComponent
   ],
   imports: [
     CommonModule,
