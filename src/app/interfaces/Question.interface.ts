@@ -21,3 +21,7 @@ export interface FinalQuestion {
 export interface questionsResult{
   data: Array<Question>
 }
+
+export interface singleQuestionResult{
+  data: Question
+}
