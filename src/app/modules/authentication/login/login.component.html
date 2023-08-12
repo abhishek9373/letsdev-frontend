@@ -1,21 +1,31 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <div class="main-container">
-    <p class="heading">Login / Signup</p>
-    <div class="email">
-      <label for="email" class="email-text">Email</label>
-      <span *ngIf="email && email.invalid && email.touched" class="indicator">email field is required</span>
-      <input type="email" id="email" name="email" placeholder="Enter your email" formControlName="email">
-    </div>
-    <div class="password">
-      <label for="password" class="password-text">Password</label>
-      <span *ngIf="password && password.invalid && password.touched" class="indicator">password field is required</span>
-      <input type="password" id="password" name="password" placeholder="Enter your password" formControlName="password">
-    </div>
-    <button class="login-button">Login</button>
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="main-container">
+      <div class="title-aligner">
+        <p class="heading">Login / Signup</p>
+      </div>
+      <div class="email">
+        <label for="email" class="email-text">Email</label>
+        <span *ngIf="email && email.invalid && email.touched" class="indicator">email field is required</span>
+        <input type="email" id="email" name="email" placeholder="Enter your email" formControlName="email">
+      </div>
+      <div class="password">
+        <label for="password" class="password-text">Password</label>
+        <span *ngIf="password && password.invalid && password.touched" class="indicator">password field is
+          required</span>
+        <input type="password" id="password" name="password" placeholder="Enter your password"
+          formControlName="password">
+      </div>
+      <div class="login-button-aligner">
+        <button class="login-button">Login</button>
+      </div>
+      <div class="login-provider-aligner">
+        <button class="login-w-google"><img class="google-svg" src="assets/images/google-logo.svg"> Continue with
+          Google</button>
+        <button class="login-w-facebook"><img class="facebook-svg" src="assets/images/facebook-logo.svg"> Continue with
+          Facebook</button>
+      </div>
 
-    <button class="login-w-google"><img class="google-svg" src="assets/images/google-logo.svg"> Continue with
-      Google</button>
-    <button class="login-w-facebook"><img class="facebook-svg" src="assets/images/facebook-logo.svg"> Continue with
-      Facebook</button>
-  </div>
-</form>
+    </div>
+  </form>
+</div>

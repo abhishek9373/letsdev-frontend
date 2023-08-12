@@ -4,14 +4,16 @@
   box-sizing: border-box;
 }
 
-.main-container{
-  margin-top:18rem;
-  margin-left: 55rem;
-  background-color: #123182;
+.container{
   display: flex;
-  flex-direction: column;
-  width: 30%;
-  padding: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-aligner{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .heading{
@@ -19,7 +21,14 @@
   font-weight: bold;
   font-size: 2rem;
   color: white;
-  margin-left: 12rem;
+}
+
+.main-container{
+  margin-top:18rem;
+  background-color: #123182;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
 .email, .password{
@@ -41,9 +50,9 @@
   border-radius: 3px;
   outline: none;
   margin-top: 1rem;
-  width: 100%;
   background-color: #D9D9D9;
-  padding: 1rem;
+  min-width: 70vw;
+  padding-left: 1rem;
 }
 
 #email::placeholder, #password::placeholder{
@@ -55,20 +64,21 @@
 
 .login-button{
   height: 3.5rem;
-  width: 8rem;
   background-color: #2B1485;
   margin-top: 1.5rem;
-  margin-left: 22rem;
   border: none;
   color: #FFFFFF;
-  border-radius: 2px;
+  border-radius: 4px;
   opacity: 0.8;
   cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .login-button:hover{
   opacity: 0.5;
 }
+
 .login-w-google, .login-w-facebook{
   background-color: #FFFFFF;
   display: flex;
@@ -79,8 +89,6 @@
   font-family: Inter;
   margin-top: 2rem;
   height: 3.5rem;
-  width: 72%;
-  margin-left: 5rem;
   border-radius: 3px;
   border: none;
   padding: 1rem;
@@ -88,17 +96,27 @@
   font-weight: 700;
 }
 
+.login-provider-aligner{
+  display: flex;
+  justify-content: space-around;
+}
+
+.login-button-aligner{
+  display: flex;
+  justify-content: center;
+}
+
 .login-w-google:hover, .login-w-facebook:hover{
   background-color: #D9D9D9;
 }
 
 .google-svg{
-  width: 10%;
+  width: 17px;
   margin-right: 1rem;
   margin-left: 0.1rem;
 }
 .facebook-svg{
-  width: 12%;
+  width: 17px;
   margin-right: 0.9rem;
 }
 
@@ -108,6 +126,47 @@
   color: red;
 }
 
+/* responsive code */
+
+@media (min-width: 700px) and (max-width: 1000px) {
+  #email, #password{
+    min-width: 65vw;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1500px) {
+  #email, #password{
+    min-width: 50vw;
+  }
+}
+
+@media (min-width: 1501px){
+  #email, #password{
+    min-width: 35vw;
+  }
+}
+
+@media (max-width: 500px){
+  #email, #password{
+    min-width: 97vw;
+  }
+  .container{
+    padding: 3px;
+  }
+
+  .login-w-google, .login-w-facebook{
+    font-size: 9px;
+    /* width: 100vw; */
+  }
+
+  .login-provider-aligner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
 
 
 
