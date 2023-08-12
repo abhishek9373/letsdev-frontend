@@ -45,7 +45,7 @@
 }
 
 .post-avatar {
-  width: 5%;
+  width: 35px;
   margin-right: 1.5rem;
 }
 
@@ -120,7 +120,7 @@ ion-icon {
 .new-post {
   position: fixed;
   bottom: 3rem;
-  right: 25rem;
+  right: 13vw;
   height: 5rem;
   width: 5rem;
   border-radius: 4rem;
@@ -191,5 +191,10 @@ ion-icon {
 @media (max-width: 299px) {
   .sample{
     width: 100vw;
+  }
+
+  .new-post {
+    right: 7vw;
+
   }
 }
