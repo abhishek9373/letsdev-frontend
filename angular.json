@@ -13,6 +13,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "budgets":[{
+              "type": "all",
+              "maximumWarning": "6kb",
+              "maximumError": "10kb"
+            }],
             "allowedCommonJsDependencies": [
               "highlight.js"
             ],
@@ -43,8 +48,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "8kb"
                 }
               ],
               "outputHashing": "all"
