@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
@@ -8,27 +8,41 @@ import { LoaderService } from './services/loader.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   toastText?: string;
   hideToast: boolean = true;
-  loaderStyle = { "display": "none" };
+  loaderStyleHide = { "display": "none" };
+  loaderStyleShow = { "display": "flex" };
+  loaderStyle: any = { "display": "none" };
 
   constructor(private router: Router, private route: ActivatedRoute) {
+
+  }
+
+  ngAfterViewInit(): void {
     ToastService.toaster$.subscribe((message: string) => {
       this.showToast(message);
     })
-    LoaderService.loader$.subscribe((message: string) => {
+    LoaderService.loader$.subscribe((message: boolean) => {
       this.showLoader(message)
     })
   }
 
-  showLoader(message: string) {
-    this.loaderStyle = { "display": `${message}` };
-    setTimeout(() => {
-      this.loaderStyle = { "display": "none" };
-    }, 700)
+  // showLoader(message: string) {
+  //   this.loaderStyle = { "display": `${message}` };
+  //   setTimeout(() => {
+  //     this.loaderStyle = { "display": "none" };
+  //   }, 700)
+  // }
+
+  showLoader(message: boolean){
+    if(message == true ){
+      this.loaderStyle = this.loaderStyleShow;
+    }else{
+      this.loaderStyle = this.loaderStyleHide;
+    }
   }
 
   showToast(message: string) {

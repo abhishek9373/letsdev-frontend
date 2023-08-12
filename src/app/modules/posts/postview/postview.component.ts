@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { comment, commentResponse } from 'src/app/interfaces/Comment.interface';
 import { User } from 'src/app/interfaces/user';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-postview',
@@ -48,10 +49,14 @@ export class PostviewComponent implements OnInit {
   ngOnInit(): void {
     // get postdetails and inital comments
     try {
+      LoaderService.loader(true)
       this.activatedRoute.params.subscribe((param: any) => {
         this.postId = param.id;
         this.postService.getPost(this.postId).subscribe((data: PostInterface) => {
           this.post = data.data;
+          setTimeout(()=>{
+            LoaderService.loader(false)
+          }, 700)
         })
       })
     } catch (error: any) {

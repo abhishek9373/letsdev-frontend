@@ -21,6 +21,9 @@ export class PostsComponent implements OnInit {
       const postSize: number = data?.data?.length;
       if (postSize < 10) this.isEnd = true;
       this.posts.push(...data.data);
+      setTimeout(()=>{
+        LoaderService.loader(false)
+      }, 700)
     })
   }
 

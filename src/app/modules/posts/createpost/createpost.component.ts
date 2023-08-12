@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ToastService } from 'src/app/services/toast.service';
 import { PostService } from 'src/app/services/post.service';
+import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader.service';
 @Component({
   selector: 'app-createpost',
   templateUrl: './createpost.component.html',
@@ -8,7 +10,7 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class CreatepostComponent {
 
-  constructor(private postService: PostService){ }
+  constructor(private postService: PostService, private router: Router){ }
 
   // selecting image
   fileName?: string;
@@ -27,12 +29,15 @@ export class CreatepostComponent {
   // creating post
   async publishPost(data: RawPost){
     try{
+      LoaderService.loader(true);
       if(data.body && data.tags && data.title && this.file){
         data.file = this.file;
         const res: any = await this.postService.create(data);
         if(res){
           res.subscribe((data: any)=>{
             if(data) ToastService.toast("Post created successfully");
+            LoaderService.loader(false);
+            this.router.navigate(['/posts']);
           })
         }
       }else{

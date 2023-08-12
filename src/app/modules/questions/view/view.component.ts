@@ -4,6 +4,7 @@ import { FinalQuestion, Question, questionsResult, singleQuestionResult } from '
 import { QuestionService } from 'src/app/services/question.service';
 import { ToastService } from 'src/app/services/toast.service';
 import hljs from 'highlight.js';
+import { LoaderService } from 'src/app/services/loader.service';
 
 @Component({
   selector: 'app-view',
@@ -16,6 +17,7 @@ export class ViewComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private questionService: QuestionService) { }
   ngOnInit(): void {
     try {
+      LoaderService.loader(true)
       this.activatedRoute.params.subscribe((param: any) => {
         this.questionId = param.id;
         this.questionService.get(this.questionId).subscribe((data: questionsResult) => {
@@ -25,6 +27,7 @@ export class ViewComponent implements OnInit {
           })
           // @ts-ignore
           this.question = finalQ[0];
+          LoaderService.loader(false);
         })
       })
       hljs.highlightAll();
