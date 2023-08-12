@@ -1,21 +1,27 @@
-<div class="create-post">
-  <div class="heading">
+<div class="sample">
+  <div class="navigation-button">
     <button class="back" routerLink="/questions">Back</button>
+  </div>
+  <div class="heading">
     <p class="heading-text">Create draft for your question</p>
   </div>
   <div class="inputs">
     <form [formGroup]="questionForm" (ngSubmit)="createQuestion()">
       <label for="title">Title</label>
       <span *ngIf="title && title.invalid && title.touched" class="indicator">title field is required</span>
-      <textarea type="text" id="title" name="title" class="input-area"   textarea id="myTextArea" rows="2" cols="50" formControlName="title"></textarea><br><br>
+      <textarea type="text" id="title" name="title" class="input-area" textarea id="myTextArea" rows="2" cols="50"
+        formControlName="title"></textarea><br><br>
 
       <label for="title">Output</label>
       <span *ngIf="output && output.invalid && output.touched" class="indicator">output field is required</span>
-      <textarea type="text" id="title" name="title" class="input-area"   textarea id="myTextArea" rows="10" cols="50" formControlName="output"></textarea><br><br>
+      <textarea type="text" id="title" name="title" class="input-area" textarea id="myTextArea" rows="10" cols="50"
+        formControlName="output"></textarea><br><br>
 
       <label for="title">Description</label>
-      <span *ngIf="description && description.invalid && description.touched" class="indicator">description field is required</span>
-      <textarea type="text" id="title" name="title" class="input-area"   textarea id="myTextArea" rows="5" cols="50" formControlName="description"></textarea><br><br>
+      <span *ngIf="description && description.invalid && description.touched" class="indicator">description field is
+        required</span>
+      <textarea type="text" id="title" name="title" class="input-area" textarea id="myTextArea" rows="5" cols="50"
+        formControlName="description"></textarea><br><br>
 
       <div id="container">
         <div class="dropdown">
@@ -24,22 +30,22 @@
             <p (click)="changeLanguage('javascript')">JavaScript</p>
             <p (click)="changeLanguage('python')">Python</p>
             <p (click)="changeLanguage('java')">Java</p>
-            <p  (click)="changeLanguage('html')">HTML</p>
-            <p  (click)="changeLanguage('css')">CSS</p>
-            <p  (click)="changeLanguage('cpp')">C++</p>
+            <p (click)="changeLanguage('html')">HTML</p>
+            <p (click)="changeLanguage('css')">CSS</p>
+            <p (click)="changeLanguage('cpp')">C++</p>
             <p (click)="changeLanguage('c')">C</p>
-            <p  (click)="changeLanguage('csharp')">C#</p>
-            <p  (click)="changeLanguage('ruby')">Ruby</p>
-            <p  (click)="changeLanguage('golang')">Go</p>
-            <p  (click)="changeLanguage('dart')">Dart</p>
-            <p  (click)="changeLanguage('typescript')">TypeScript</p>
+            <p (click)="changeLanguage('csharp')">C#</p>
+            <p (click)="changeLanguage('ruby')">Ruby</p>
+            <p (click)="changeLanguage('golang')">Go</p>
+            <p (click)="changeLanguage('dart')">Dart</p>
+            <p (click)="changeLanguage('typescript')">TypeScript</p>
           </div>
         </div>
         <div id="editor">
           //write youre code here
         </div>
       </div>
-    <button class="submit">Create Question</button>
+      <button class="submit">Create Question</button>
     </form>
   </div>
 </div>
