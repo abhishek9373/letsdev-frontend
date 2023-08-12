@@ -1,20 +1,14 @@
-
-.avatar-image{
+.avatar-image {
   width: 28%;
 }
 
-.logo{
+.logo {
   padding: 3rem;
   font-size: 2.5rem;
   color: white;
 }
 
-
-.main-content{
-  position: absolute;
-  top:9rem;
-  left: 20rem;
-  right:20rem;
+.main-content {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -22,100 +16,99 @@
   align-items: center;
 }
 
-.post-temp{
-  width: 70%;
-  background-color: #d9d9d979;
-  border-radius: 1rem;
-  margin:2rem;
+.post-temp {
+  border-radius: 4px;
+  margin: 2rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.upload-time{
+.upload-time {
   margin: 1rem;
   font-family: Inter;
   width: 21%;
-  /* font-weight: bold; */
   font-size: 1.3rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
   color: black;
 }
-.time-userinfo{
+.time-userinfo {
   display: flex;
   justify-content: space-between;
 }
 
-.user-info{
+.user-info {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-left: 1rem;
-  margin-top:-0.5rem;
+  margin-top: -0.5rem;
 }
 
-.post-avatar{
+.post-avatar {
   width: 5%;
   margin-right: 1.5rem;
 }
 
-.user-name{
+.user-name {
   margin-right: 1.5rem;
   font-weight: bold;
   font-size: 16px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.hastags{
+.hastags {
   font-size: 1.5rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
   color: black;
 }
 
-.main-post{
-  width: 70%;
-  margin-left: 13rem;
+.main-post {
+  /* width: 80%; */
+  margin-left: 8px;
   margin-top: 3rem;
   cursor: pointer;
 }
 
-.post{
+.post {
   font-family: Inter;
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 2rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.post-title{
+.post-title {
   font-family: Inter;
   font-size: 1.7rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.post-image{
-  width: 100%;
+.post-image {
+  width: 70%;
   max-height: 40vh;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
-.stats{
+.stats {
   margin-top: 1rem;
-  /* vertical-align:middle; */
   display: flex;
   align-items: center;
 }
 
-.upvote, .downvote, .comments, .share{
+.upvote,
+.downvote,
+.comments,
+.share {
   display: flex;
   align-items: center;
   background: transparent;
   outline: none;
   border: none;
   cursor: pointer;
-  margin:0.5rem;
+  margin: 0.5rem;
   font-weight: bold;
 }
 
@@ -123,14 +116,14 @@ ion-icon {
   font-size: 2.5rem;
 }
 
-.new-post{
+.new-post {
   position: fixed;
   bottom: 3rem;
-  right:25rem;
+  right: 25rem;
   height: 5rem;
   width: 5rem;
   border-radius: 4rem;
-  background-color: #0A2DA7;
+  background-color: #0a2da7;
   color: white;
   border: none;
   outline: none;
@@ -143,18 +136,59 @@ ion-icon {
   font-weight: bolder;
 }
 
-
-.img-container{
+.img-container {
   display: flex;
   justify-content: center;
   margin-top: 1vw;
   margin-bottom: 1vw;
 }
 
+/* responsive code from here */
 
+.sample{
+  width: 80vw;
+  height: auto;
+  min-height: 100vh;
+  background-color: #D9D9D9;
+  margin: auto;
+  padding-top: 9rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 
+/* responsive code here */
 
+@media (min-width: 500px) and (max-width: 690px) {
+  .sample{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
 
+@media (min-width: 1150px) and (max-width: 1300px) {
+  .sample{
+    padding-left: 12rem;
+    padding-right: 12rem;
+  }
+}
 
+@media (min-width: 1300px) {
+  .sample{
+    padding-left: 15rem;
+    padding-right: 15rem;
+  }
+}
 
+@media (min-width: 300px) and (max-width: 499px) {
+  .sample{
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 90vw;
+  }
+}
 
+@media (max-width: 299px) {
+  .sample{
+    width: 100vw;
+  }
+}

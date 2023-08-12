@@ -237,6 +237,11 @@ input:focus {
   cursor: pointer;
 }
 
+.comment-lable{
+  font-size: medium;
+  font-family: Inter;
+}
+
 
 
 

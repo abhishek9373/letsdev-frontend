@@ -14,7 +14,9 @@
       <img class="post-image" [src]="post.image[0].url" alt="">
     </div>
   </div>
-
+  <br>
+  <hr>
+  <span class="comment-lable">Comments</span>
   <div class="comment-sec" id="comment-div" *ngFor="let comment of comments">
     <div class="user">
       <img src="assets/images/profile.png" alt="" class="comment-user-avatar">
@@ -29,18 +31,6 @@
       <button class="downvote" (click)="dislike(comment)"><ion-icon name="arrow-down"
           [style]="comment.interaction.isdisliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{comment.dislikes}}</button>
     </div>
-
-    <!-- <div class="user">
-      <img src="assets/images/profile.png" alt="" class="comment-user-avatar">
-      <p class="user-name">John Doe</p>
-    </div>
-    <div class="comment">
-      <p class="comment-text">New version of nodejs is not stable it needs a time.</p>
-    </div>
-    <div class="comment-stats">
-      <button class="upvote"><ion-icon name="arrow-up"></ion-icon>&nbsp;45</button>
-      <button class="downvote"><ion-icon name="arrow-down"></ion-icon>&nbsp;9</button>
-    </div> -->
   </div>
 
   <!-- commnt input -->
