@@ -1,46 +1,113 @@
 .header{
-  width: 100%;
+  width: 100vw;
   height: 9rem;
   position: fixed;
   background-color: #102984;
-  display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
+  display: flex;
   align-items: center;
+  justify-content: start;
   z-index: 9999;
 }
 
 .navbar-list{
   display: flex;
-  justify-content:space-evenly;
-  align-items: center;
   list-style: none;
   text-decoration: none;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: Istok Web, Inter;
 }
+
 .navbar-list a{
   text-decoration: none;
   color: white;
   font-family: Istok Web, Inter;
   cursor: pointer;
+  padding: 16px;
 }
 
 .avatar{
-  display: flex;
-  justify-content:flex-end;
-  align-items: center;
-  margin-right: 5em;
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
 }
 
 
 .avatar-image{
-  width: 28%;
+  width: 50px;
 }
-
+/*
 .logo{
   padding: 3rem;
   font-size: 2.5rem;
   color: white;
+} */
+
+
+/* dopdown navbar code */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 2px 0;
+}
+
+/* Show the mobile menu toggle when screen width is less than 450px */
+@media (max-width: 690px) {
+  .menu-toggle {
+    display: flex;
+    align-items: start;
+    padding-left: 5px;
+  }
+
+  .navbar {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .navbar.show {
+    display: block;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+  }
+
+  .navbar-link {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .nav-item-aligner{
+    display: flex;
+    justify-content: start;
+  }
+}
+
+@media (min-width: 691px) {
+  .header{
+    width: 100vw;
+    height: 9rem;
+    position: fixed;
+    background-color: #102984;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 9999;
+  }
 }
 
 
