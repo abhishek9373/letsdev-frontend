@@ -68,6 +68,7 @@
             },
             "development": {
               "browserTarget": "letsdev:build:development"
+
             }
           },
           "defaultConfiguration": "development"

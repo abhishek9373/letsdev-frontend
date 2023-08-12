@@ -1,28 +1,33 @@
-<div class="post-temp">
+<div class="sample">
+  <!-- <div class="post-temp"> -->
   <div class="navigation-button">
     <button class="back" routerLink="/questions">Back</button>
     <button class="back" routerLink="/questions/myquestions">My question</button>
   </div>
-  <p class="upload-time">{{ question.createdAt.toString() | timeAgo }}</p>
-  <div class="user-info">
-    <img src="assets/images/profile.png" alt="" class="post-avatar">
-    <p class="user-name">{{question.user.name}}</p>
-    <p class="hastags">#nodejs #mongoDB #Express</p>
-  </div>
-  <img src="assets/images/upvote.png" alt="" class="upvote">
-  <br>
-  <p class="vote-count">200</p>
-  <br>
-  <img src="assets/images/downvote.png" alt="" class="downvote">
-  <div class="main-post">
-    <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
-    <div class="post1">
-      {{question.output}}
+  <div class="user-info-time-aligner">
+    <div class="user-info">
+      <img src="assets/images/profile.png" alt="" class="post-avatar">
+      <p class="user-name">{{question.user.name}}</p>
     </div>
-    <span style="font-size: large; font-family: Inter;">Code:</span>
-    <br>
-    <pre><code [highlight]="question.code.code"></code></pre>
+    <!-- <p class="hastags">#nodejs #mongoDB #Express</p> -->
+    <p class="upload-time">{{ question.createdAt.toString() | timeAgo }}</p>
+  </div>
+  <div class="main-post">
+    <div>
+      <div class="interaction-aligner">
+        <img src="assets/images/upvote.png" alt="" class="upvote">
+        <p class="vote-count">200</p>
+        <img src="assets/images/downvote.png" alt="" class="downvote">
+        <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
+      </div>
+      <div class="post1">
+        {{question.output}}
+      </div>
+      <span style="font-size: large; font-family: Inter;">Code:</span>
+      <br>
+      <pre><code [highlight]="question.code.code"></code></pre>
+    </div>
   </div>
   <button class="new-post" routerLink="/questions/create"><ion-icon name="add-outline"></ion-icon></button>
-
+  <!-- </div> -->
 </div>
