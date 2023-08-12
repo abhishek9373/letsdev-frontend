@@ -1,83 +1,63 @@
-.header{
-  width: 100%;
-  height: 9rem;
-  position: fixed;
-  background-color: #102984;
-  display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
-  align-items: center;
-  z-index: 999;
-
+.sample{
+  width: 80vw;
+  height: auto;
+  min-height: 100vh;
+  background-color: #D9D9D9;
+  margin: auto;
+  padding-top: 9rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-.navbar-list{
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center;
-  list-style: none;
-  text-decoration: none;
-  font-size: 2.5rem;
-  font-family: Istok Web, Inter;
-}
-.navbar-list a{
-  text-decoration: none;
-  color: white;
-  font-family: Istok Web, Inter;
-}
-
-.avatar{
-  display: flex;
-  justify-content:flex-end;
-  align-items: center;
-  margin-right: 5em;
+/* responsive */
+@media (max-width: 400px) {
+  .sample{
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    background-color: #D9D9D9;
+    margin: auto;
+    padding-top: 9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
-
-.avatar-image{
-  width: 28%;
-}
-
-.logo{
-  padding: 3rem;
-  font-size: 2.5rem;
-  color: white;
-
-
-}
-
-
-.post-temp{
-  position: absolute;
-  top: 9rem;
-  left: 20rem;
-  right: 20rem;
-  background-color: white;
-  padding: 5rem;
+@media (min-width: 900px) {
+  .sample{
+    padding-left: 12rem;
+    padding-right: 12rem;
+  }
 }
 
 .question{
   background-color: #F6F6F6;
   margin-top: 1rem;
+  padding-top: 1.5rem;
   padding-bottom: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .nav-button{
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
+  padding-top: 1rem;
 }
 
 .back{
   cursor: pointer;
   background-color: rgba(43, 20, 133, 75%);
-  width: 15rem;
+  padding-left: 5px;
+  padding-right: 5px;
   height: 3rem;
   color: white;
   font-family: Istok Web;
   font-size: 20px;
   border: none;
   border-radius: 5px;
-
 }
+
 .upload-time{
   position: relative;
   top:2.3rem;
@@ -116,8 +96,7 @@
 
 .main-post{
   width: 70%;
-  margin-left: 13rem;
-  margin-top: 3rem;
+  margin: 1vw;
 }
 
 .post{
@@ -133,16 +112,13 @@
   letter-spacing: 0.8px;
   font-family: Inter;
   margin-bottom: 2rem;
-}
-
-.post-image{
-  width: 100%;
+  padding-left: 15px;
 }
 
 .new-post{
   position: fixed;
   bottom: 3rem;
-  right:25rem;
+  right: 11vw;
   height: 5rem;
   width: 5rem;
   border-radius: 4rem;
@@ -151,19 +127,78 @@
   border: none;
   outline: none;
   cursor: pointer;
-}
-
-.new-post ion-icon {
   font-size: 4rem;
   font-weight: bolder;
-
 }
 
 code {
   font-size: large;
 }
 
-.user-message{
+/* user card */
+.container{
+  padding: 1rem;
+  padding-top: 0;
+  padding-left: 0.4rem;
+  background-color: #D9D9D9;
+  display: inline-block;
   border-radius: 5px;
-  padding-left: 5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+  display: inline-flex;
+}
+
+.user-info-card{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.user-name-card{
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#profile-image{
+  max-height: 3rem;
+  border-radius: 50%;
+}
+
+.user-preferences{
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+}
+
+/* responsive */
+
+@media (max-width: 290px) {
+  .user-name {
+    font-size: medium;
+    padding: 5px;
+  }
+
+  #profile-image{
+      max-height: 2rem;
+  }
+}
+
+@media (max-width: 192px){
+  .container{
+      font-size: smaller;
+  }
+}
+
+@media (min-width: 290px){
+  .container{
+      width: 200px;
+  }
+}
+
+.usercard-container{
+  display: flex;
+  justify-content: end;
+  margin-right: 2rem;
 }

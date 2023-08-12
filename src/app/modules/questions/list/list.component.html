@@ -1,23 +1,89 @@
-<div class="post-temp">
-  <div class="nav-button">
-    <button class="back" routerLink="/questions/myquestions">My question</button>
-  </div>
-  <div class="question" *ngFor="let question of questions">
-    <p class="upload-time">{{ question.createdAt.toString() | timeAgo }}</p>
-    <div class="user-info">
-      <img src="assets/images/profile.png" alt="" class="post-avatar">
-      <p class="user-name">{{question.user.name}}</p>
-      <p class="hastags">#nodejs #mongoDB #Express</p>
-    </div>
-
-    <div class="main-post">
-      <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
-      <div class="post1">
-        {{question.output}}
+<!-- <div class="list-positioner">
+  <div class="list-aligner">
+    <div class="post-temp">
+      <div class="nav-button">
+        <button class="back" routerLink="/questions/myquestions">My question</button>
       </div>
-      <!-- <pre><code [highlight]="question.code.code"></code></pre> -->
+      <div class="question" *ngFor="let question of questions"> -->
+
+<!-- <p class="upload-time">{{ question.createdAt.toString() | timeAgo }}</p>
+        <div class="user-info">
+          <img src="assets/images/profile.png" alt="" class="post-avatar">
+          <p class="user-name">{{question.user.name}}</p>
+          <p class="hastags">#nodejs #mongoDB #Express</p>
+        </div> -->
+
+<!-- <div class="main-post">
+          <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
+          <div class="post1">
+            {{question.output}}
+          </div> -->
+
+<!-- <pre><code [highlight]="question.code.code"></code></pre> -->
+
+
+<!-- </div>
+        <div class="usercard-container">
+          <div class="container">
+            <div>
+              posted on 2 jan 2023
+              <div class="user-info">
+                <img src="assets/images/profile.png" id="profile-image" alt="">
+                <span class="user-name">
+                  John Doe
+                </span>
+              </div>
+              <div class="user-preferences">
+                <span class="start">
+
+                </span>30⭐
+                <span class="views">
+                  200👀
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="new-post" routerLink="/questions/create"><ion-icon name="add-outline"></ion-icon></button>
+    </div>
+  </div>
+</div> -->
+
+<div class="sample">
+  <div class="post-temp">
+    <div class="nav-button">
+      <button (click)="refresh()" class="back">All questions</button>
+      <button class="back" routerLink="/questions/myquestions">My question</button>
+    </div>
+    <div class="question" *ngFor="let question of questions">
+      <div class="main-post">
+        <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
+        <div class="post1">
+          {{question.output}}
+        </div>
+      </div>
+      <div class="usercard-container">
+        <div class="container">
+          <div>
+            posted {{ question.createdAt.toString() | timeAgo }}
+            <div class="user-info-card">
+              <img src="assets/images/profile.png" id="profile-image" alt="">
+              <span class="user-name-card">
+                {{question.user.name}}
+              </span>
+            </div>
+            <div class="user-preferences">
+              <span class="start">
+              </span>30⭐
+              <span class="views">
+                200👀
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <button class="new-post" routerLink="/questions/create"><ion-icon name="add-outline"></ion-icon></button>
-
 </div>
