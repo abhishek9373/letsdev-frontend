@@ -1,28 +1,40 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
 
-.main-container{
-  margin-top:12rem;
-  margin-left: 45rem;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15vw;
+}
+
+.main-container {
   background-color: #123182;
   display: flex;
   flex-direction: column;
-  width: 30%;
   padding: 4rem;
+  width: 60vw;
+  border-radius: 4px;
 }
 
-.heading{
+.heading {
   font-family: Inter;
   font-weight: bold;
   font-size: 2rem;
   color: white;
-  margin-left: 6rem;
 }
 
-.email, .password{
+.email,
+.password {
   display: flex;
   flex-direction: column;
 }
 
-.email-text, .password-text{
+.email-text,
+.password-text {
   font-family: Inter;
   color: white;
   font-weight: 700;
@@ -30,44 +42,75 @@
   margin-top: 2rem;
 }
 
-#email, #password{
+#email,
+#password {
   height: 3.8rem;
   border: none;
   border-radius: 3px;
   outline: none;
   margin-top: 1rem;
-  width: 100%;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   padding: 1rem;
 }
 
-#email::placeholder, #password::placeholder{
+#email::placeholder,
+#password::placeholder {
   font-family: Inter;
-  color:black;
+  color: black;
   opacity: 0.3;
-  text-transform:none;
+  text-transform: none;
 }
 
-.login-button{
+.login-button {
   height: 4rem;
   width: 9rem;
-  background-color: #2B1485;
+  background-color: #2b1485;
   margin-top: 2rem;
-  margin-left: 11rem;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   border-radius: 2px;
   opacity: 0.8;
   cursor: pointer;
   font-size: 1.5rem;
 }
 
-.login-button:hover{
+.login-button:hover {
   opacity: 0.5;
 }
 
-.indicator{
+.indicator {
   padding-left: 2rem;
   padding-top: 0.5rem;
   color: red;
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .main-container {
+    width: 65vw;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 599px) {
+  .main-container {
+    width: 75vw;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 450px) {
+  .main-container {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 359px) {
+  .main-container {
+    width: 95vw;
+  }
+}
+
+@media (min-width: 600px) {
+  .main-container {
+    width: 70vw;
+    max-width: 600px;
+  }
 }
