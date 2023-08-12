@@ -1,27 +1,6 @@
-
-.avatar-image{
-  width: 28%;
-}
-
-.logo{
-  padding: 3rem;
-  font-size: 2.5rem;
-  color: white;
-}
-
-.post-temp{
-  position: absolute;
-  top: 9rem;
-  left: 20rem;
-  right: 20rem;
-  background-color: white;
-  padding: 5rem;
-}
-
 .back{
-  position: relative;
-  top: -2rem;
-  left:-2rem;
+  margin-top: 4px;
+  margin-bottom: 10px;
   background-color: rgba(43, 20, 133, 75%);
   width: 8rem;
   height: 3rem;
@@ -31,13 +10,21 @@
   border: none;
   border-radius: 5px;
 }
+
+.navigation-button-container{
+  display: flex;
+  justify-content: start;
+}
+
 .upload-time{
-  position: relative;
-  top:2.3rem;
-  left:70rem;
   font-family: Inter;
   font-size: 14px;
   font-weight: bold;
+}
+
+.upload-time-aligner{
+  display: flex;
+  justify-content: end;
 }
 
 .user-info{
@@ -46,6 +33,11 @@
   align-items: center;
   margin-left: 1rem;
   margin-top:-0.5rem;
+}
+
+.user-info-aligner{
+  display: flex;
+  align-items: center;
 }
 
 .post-avatar{
@@ -67,8 +59,6 @@
   color: black;
 }
 .main-post{
-  width: 70%;
-  margin-left: 13rem;
   margin-top: 3rem;
 }
 
@@ -90,7 +80,7 @@
 
 .post-image{
   width: 100%;
-  max-width: 30vw;
+  max-width: 50vw;
   max-height: 30vw;
   border-radius: 5px;
 }
@@ -102,7 +92,6 @@
 
 .stats{
   margin-top: 1rem;
-  /* vertical-align:middle; */
   display: flex;
   align-items: center;
 }
@@ -112,6 +101,8 @@
   align-items: center;
   background: transparent;
   outline: none;
+  height: 28px;
+  width: 28px;
   border: none;
   cursor: pointer;
   margin:0.5rem;
@@ -140,38 +131,37 @@ ion-icon {
   font-size: 4rem;
   font-weight: bold;
   font-weight: bolder;
-
 }
 
 .comment-sec{
-  width: 80%;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
+  margin-bottom: 5rem;
 }
 
 .user{
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   margin-top: 3rem;
-  margin-left: -10rem;
+}
 
+.comment-container{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .comment-user-avatar{
   width:4rem;
-  margin-right: 3rem;
 }
 
 .comment{
   background-color: #D9D9D9;
   border: none;
   height: 4rem;
-  width: 45rem;
-  margin-left: 20rem;
   margin-top: 1rem;
   border-radius: 0.5rem;
 
@@ -191,17 +181,14 @@ ion-icon {
 .comment-stats{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-left: -14rem;
+  justify-content: start;
   margin-top: 1rem;
-
 }
 
 
 .comment-stats ion-icon {
   font-size: 2.5rem;
   font-weight: bolder;
-
 }
 
 .comment-box{
@@ -242,10 +229,204 @@ input:focus {
   font-family: Inter;
 }
 
+/* responsive code */
+.sample{
+  width: 80vw;
+  height: auto;
+  min-height: 100vh;
+  background-color: #D9D9D9;
+  margin: auto;
+  padding-top: 9rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 
+@media (max-width: 550px) {
+  .back{
+    margin-top: 4px;
+    margin-bottom: 10px;
+    background-color: rgba(43, 20, 133, 75%);
+    width: 4rem;
+    height: 3rem;
+    color: white;
+    font-family: Inter;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+  }
 
+  .upload-time{
+    font-family: Inter;
+    font-size: 7px;
+    font-weight: 700;
+  }
 
+  .user-info{
+    display: flex;
+    justify-content: space-between;
+    margin-left: -1rem;
+    margin-top: 1rem;
+  }
 
+  .post-avatar{
+    width: 100%;
+    max-width: 10vw;
+  }
+
+  .user-name{
+    font-weight: 500;
+    font-size: 12px;
+    font-family: Inter;
+  }
+
+  .hastags{
+    font-size: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    color: black;
+  }
+
+  .post{
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .post-title{
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .post-image{
+    width: 100%;
+    max-width: 90vw;
+    max-height: 80vw;
+    border-radius: 5px;
+  }
+
+  .stats{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .upvote, .downvote{
+    display: flex;
+    align-items: center;
+    background: transparent;
+    outline: none;
+    height: 28px;
+    width: 28px;
+    border: none;
+    cursor: pointer;
+    margin:0.5rem;
+    font-weight: bold;
+  }
+
+  ion-icon {
+    font-size: 2.5rem;
+  }
+
+  .new-post{
+    position: fixed;
+    bottom: 3rem;
+    right:25rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 4rem;
+    background-color: #0A2DA7;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .user{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .comment-container{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .comment-user-avatar{
+    width:2.5rem;
+    margin-right: 3px;
+  }
+
+  .comment{
+    background-color: #D9D9D9;
+    border: none;
+    height: 2rem;
+    margin-top: 3px;
+    border-radius: 0.5rem;
+  }
+
+  .comment-text{
+    font-size: 11px;
+    font-family: Inter;
+    font-weight: 500;
+  }
+
+  .comment-stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-top: 1rem;
+  }
+
+  .comment-box{
+    position: fixed;
+    bottom: 1rem;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .comment-input{
+    width: 65vw;
+    height: 32px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border: none;
+    border: 2px solid #908989;
+    font-size: medium;
+    padding-left: 1rem;
+  }
+
+  .submit-post{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid #908989;
+    border-left: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+  }
+
+  /* responsive code */
+  .sample{
+    width: 90vw;
+    height: auto;
+    min-height: 100vh;
+    background-color: #D9D9D9;
+    margin: auto;
+    padding-top: 9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 
 
 

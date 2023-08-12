@@ -1,10 +1,16 @@
-<div class="post-temp" infinite-scroll [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
-  <button class="back" routerLink="/posts">Back</button>
-  <p class="upload-time">1 min ago</p>
+<div class="sample" infinite-scroll [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+  <div class="navigation-button-container">
+    <button class="back" routerLink="/posts">Back</button>
+  </div>
   <div class="user-info">
-    <img src="assets/images/profile.png" alt="" class="post-avatar">
-    <p class="user-name">{{post.user.name}}</p>
-    <p class="hastags">{{post.tags[0]}}</p>
+    <div class="user-info-aligner">
+      <img src="assets/images/profile.png" alt="" class="post-avatar">
+      <p class="user-name">{{post.user.name}}</p>
+      <!-- <p class="hastags">{{post.tags[0]}}</p> -->
+    </div>
+    <div class="upload-time-aligner">
+      <p class="upload-time">1 m ago</p>
+    </div>
   </div>
 
   <div class="main-post">
@@ -17,24 +23,25 @@
   <br>
   <hr>
   <span class="comment-lable">Comments</span>
-  <div class="comment-sec" id="comment-div" *ngFor="let comment of comments">
-    <div class="user">
-      <img src="assets/images/profile.png" alt="" class="comment-user-avatar">
-      <p class="user-name">{{comment.user.name}}</p>
-    </div>
-    <div class="comment">
-      <p class="comment-text">{{comment.text}}</p>
-    </div>
-    <div class="comment-stats">
-      <button class="upvote" (click)="like(comment)"><ion-icon name="arrow-up"
-          [style]="comment.interaction.isliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{comment.likes}}</button>
-      <button class="downvote" (click)="dislike(comment)"><ion-icon name="arrow-down"
-          [style]="comment.interaction.isdisliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{comment.dislikes}}</button>
+  <div class="comment-container">
+    <div class="comment-sec" id="comment-div" *ngFor="let comment of comments">
+      <div class="user">
+        <img src="assets/images/profile.png" alt="" class="comment-user-avatar">
+        <p class="user-name">{{comment.user.name}}</p>
+      </div>
+      <div class="comment">
+        <p class="comment-text">{{comment.text}}</p>
+      </div>
+      <div class="comment-stats">
+        <button class="upvote" (click)="like(comment)"><ion-icon name="arrow-up"
+            [style]="comment.interaction.isliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{comment.likes}}</button>
+        <button class="downvote" (click)="dislike(comment)"><ion-icon name="arrow-down"
+            [style]="comment.interaction.isdisliked ? 'color:red;' : 'color:black;'"></ion-icon>&nbsp;{{comment.dislikes}}</button>
+      </div>
     </div>
   </div>
-
-  <!-- commnt input -->
 </div>
+
 
 <form [formGroup]="commentForm" (ngSubmit)="createComment()">
   <div class="comment-box">
