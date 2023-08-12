@@ -45,6 +45,7 @@ export class CreatepostComponent {
       }
     }
     catch(err: any){
+      LoaderService.loader(false);
       ToastService.toast(err.message);
     }
 

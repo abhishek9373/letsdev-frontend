@@ -1,32 +1,39 @@
-<form #createPosts="ngForm" (ngSubmit)="publishPost(createPost.value)">
-  <div class="create-post">
-    <div class="heading">
-      <button class="back" routerLink="/posts">Back</button>
-      <p class="heading-text">Create New Post</p>
-      <button class="back">Post</button>
-    </div>
-    <div class="inputs">
+<div class="sample">
+  <form #createPosts="ngForm" (ngSubmit)="publishPost(createPost.value)">
+    <div class="create-post">
+      <div class="navigation-button-container">
+        <button class="back" routerLink="/posts">Back</button>
+        <button class="back">Publish</button>
+      </div>
+      <div class="heading">
+        <p class="heading-text">Create New Post</p>
+      </div>
       <form #createPost="ngForm">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" class="input-area" ngModel><br><br>
+        <div class="inputs">
+          <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" class="input-area" ngModel><br><br>
 
-        <label for="body">Body</label><br>
-        <input type="text" id="body" class="input-area" name="body" ngModel><br><br>
+            <label for="body">Body</label><br>
+            <input type="text" id="body" class="input-area" name="body" ngModel><br><br>
 
-        <label for="tags">Tags</label>
-        <input type="text" id="tags" class="input-area" name="tags" ngModel><br><br>
+            <label for="tags">Tags</label>
+            <input type="text" id="tags" class="input-area" name="tags" ngModel><br><br>
 
-        <input type="file" name="image" (change)="getImage($event)" #fileUpload class='file-input'
-          style="display: none;" ngModel>
-        <button (click)="fileUpload.click()">
-          Select file : <mat-icon>attach_file</mat-icon>
-        </button>
-        <div class="image-container">
-          <img [src]="imageUrl" id="selectedImage" alt="Image will appear here"
-            style="border-radius: 3px; width: 50%; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);">
+            <input type="file" name="image" (change)="getImage($event)" #fileUpload class='file-input'
+              style="display: none;" ngModel>
+
+            <button (click)="fileUpload.click()">
+              Select file : <mat-icon>attach_file</mat-icon>
+            </button>
+          </div>
+          <div class="image-container">
+            <img [src]="imageUrl" id="selectedImage"
+              style="border-radius: 3px; width: 50%; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);">
+          </div>
         </div>
       </form>
+      <div class="img-upload"></div>
     </div>
-    <div class="img-upload"></div>
-  </div>
-</form>
+  </form>
+</div>
