@@ -36,7 +36,7 @@ li{
 }
 
 .active {
-  color: red!important;
+  color: rgba(8, 229, 107, 0.525)!important;
   font-weight: bold;
 }
 
