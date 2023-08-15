@@ -1,19 +1,49 @@
+<div class="sample">
+  <!-- <div class="create-post"> -->
+    <div class="navigation-button-aligner">
+      <!-- add question id here to navigate to that question -->
+      <button class="back" [routerLink]="['/questions', questionId]">back</button>
+      <button class="back" (click)="create()">publish</button>
+    </div>
 
-<div class="create-post">
-  <div class="heading">
-    <button class="back">Back</button>
-    <p class="heading-text">Create Answer</p>
-  </div>
-  <div class="inputs">
-    <form>
-      <label for="title">Description</label>
-      <input type="text" id="title" name="title" class="input-area"><br><br>
+    <div class="heading">
+      <p class="heading-text">Create Answer</p>
+    </div>
 
-      <label for="code">Code</label>
-      <textarea id="code" name="code" class="input-area" rows="100"></textarea>
+    <div class="inputs">
+      <form [formGroup]="answerForm" (ngSubmit)="create()">
 
+        <label for="title">Description</label>
+        <span *ngIf="description && description.invalid && description.touched" class="indicator">description should not empty</span>
+        <input type="text" id="title" name="title" formControlName="description" class="input-area"><br><br>
+        <p class="lable-code">Code</p>
 
-    </form>
-  </div>
-  <div class="img-upload"></div>
+        <div id="container">
+          <div class="dropdown">
+            <span class="dropbtn" (click)="selection()">{{ language || "Select Language" }}</span>
+            <div class="dropdown-content" id="drop-content" [hidden]="isHide">
+              <p (click)="changeLanguage('javascript')">JavaScript</p>
+              <p (click)="changeLanguage('python')">Python</p>
+              <p (click)="changeLanguage('java')">Java</p>
+              <p (click)="changeLanguage('html')">HTML</p>
+              <p (click)="changeLanguage('css')">CSS</p>
+              <p (click)="changeLanguage('cpp')">C++</p>
+              <p (click)="changeLanguage('c')">C</p>
+              <p (click)="changeLanguage('csharp')">C#</p>
+              <p (click)="changeLanguage('ruby')">Ruby</p>
+              <p (click)="changeLanguage('golang')">Go</p>
+              <p (click)="changeLanguage('dart')">Dart</p>
+              <p (click)="changeLanguage('typescript')">TypeScript</p>
+            </div>
+          </div>
+
+          <div id="editor">
+            //write youre code here
+          </div>
+
+        </div>
+      </form>
+    </div>
+    <div class="img-upload"></div>
+  <!-- </div> -->
 </div>

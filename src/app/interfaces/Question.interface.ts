@@ -25,3 +25,8 @@ export interface questionsResult{
 export interface singleQuestionResult{
   data: Question
 }
+
+export interface CreateAnswerI{
+  description: string,
+  code: string
+}
