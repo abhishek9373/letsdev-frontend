@@ -18,7 +18,14 @@
         <img src="assets/images/upvote.png" alt="" class="upvote">
         <p class="vote-count">200</p>
         <img src="assets/images/downvote.png" alt="" class="downvote">
-        <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
+        <div class="post" [routerLink]="['/questions', question._id]">
+          <p>
+            {{question.title}}
+          </p>
+          <div class="submit-button-aligner">
+            <a [routerLink]="['/questions', question._id, 'answer']">submit answer</a>
+          </div>
+        </div>
       </div>
       <div class="post1">
         {{question.output}}

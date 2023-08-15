@@ -54,6 +54,7 @@
 }
 
 .post{
+  display: flex;
   font-family: Inter;
   font-size: 2rem;
   font-weight: bold;
@@ -87,6 +88,20 @@
 .new-post ion-icon {
   font-size: 4rem;
   font-weight: bolder;
+}
+
+.submit-button-aligner{
+  align-items: center;
+  width: 90%;
+  display: flex;
+  justify-content: end;
+  font-size: medium;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.submit-button-aligner a {
+  text-decoration: none;
 }
 
 code {
@@ -151,6 +166,10 @@ code {
     width: 90vw;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .submit-button-aligner{
+    font-size: 10px;
   }
 
   code {
