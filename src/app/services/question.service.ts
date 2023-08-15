@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { Inpute } from '../interfaces/fetch.inpute';
 import { ToastService } from './toast.service';
 import { questionRequestObject } from '../interfaces/Comment.interface';
+import { CreateAnswerI } from '../interfaces/Question.interface';
 
 
 @Injectable({
@@ -16,7 +17,7 @@ export class QuestionService {
   //create question
   create(question: questionRequestObject): Observable<any> {
     try {
-      const reqObj: Inpute = { method: "POST", url: `/question`, options: { body : { ...question }} };
+      const reqObj: Inpute = { method: "POST", url: `/question`, options: { body: { ...question } } };
       return this.baseService.fetch(reqObj).pipe(tap((data) => {
         return data;
       }))
@@ -26,30 +27,43 @@ export class QuestionService {
     }
   }
 
-    //list questions
-    list(page = 0): Observable<any> {
-      try {
-        const reqObj: Inpute = { method: "GET", url: `/question?page=${page}`, options: { } };
-        return this.baseService.fetch(reqObj).pipe(tap((data) => {
-          return data;
-        }))
-      } catch (error: any) {
-        ToastService.toast(error.message);
-        throw (error);
-      }
+  //list questions
+  list(page = 0): Observable<any> {
+    try {
+      const reqObj: Inpute = { method: "GET", url: `/question?page=${page}`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
     }
+  }
 
-        //list questions
-        get(questionId: string): Observable<any> {
-          try {
-            const reqObj: Inpute = { method: "GET", url: `/question/${questionId}`, options: { } };
-            return this.baseService.fetch(reqObj).pipe(tap((data) => {
-              return data;
-            }))
-          } catch (error: any) {
-            ToastService.toast(error.message);
-            throw (error);
-          }
-        }
+  //list questions
+  get(questionId: string): Observable<any> {
+    try {
+      const reqObj: Inpute = { method: "GET", url: `/question/${questionId}`, options: {} };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+  // create answer
+  createAnswer(answer: CreateAnswerI, questionId: string){
+    try {
+      const reqObj: Inpute = { method: "POST", url: `/question/${questionId}/answer`, options: { body: { ...answer } } };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
 
 }
