@@ -21,7 +21,7 @@ export class ViewComponent implements OnInit {
       this.activatedRoute.params.subscribe((param: any) => {
         this.questionId = param.id;
         this.questionService.get(this.questionId).subscribe((data: questionsResult) => {
-          const finalQ = data.data.map((q: Question) => {
+          const finalQ = data.data.question.map((q: Question) => {
             q.code = JSON.parse(q.code);
             return q;
           })

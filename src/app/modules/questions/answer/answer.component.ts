@@ -39,33 +39,45 @@ export class AnswerComponent implements OnInit, AfterViewInit {
     description: new FormControl('', [Validators.required]),
   })
 
-  get description(){
+  get description() {
     return this.answerForm.get('description');
   }
 
   // create question
-  create(){
-    try{
-      const formatedCode: string = this.editor.getValue();
-      if(formatedCode.length <= 0){
-        ToastService.toast("code is required for older version");
+  create() {
+    try {
+      if (!this.answerForm.valid) {
+        ToastService.toast("description is required to create answer");
         return;
       }
-      else{
+      const formatedCode: string = this.editor.getValue();
+      if (formatedCode.length <= 0) {
         const codeObject = { language: this.language, code: formatedCode }
         const stringCode: string = JSON.stringify(codeObject);
         const description: any = this.answerForm.value.description;
-        const answerObject: CreateAnswerI = { description: description, code: stringCode }
-        this.questionService.createAnswer(answerObject, this.questionId).subscribe((data)=>{
-          if(data.data){
+        const answerObject: CreateAnswerI = { description: description }
+        this.questionService.createAnswer(answerObject, this.questionId).subscribe((data) => {
+          if (data.data) {
             ToastService.toast("answer submitted");
             this.router.navigate(['/questions', this.questionId]);
           }
         })
       }
-    }catch(error: any){
+      else {
+        const codeObject = { language: this.language, code: formatedCode }
+        const stringCode: string = JSON.stringify(codeObject);
+        const description: any = this.answerForm.value.description;
+        const answerObject: CreateAnswerI = { description: description, code: formatedCode }
+        this.questionService.createAnswer(answerObject, this.questionId).subscribe((data) => {
+          if (data.data) {
+            ToastService.toast("answer submitted");
+            this.router.navigate(['/questions', this.questionId]);
+          }
+        })
+      }
+    } catch (error: any) {
       ToastService.toast(error.message);
-      throw(error);
+      throw (error);
     }
   }
 

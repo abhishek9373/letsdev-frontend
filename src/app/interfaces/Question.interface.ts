@@ -18,8 +18,31 @@ export interface FinalQuestion {
   createdAt: Date
 }
 
-export interface questionsResult{
+export interface listQuestion{
   data: Array<Question>
+}
+
+export interface questionsResult{
+  data: updatedInterfaceForQuestion
+}
+
+export interface updatedInterfaceForQuestion{
+  question: Array<Question>,
+  answers: Array<Answer>
+}
+
+export interface Answer{
+  _id: string,
+  description: string,
+  code: string,
+  createdAt: Date,
+  votes: number,
+  user:{
+    name: string,
+    userId: string,
+    stars: number,
+    profileViews: number
+  }
 }
 
 export interface singleQuestionResult{
@@ -28,5 +51,5 @@ export interface singleQuestionResult{
 
 export interface CreateAnswerI{
   description: string,
-  code: string
+  code?: string
 }

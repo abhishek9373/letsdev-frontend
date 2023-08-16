@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FinalQuestion, Question, questionsResult } from 'src/app/interfaces/Question.interface';
+import { FinalQuestion, Question, listQuestion, questionsResult } from 'src/app/interfaces/Question.interface';
 import { QuestionService } from 'src/app/services/question.service';
 import { ToastService } from 'src/app/services/toast.service';
 import hljs from 'highlight.js';
@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
   }
   ngOnInit(): void {
     try {
-      this.qustionService.list(this.page).subscribe((data: questionsResult) => {
+      this.qustionService.list(this.page).subscribe((data: listQuestion) => {
         const finalQ = data.data.map((q: Question) => {
           q.code = JSON.parse(q.code);
           return q;
