@@ -4,7 +4,7 @@ export interface Question {
   code: string,
   output: string,
   description: string,
-  user: { _id: string, name: string },
+  user: { _id: string, name: string, stars: number, profileViews: number },
   createdAt: Date
 }
 
@@ -14,7 +14,7 @@ export interface FinalQuestion {
   code: { code: string, language: string },
   output: string,
   description: string,
-  user: { _id: string, name: string },
+  user: { _id: string, name: string, stars: number, profileViews: number },
   createdAt: Date
 }
 
@@ -34,7 +34,7 @@ export interface updatedInterfaceForQuestion{
 export interface Answer{
   _id: string,
   description: string,
-  code: string,
+  code: string | null,
   createdAt: Date,
   votes: number,
   user:{
