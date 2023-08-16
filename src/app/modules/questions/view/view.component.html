@@ -1,5 +1,4 @@
 <div class="sample">
-  <!-- <div class="post-temp"> -->
   <div class="navigation-button">
     <button class="back" routerLink="/questions">Back</button>
     <button class="back" routerLink="/questions/myquestions">My question</button>
@@ -35,6 +34,48 @@
       <pre><code [highlight]="question.code.code"></code></pre>
     </div>
   </div>
+  <hr>
+  <br>
+  <div class="answer-container">
+    <p class="questions-lable">
+      200 Answers
+    </p>
+    <div class="answer" *ngFor="let answer of answers">
+      <div class="interaction-aligner">
+        <img src="assets/images/upvote.png" alt="" class="upvote">
+        <p class="vote-count">200</p>
+        <img src="assets/images/downvote.png" alt="" class="downvote">
+        <div class="post">
+          <p class="answer-description">
+            {{answer.description}}
+          </p>
+        </div>
+      </div>
+      <!-- <p class="answer-description">
+        {{answer.description}}
+      </p> -->
+      <pre><code [highlight]="answer.code" class="answer-code" *ngIf="answer.code != null"></code></pre>
+      <div class="usercard-container ansusercard">
+        <div class="container">
+          <div>
+            posted {{ answer.createdAt.toString() | timeAgo }}
+            <div class="user-info-card">
+              <img src="assets/images/profile.png" id="profile-image" alt="">
+              <span class="user-name-card">
+                {{answer.user.name}}
+              </span>
+            </div>
+            <div class="user-preferences">
+              <span class="start">
+              </span>{{answer.user.stars}}⭐
+              <span class="views">
+                {{answer.user.profileViews}}👀
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <button class="new-post" routerLink="/questions/create"><ion-icon name="add-outline"></ion-icon></button>
-  <!-- </div> -->
 </div>

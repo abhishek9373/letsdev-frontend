@@ -51,6 +51,7 @@
   display: flex;
   justify-content: center;
   margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .post{
@@ -94,7 +95,7 @@
   align-items: center;
   width: 90%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   font-size: medium;
   font-weight: 400;
   cursor: pointer;
@@ -111,9 +112,44 @@ code {
   word-wrap: normal;
 }
 
+/* responsiveness remains */
+
+.questions-lable{
+  font-size: 2rem;
+}
+
+.ansusercard{
+  margin-top: 1rem;
+}
+
+.answer{
+  margin-top: 1rem;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 4px;
+  /* padding-top: 2rem; */
+}
+
+.answer-description{
+  font-size: 16px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.answer-code{
+  width: 99%;
+}
+
+/*  */
+
+
 @media (min-width: 1000px) {
   code{
     width: 75vw;
+  }
+
+  .new-post{
+    right: 10vw;
   }
 }
 
@@ -131,11 +167,13 @@ code {
   position: relative;
   right: 2rem;
   top: 2rem;
+  cursor: pointer;
 }
 .downvote{
   position: relative;
   right: 2rem;
   top: 4rem;
+  cursor: pointer;
 }
 
 .vote-count{
@@ -148,6 +186,77 @@ code {
   margin-left: 1.8rem;
 }
 
+/* user card code */
+/* user card */
+.container{
+  padding: 1rem;
+  padding-top: 0;
+  padding-left: 0.4rem;
+  background-color: #D9D9D9;
+  display: inline-block;
+  border-radius: 5px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+  display: inline-flex;
+}
+
+.user-info-card{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.user-name-card{
+  font-size: large;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#profile-image{
+  max-height: 3rem;
+  border-radius: 50%;
+}
+
+.user-preferences{
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+}
+
+/* responsive */
+
+@media (max-width: 290px) {
+  .user-name {
+    font-size: medium;
+    padding: 5px;
+  }
+
+  #profile-image{
+      max-height: 2rem;
+  }
+}
+
+@media (max-width: 192px){
+  .container{
+      font-size: smaller;
+  }
+}
+
+@media (min-width: 290px){
+  .container{
+      width: 200px;
+  }
+}
+
+.usercard-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+
+
 /* responsive code */
 
 .sample{
@@ -159,6 +268,7 @@ code {
   padding-top: 9rem;
   padding-left: 5rem;
   padding-right: 5rem;
+  padding-bottom: 2rem;
 }
 
 @media (max-width: 500px) {
@@ -193,7 +303,7 @@ code {
   }
 
   .new-post{
-    right: 3vw;
+    right: 1.5vw;
     width: 5rem;
   }
 
