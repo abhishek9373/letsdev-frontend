@@ -11,18 +11,22 @@
 color: #AB34B5;
 }
 .sub-heading{
-  font-family:Inter;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 2.2rem;
   margin-top: 1rem;
   margin-left: 5rem;
   color: white;
-
 }
 
 .avatar{
-  width: 14%;
+  max-width: 40vw;
+  /* width: 20vw; */
   margin-top: 8rem;
-  margin-left: 43%;
+}
+
+.avtar-aligner{
+  display: flex;
+  justify-content: center;
 }
 
 .services{
@@ -52,7 +56,6 @@ color: #AB34B5;
 
 .Lets-Start{
   height: 40px;
-  width: 150px;
   border: 1px;
   background: transparent;
   border-color: white;
@@ -63,10 +66,110 @@ color: #AB34B5;
   cursor: pointer;
   letter-spacing: 1px;
   color: white;
+  margin-right: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .Lets-Start:hover{
   background-color: white;
   transition: 0.4s;
   color: black;
+}
+
+.lets-start-aligner{
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* responsive code here */
+
+@media (min-width: 700px) {
+
+  .avatar{
+      max-width: 30vw;
+      margin-top: 8rem;
+  }
+}
+
+@media (min-width: 500px) and (max-width: 699px) {
+  .heading-title{
+    font-size: 5rem;
+    margin-bottom: 3rem;
+  }
+
+  .avatar{
+    margin-bottom: 2rem;
+    max-width: 40vw;
+    margin-top: 8rem;
+  }
+
+  .footer{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin-left:3rem;
+    margin-top: 3rem;
+  }
+
+  .footer-text{
+    font-family: Inter;
+    font-size: 22px;
+    color: white;
+    margin-right: 4rem;
+    text-transform:capitalize;
+  }
+
+  .Lets-Start{
+    margin-top: 3rem;
+    width: 20vw;
+  }
+}
+
+@media (max-width: 499px) {
+  .heading-title{
+    font-size: 30px;
+    margin-bottom: 3rem;
+    margin-left: 5px;
+    margin-right: 2px;
+  }
+
+  .sub-heading{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-left: 5px;
+    color: white;
+  }
+
+  .avatar{
+    margin-bottom: 1rem;
+    max-width: 90vw;
+    margin-top: 3rem;
+  }
+
+  .services{
+    font-size: 13px;
+    line-height: 30px;
+  }
+
+  .footer{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin-left: 5px;
+    margin-top: 3rem;
+  }
+
+  .footer-text{
+    font-size: 18px;
+    margin-right: 8px;
+    text-transform:capitalize;
+    line-height: 3rem;
+  }
+
+  .Lets-Start{
+    margin-top: 3rem;
+  }
 }
