@@ -5,9 +5,10 @@ import { CoursesComponent } from './modules/courses/courses.component';
 import { PlacementsComponent } from './modules/placements/placements.component';
 import { AuthGuard } from './guard/auth.guard';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
+import { LoginGuard } from './guard/login.guard';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: '', component: LandingPageComponent, canActivate: [LoginGuard] },
   {
     path: 'auth',
     loadChildren: () => import('./modules/authentication/authentication.module').then((m) => m.AuthenticationModule),
