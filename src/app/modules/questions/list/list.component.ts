@@ -13,7 +13,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 export class ListComponent implements OnInit {
 
   page: number = 0;
-  questions: Array<FinalQuestion> = [{ _id: "", code: { code: "", language: "" }, createdAt: new Date, description: "", output: "", title: "", user: { _id: "", name: "", stars: 0, profileViews: 0 } }]
+  questions: Array<FinalQuestion> = [{ _id: "", code: { code: "", language: "" }, createdAt: new Date, description: "", output: "", title: "", user: { _id: "", name: "", stars: 0, profileViews: 0 }, preferences: 0, votes: 0, views: 0, answers: 0 }]
   constructor(private qustionService: QuestionService) {
     LoaderService.loader(true);
   }

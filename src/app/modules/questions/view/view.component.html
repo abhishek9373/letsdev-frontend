@@ -14,9 +14,9 @@
   <div class="main-post">
     <div>
       <div class="interaction-aligner">
-        <img src="assets/images/upvote.png" alt="" class="upvote">
-        <p class="vote-count">200</p>
-        <img src="assets/images/downvote.png" alt="" class="downvote">
+        <img [src]="question.preferences == 1 ? 'assets/images/upvotered.png' : 'assets/images/upvote.png'" alt="" class="upvote" (click)="upVote(question)" alt="" [style]="question.preferences == 1 ? 'color:red;' : 'color:black;'">
+        <p class="vote-count">{{question.votes}}</p>
+        <img [src]="question.preferences == 2 ? 'assets/images/downvotered.png' : 'assets/images/downvote.png'" alt="" class="downvote" (click)="downVote(question)" [style]="question.preferences == 2 ? 'color:red;' : 'color:black;'">
         <div class="post" [routerLink]="['/questions', question._id]">
           <p>
             {{question.title}}

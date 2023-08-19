@@ -13,8 +13,8 @@ import { LoaderService } from 'src/app/services/loader.service';
 })
 export class ViewComponent implements OnInit {
   questionId!: string;
-  answers: Array<Answer> = [ { _id: "", code: "", createdAt: new Date, description: "", user: { name: "", profileViews: 0, stars: 0, userId: "" }, votes: 0 } ]
-  question: FinalQuestion = { _id: "", code: { code: "", language: "" }, createdAt: new Date, description: "", output: "", title: "", user: { _id: "", name: "",stars: 0, profileViews: 0 } }
+  answers: Array<Answer> = [{ _id: "", code: "", createdAt: new Date, description: "", user: { name: "", profileViews: 0, stars: 0, userId: "" }, votes: 0 }]
+  question: FinalQuestion = { _id: "", code: { code: "", language: "" }, createdAt: new Date, description: "", output: "", title: "", user: { _id: "", name: "", stars: 0, profileViews: 0 }, preferences: 0, answers: 0, views: 0, votes: 0 }
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private questionService: QuestionService) { }
   ngOnInit(): void {
     try {
@@ -36,6 +36,66 @@ export class ViewComponent implements OnInit {
     } catch (error: any) {
       ToastService.toast(error.message);
       throw (error)
+    }
+  }
+
+  upVote(question: FinalQuestion) {
+    try {
+      if(question.preferences == 1){
+        return;
+      }
+      this.questionService.upVote(question._id).subscribe((data: any)=>{
+        question.preferences = 1;
+        question.votes++;
+      })
+    } catch (error: any) {
+      ToastService.toast(error.meassage);
+      throw (error);
+    }
+  }
+
+  downVote(question: FinalQuestion) {
+    try {
+      if(question.preferences == 2){
+        return;
+      }
+      this.questionService.downVote(question._id).subscribe((data: any)=>{
+        question.preferences = 2;
+        question.votes--;
+      })
+    } catch (error: any) {
+      ToastService.toast(error.meassage);
+      throw (error);
+    }
+  }
+
+  upVoteAnswer(question: FinalQuestion) {
+    try {
+      if(question.preferences == 1){
+        return;
+      }
+      this.questionService.upVote(question._id).subscribe((data: any)=>{
+        question.preferences = 1;
+        question.votes++;
+      })
+    } catch (error: any) {
+      ToastService.toast(error.meassage);
+      throw (error);
+    }
+  }
+
+  downVoteAnswer(question: FinalQuestion) {
+    try {
+      if(question.preferences == 2){
+        return;
+      }
+      this.questionService.downVote(question._id).subscribe((data: any)=>{
+        question.preferences = 2;
+        question.votes--;
+      })
+    } catch (error: any) {
+      ToastService.toast(error.meassage);
+      throw (error);
     }
   }
 }

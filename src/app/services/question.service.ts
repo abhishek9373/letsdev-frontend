@@ -66,4 +66,30 @@ export class QuestionService {
     }
   }
 
+  // vote for question
+  upVote(questionId: string){
+    try {
+      const reqObj: Inpute = { method: "PATCH", url: `/question/${questionId}/upvote`, options: { } };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+    // vote for question
+    downVote(questionId: string){
+      try {
+        const reqObj: Inpute = { method: "PATCH", url: `/question/${questionId}/downvote`, options: { } };
+        return this.baseService.fetch(reqObj).pipe(tap((data) => {
+          return data;
+        }))
+      } catch (error: any) {
+        ToastService.toast(error.message);
+        throw (error);
+      }
+    }
+
 }
