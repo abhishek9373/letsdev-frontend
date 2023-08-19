@@ -5,7 +5,11 @@ export interface Question {
   output: string,
   description: string,
   user: { _id: string, name: string, stars: number, profileViews: number },
-  createdAt: Date
+  createdAt: Date,
+  preferences: number,
+  views: number,
+  votes: number,
+  answers: number
 }
 
 export interface FinalQuestion {
@@ -15,7 +19,11 @@ export interface FinalQuestion {
   output: string,
   description: string,
   user: { _id: string, name: string, stars: number, profileViews: number },
-  createdAt: Date
+  createdAt: Date,
+  preferences: number,
+  views: number,
+  votes: number,
+  answers: number
 }
 
 export interface listQuestion{
@@ -42,7 +50,7 @@ export interface Answer{
     userId: string,
     stars: number,
     profileViews: number
-  }
+  },
 }
 
 export interface singleQuestionResult{
