@@ -16,7 +16,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { HighlightModule } from 'ngx-highlightjs';
 import { ViewComponent } from './view/view.component';
-import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
+import { PipeModule } from 'src/app/pipes/pipe.module';
 
 @NgModule({
   declarations: [
@@ -25,14 +25,14 @@ import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
     ListComponent,
     CreateComponent,
     ViewComponent,
-    TruncatePipe
   ],
   imports: [
     CommonModule,
     QuestionsRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    HighlightModule
+    HighlightModule,
+    PipeModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

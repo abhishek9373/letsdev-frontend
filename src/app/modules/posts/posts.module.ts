@@ -13,14 +13,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SharedModule } from '../shared/shared.module';
-import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
+import { PipeModule } from 'src/app/pipes/pipe.module';
 
 @NgModule({
   declarations: [
     PostsComponent,
     PostviewComponent,
     CreatepostComponent,
-    TruncatePipe
   ],
   imports: [
     CommonModule,
@@ -29,7 +28,8 @@ import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
     MatIconModule,
     ReactiveFormsModule,
     InfiniteScrollModule,
-    SharedModule
+    SharedModule,
+    PipeModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
