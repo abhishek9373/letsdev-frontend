@@ -80,9 +80,35 @@ export class QuestionService {
   }
 
     // vote for question
-    downVote(questionId: string){
+  downVote(questionId: string){
+    try {
+      const reqObj: Inpute = { method: "PATCH", url: `/question/${questionId}/downvote`, options: { } };
+      return this.baseService.fetch(reqObj).pipe(tap((data) => {
+        return data;
+      }))
+    } catch (error: any) {
+      ToastService.toast(error.message);
+      throw (error);
+    }
+  }
+
+    // vote for question
+    upVoteAnswer(questionId: string, answerId: string){
       try {
-        const reqObj: Inpute = { method: "PATCH", url: `/question/${questionId}/downvote`, options: { } };
+        const reqObj: Inpute = { method: "PATCH", url: `/question/${questionId}/answer/${answerId}/upvote`, options: { } };
+        return this.baseService.fetch(reqObj).pipe(tap((data) => {
+          return data;
+        }))
+      } catch (error: any) {
+        ToastService.toast(error.message);
+        throw (error);
+      }
+    }
+
+      // vote for question
+    downVoteAnswer(questionId: string, answerId: string){
+      try {
+        const reqObj: Inpute = { method: "PATCH", url: `/question/${questionId}/answer/${answerId}/downvote`, options: { } };
         return this.baseService.fetch(reqObj).pipe(tap((data) => {
           return data;
         }))

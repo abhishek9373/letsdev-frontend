@@ -13,7 +13,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 })
 export class ViewComponent implements OnInit {
   questionId!: string;
-  answers: Array<Answer> = [{ _id: "", code: "", createdAt: new Date, description: "", user: { name: "", profileViews: 0, stars: 0, userId: "" }, votes: 0 }]
+  answers: Array<Answer> = [{ _id: "", code: "", createdAt: new Date, description: "", user: { name: "", profileViews: 0, stars: 0, userId: "" }, votes: 0, preferences: 0 }]
   question: FinalQuestion = { _id: "", code: { code: "", language: "" }, createdAt: new Date, description: "", output: "", title: "", user: { _id: "", name: "", stars: 0, profileViews: 0 }, preferences: 0, answers: 0, views: 0, votes: 0 }
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private questionService: QuestionService) { }
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class ViewComponent implements OnInit {
   upVote(question: FinalQuestion) {
     try {
       if(question.preferences == 1){
-        return;
+        return 0;
       }
       this.questionService.upVote(question._id).subscribe((data: any)=>{
         question.preferences = 1;
@@ -57,7 +57,7 @@ export class ViewComponent implements OnInit {
   downVote(question: FinalQuestion) {
     try {
       if(question.preferences == 2){
-        return;
+        return 0;
       }
       this.questionService.downVote(question._id).subscribe((data: any)=>{
         question.preferences = 2;
@@ -69,14 +69,14 @@ export class ViewComponent implements OnInit {
     }
   }
 
-  upVoteAnswer(question: FinalQuestion) {
+  upVoteAnswer(answer: Answer) {
     try {
-      if(question.preferences == 1){
+      if(answer.preferences == 1){
         return;
       }
-      this.questionService.upVote(question._id).subscribe((data: any)=>{
-        question.preferences = 1;
-        question.votes++;
+      this.questionService.upVoteAnswer(this.questionId, answer._id).subscribe((data: any)=>{
+        answer.preferences = 1;
+        answer.votes++;
       })
     } catch (error: any) {
       ToastService.toast(error.meassage);
@@ -84,14 +84,14 @@ export class ViewComponent implements OnInit {
     }
   }
 
-  downVoteAnswer(question: FinalQuestion) {
+  downVoteAnswer(answer: Answer) {
     try {
-      if(question.preferences == 2){
+      if(answer.preferences == 2){
         return;
       }
-      this.questionService.downVote(question._id).subscribe((data: any)=>{
-        question.preferences = 2;
-        question.votes--;
+      this.questionService.downVoteAnswer(this.questionId, answer._id).subscribe((data: any)=>{
+        answer.preferences = 2;
+        answer.votes--;
       })
     } catch (error: any) {
       ToastService.toast(error.meassage);

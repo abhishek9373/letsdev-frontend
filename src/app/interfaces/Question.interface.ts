@@ -51,6 +51,7 @@ export interface Answer{
     stars: number,
     profileViews: number
   },
+  preferences: number
 }
 
 export interface singleQuestionResult{

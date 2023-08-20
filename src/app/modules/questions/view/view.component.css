@@ -178,7 +178,7 @@ code {
 
 .vote-count{
   position: relative;
-  right: 2rem;
+  left: -15px;
   top: 3rem;
 }
 
@@ -268,7 +268,7 @@ code {
   padding-top: 9rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 @media (max-width: 500px) {
@@ -280,6 +280,10 @@ code {
 
   .submit-button-aligner{
     font-size: 10px;
+  }
+
+  .new-post{
+    right: 0px;
   }
 
   code {
