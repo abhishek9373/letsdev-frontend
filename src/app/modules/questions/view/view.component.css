@@ -72,6 +72,14 @@
   margin-top: 40px;
 }
 
+.post2{
+  font-size: 1.5rem;
+  letter-spacing: 0.8px;
+  font-family: Inter;
+  margin-bottom: 2rem;
+  margin-left: 30px;
+}
+
 .new-post{
   position: fixed;
   bottom: 3rem;
@@ -341,6 +349,11 @@ code {
   .post1{
     font-size: 10px;
     letter-spacing: 0.8px;
+  }
+
+  .post2{
+    font-size: 10px;
+    margin-left: 20px;
   }
 
   .answer-description{
