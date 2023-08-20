@@ -98,4 +98,33 @@ export class ViewComponent implements OnInit {
       throw (error);
     }
   }
+
+  // function to copy code button
+  CopyCode() : void{
+    const codeElement: any = document.querySelector('.question-code');
+    navigator.clipboard.writeText(codeElement.textContent).then(function() {
+      // Change the button text temporarily to indicate success
+      const copyButton: any = document.querySelector('.cc-q');
+      copyButton.textContent = 'copied!';
+      setTimeout(function() {
+          copyButton.textContent = 'copy';
+      }, 6000);
+  }).catch(function(err) {
+      console.error('Unable to copy code: ', err);
+  });
+  }
+
+  CopyCodeForAnswer(answerId: string) : void{
+    const codeElement: any = document.querySelector(`#question-${answerId}`);
+    navigator.clipboard.writeText(codeElement.textContent).then(function() {
+      // Change the button text temporarily to indicate success
+      const copyButton: any = document.querySelector(`#answer-${answerId}`);
+      copyButton.textContent = 'copied!';
+      setTimeout(function() {
+          copyButton.textContent = 'copy';
+      }, 6000);
+  }).catch(function(err) {
+      console.error('Unable to copy code: ', err);
+  });
+  }
 }

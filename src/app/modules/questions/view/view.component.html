@@ -14,9 +14,11 @@
   <div class="main-post">
     <div>
       <div class="interaction-aligner">
-        <img [src]="question.preferences == 1 ? 'assets/images/upvotered.png' : 'assets/images/upvote.png'" alt="" class="upvote" (click)="upVote(question)" alt="">
+        <img [src]="question.preferences == 1 ? 'assets/images/upvotered.png' : 'assets/images/upvote.png'" alt=""
+          class="upvote" (click)="upVote(question)" alt="">
         <p class="vote-count">{{question.votes}}</p>
-        <img [src]="question.preferences == 2 ? 'assets/images/downvotered.png' : 'assets/images/downvote.png'" alt="" class="downvote" (click)="downVote(question)">
+        <img [src]="question.preferences == 2 ? 'assets/images/downvotered.png' : 'assets/images/downvote.png'" alt=""
+          class="downvote" (click)="downVote(question)">
         <div class="post" [routerLink]="['/questions', question._id]">
           <p>
             {{question.title}}
@@ -31,7 +33,12 @@
       </div>
       <span style="font-size: large; font-family: Inter;">Code:</span>
       <br>
-      <pre><code [highlight]="question.code.code"></code></pre>
+      <div>
+        <div class="copy-code-aligner">
+          <p class="copy-code cc-q" title="copy code" (click)="CopyCode()">copy</p>
+        </div>
+        <pre><code [highlight]="question.code.code" class="question-code"></code></pre>
+      </div>
     </div>
   </div>
   <hr>
@@ -42,9 +49,11 @@
     </p>
     <div class="answer" *ngFor="let answer of answers">
       <div class="interaction-aligner">
-        <img [src]="answer.preferences == 1 ? 'assets/images/upvotered.png' : 'assets/images/upvote.png'" alt="" (click)="upVoteAnswer(answer)" alt="" class="upvote">
+        <img [src]="answer.preferences == 1 ? 'assets/images/upvotered.png' : 'assets/images/upvote.png'" alt=""
+          (click)="upVoteAnswer(answer)" alt="" class="upvote">
         <p class="vote-count">{{answer.votes}}</p>
-        <img [src]="answer.preferences == 2 ? 'assets/images/downvotered.png' : 'assets/images/downvote.png'" alt="" class="downvote" (click)="downVoteAnswer(answer)">
+        <img [src]="answer.preferences == 2 ? 'assets/images/downvotered.png' : 'assets/images/downvote.png'" alt=""
+          class="downvote" (click)="downVoteAnswer(answer)">
         <div class="post">
           <p class="answer-description">
             {{answer.description}}
@@ -54,7 +63,12 @@
       <!-- <p class="answer-description">
         {{answer.description}}
       </p> -->
-      <pre><code [highlight]="answer.code" class="answer-code" *ngIf="answer.code != null"></code></pre>
+      <div *ngIf="answer.code != null">
+        <div class="copy-code-aligner">
+          <p class="copy-code cc-q" [id]="'answer-' + answer._id" title="copy code" (click)="CopyCodeForAnswer(answer._id)">copy</p>
+        </div>
+        <pre><code [highlight]="answer.code" class="answer-code" [id]="'question-' + answer._id"></code></pre>
+      </div>
       <div class="usercard-container ansusercard">
         <div class="container">
           <div>

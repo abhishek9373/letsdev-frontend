@@ -112,6 +112,23 @@ code {
   word-wrap: normal;
 }
 
+.copy-code-aligner{
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  font-size: medium;
+  top: 25px;
+  right: 15px;
+}
+
+.copy-code{
+  cursor: pointer;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 3px;
+  background-color: aquamarine;
+}
+
 /* responsiveness remains */
 
 .questions-lable{
