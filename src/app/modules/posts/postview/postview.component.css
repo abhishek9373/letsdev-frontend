@@ -5,7 +5,7 @@
   width: 8rem;
   height: 3rem;
   color: white;
-  font-family: Istok Web;
+  font-family: Inter;
   font-size: 20px;
   border: none;
   border-radius: 5px;
@@ -159,7 +159,7 @@ ion-icon {
 }
 
 .comment{
-  background-color: #D9D9D9;
+  background-color: white;
   border: none;
   height: 4rem;
   margin-top: 1rem;
@@ -234,7 +234,7 @@ input:focus {
   width: 80vw;
   height: auto;
   min-height: 100vh;
-  background-color: #D9D9D9;
+  background-color: white;
   margin: auto;
   padding-top: 9rem;
   padding-left: 5rem;

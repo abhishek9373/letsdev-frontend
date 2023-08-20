@@ -287,7 +287,7 @@ code {
   }
 
   code {
-    font-size: large;
+    font-size: 8px;
     border-radius: 5px;
     width: 86vw;
     word-wrap: normal;
@@ -312,7 +312,7 @@ code {
   }
 
   .post{
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
   }
 
@@ -322,7 +322,11 @@ code {
   }
 
   .post1{
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.8px;
+  }
+
+  .answer-description{
+    font-size: 11px;
   }
 }
