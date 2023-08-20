@@ -58,9 +58,9 @@
     </div>
     <div class="question" *ngFor="let question of questions">
       <div class="main-post">
-        <div class="post" [routerLink]="['/questions', question._id]">{{question.title}}</div>
+        <div class="post" [routerLink]="['/questions', question._id]">{{question.title | truncate: 60}}</div>
         <div class="post1">
-          {{question.output}}
+          {{question.output | truncate: 100}}
         </div>
       </div>
       <div class="usercard-container">

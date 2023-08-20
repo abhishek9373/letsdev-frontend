@@ -11,11 +11,11 @@
         <div class="upload-time">{{ post.createdAt | timeAgo }}</div>
       </div>
       <div class="main-post">
-        <div class="post post-title">{{post.title}}</div>
+        <div class="post post-title">{{post.title | truncate: 80}}</div>
         <div class="img-container">
           <img class="post-image" [src]="post.image[0].url" alt="" [routerLink]="['/posts', post._id]" loading="lazy">
         </div>
-        <div class="post" [routerLink]="['/posts', post._id]">{{post.body}}</div>
+        <div class="post" [routerLink]="['/posts', post._id]">{{post.body | truncate: 150}}</div>
       </div>
       <div class="stats">
         <button class="upvote" (click)="like(post)"><ion-icon name="arrow-up"

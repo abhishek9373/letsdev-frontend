@@ -16,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { HighlightModule } from 'ngx-highlightjs';
 import { ViewComponent } from './view/view.component';
+import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ViewComponent } from './view/view.component';
     MylistComponent,
     ListComponent,
     CreateComponent,
-    ViewComponent
+    ViewComponent,
+    TruncatePipe
   ],
   imports: [
     CommonModule,

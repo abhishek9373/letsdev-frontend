@@ -18,12 +18,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CustomRouteReuseStrategy } from './services/norefresh.service';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     NavbarComponent,
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,

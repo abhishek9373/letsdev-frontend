@@ -13,12 +13,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SharedModule } from '../shared/shared.module';
+import { TruncatePipe } from 'src/app/pipes/truncate.pipe';
 
 @NgModule({
   declarations: [
     PostsComponent,
     PostviewComponent,
     CreatepostComponent,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
