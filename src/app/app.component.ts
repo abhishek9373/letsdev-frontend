@@ -13,9 +13,6 @@ import { LoaderService } from './services/loader.service';
 export class AppComponent implements AfterViewInit {
   toastText?: string;
   hideToast: boolean = true;
-  loaderStyleHide = { "display": "none" };
-  loaderStyleShow = { "display": "flex" };
-  loaderStyle: any = { "display": "none" };
 
   constructor(private router: Router, private route: ActivatedRoute) {
 
@@ -25,24 +22,6 @@ export class AppComponent implements AfterViewInit {
     ToastService.toaster$.subscribe((message: string) => {
       this.showToast(message);
     })
-    LoaderService.loader$.subscribe((message: boolean) => {
-      this.showLoader(message)
-    })
-  }
-
-  // showLoader(message: string) {
-  //   this.loaderStyle = { "display": `${message}` };
-  //   setTimeout(() => {
-  //     this.loaderStyle = { "display": "none" };
-  //   }, 700)
-  // }
-
-  showLoader(message: boolean){
-    if(message == true ){
-      this.loaderStyle = this.loaderStyleShow;
-    }else{
-      this.loaderStyle = this.loaderStyleHide;
-    }
   }
 
   showToast(message: string) {

@@ -19,12 +19,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CustomRouteReuseStrategy } from './services/norefresh.service';
 import { PipeModule } from './pipes/pipe.module';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     NavbarComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
