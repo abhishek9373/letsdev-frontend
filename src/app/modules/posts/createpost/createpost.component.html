@@ -2,8 +2,8 @@
   <form #createPosts="ngForm" (ngSubmit)="publishPost(createPost.value)">
     <div class="create-post">
       <div class="navigation-button-container">
-        <button class="back" routerLink="/posts">Back</button>
-        <button class="back">Publish</button>
+        <img src="assets/images/back.png" class="back" routerLink="/posts" title="go back">
+        <img src="assets/images/post.png" class="back" title="submit post">
       </div>
       <div class="heading">
         <p class="heading-text">Create New Post</p>
@@ -23,9 +23,7 @@
             <input type="file" name="image" (change)="getImage($event)" #fileUpload class='file-input'
               style="display: none;" ngModel>
 
-            <button (click)="fileUpload.click()">
-              Select file : <mat-icon>attach_file</mat-icon>
-            </button>
+            <img src="assets/images/selectimage.png" (click)="fileUpload.click()" class="selectimage">
           </div>
           <div class="image-container">
             <img [src]="imageUrl" id="selectedImage"

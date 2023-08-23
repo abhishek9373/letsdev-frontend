@@ -6,14 +6,8 @@
 }
 
 .back{
-  background-color: rgba(43, 20, 133, 75%);
-  width: 7rem;
+  width: 3rem;
   height: 3rem;
-  color: white;
-  font-family: Istok Web;
-  font-size: 20px;
-  border: none;
-  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -79,6 +73,12 @@
   justify-content: center;
 }
 
+.selectimage{
+  height: 6rem;
+  width: 6rem;
+  cursor: pointer;
+}
+
 button {
   background-color: rgba(43, 20, 133, 75%);
   color: white;
@@ -96,7 +96,7 @@ button {
   width: 80vw;
   height: auto;
   min-height: 100vh;
-  background-color: #D9D9D9;
+  background-color: white;
   margin: auto;
   padding-top: 9rem;
   padding-left: 5rem;
@@ -108,7 +108,7 @@ button {
     width: 100vw;
     height: auto;
     min-height: 100vh;
-    background-color: #D9D9D9;
+    background-color: white;
     margin: auto;
     padding-top: 9rem;
     padding-left: 0rem;
@@ -119,10 +119,21 @@ button {
     width: 80vw;
   }
 
+  .back{
+    height: 2rem;
+    width: 2rem;
+  }
+
   #selectedImage{
     width: 100%;
     max-width: 80vw;
     max-height: 60vw;
     margin-top: 2rem;
   }
+
+  .selectimage{
+    height: 4rem;
+    width: 4rem;
+  }
+
 }
