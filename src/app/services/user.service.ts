@@ -22,6 +22,11 @@ export class UserService {
     })
   }
 
+  // get user by id
+  getById(userId: string): Observable<any> {
+    return this.baseservice.getUser({ method: "GET", url: `/user?userId=${userId}`, options: {} })
+  }
+
   getOnly(): Observable<any> {
     return this.baseservice.getUser({ method: "GET", url: "/user", options: {} });
   }

@@ -12,7 +12,12 @@ const routes: Routes = [
   {
     path: 'edit',
     component: EditComponent
-  }
+  },
+  {
+    path: ':userId',
+    component: ViewComponent
+  },
+
 ];
 
 @NgModule({

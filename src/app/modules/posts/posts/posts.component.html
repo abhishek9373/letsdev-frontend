@@ -4,7 +4,7 @@
       <div class="time-userinfo">
         <div class="user-info">
           <img src="assets/images/profile.png" alt="" class="post-avatar">
-          <p class="user-name">{{post.user.name}}</p>
+          <p class="user-name" [routerLink]="['/profile', post.user._id]">{{post.user.name}}</p>
           <!-- tmp tag are commented -->
           <!-- <p class="hastags">#nodejs #mongoDB #Express</p> -->
         </div>
