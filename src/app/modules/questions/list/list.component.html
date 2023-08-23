@@ -53,8 +53,8 @@
 <div class="sample">
   <div class="post-temp">
     <div class="nav-button">
-      <button (click)="refresh()" class="back">All questions</button>
-      <button class="back" routerLink="/questions/myquestions">My question</button>
+      <img src="assets/images/refresh.png" title="refresh" (click)="refresh()" class="back">
+      <img src="assets/images/mylisting.png" class="back" title="your question listing" routerLink="/questions/myquestions">
     </div>
     <div class="question" *ngFor="let question of questions">
       <div class="main-post">
