@@ -1,33 +1,38 @@
 <div class="sample">
   <!-- <div class="main-content"> -->
-  <a routerLink="/profile/edit" class="edit">Edit</a>
+
+  <div class="navigation-button-aligner">
+    <img src="assets/images/edit.png" routerLink="/profile/edit" class="edit-profile-icon" title="edit profile">
+    <img src="assets/images/logout.png" class="edit" title="logout" (click)="logout()">
+  </div>
+
   <div class="profile">
     <div class="profile-stars-aligner">
       <img src="assets/images/profile.png" alt="" class="user-avatar">
     </div>
-    <p class="name">John Doe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="points">100⭐</span></p>
+    <p class="name">{{user.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="points" title="acheivement point">{{user.stars}}⭐</span>&nbsp;
+      <span class="points" title="profile views">{{user.profileViews}}👀</span>
+    </p>
     <p class="bio">Be happy do coding develop
       platforms.</p>
-    <!-- <p class="gender"><b>Gender</b>: Male</p>
-    <p class="Technologies"><b>Technologies</b>: #nodejs #reactjs
-      #mongodb #docker</p>
-    <p class="organization"><b>College/Company</b>: Sinhgad
-      College Of Engineering Pune. </p>
-  </div> -->
-
     <table>
       <tbody>
+        <tr *ngIf="user.email != null">
+          <td>Email</td>
+          <td>: {{user.email}}</td>
+        </tr>
         <tr>
           <td>Gender</td>
-          <td>: Male</td>
+          <td>: {{user.gender}}</td>
         </tr>
         <tr>
           <td>Technologies</td>
           <td>: #nodejs #reactjs #mongodb #docker</td>
         </tr>
         <tr>
-          <td>College/Company</td>
-          <td>: Sinhgad College Of Engineering Pune</td>
+          <td>Department</td>
+          <td>: {{user.branch}}</td>
         </tr>
       </tbody>
     </table>

@@ -9,22 +9,23 @@
 }
 
 .edit{
-  background-color:#2B1485;
-  padding: 3px;
-  padding-left: 6px;
-  padding-right: 6px;
-  margin-left: 3px;
-  height: 2rem;
-  color: white;
-  font-size: 14px;
-  border: none;
-  border-radius: 2px;
+  margin: 3px;
   cursor: pointer;
-  opacity: 0.8;
-  margin-top: 10px;
-  text-decoration: none;
+  height: 30px;
+  width: 30px;
 }
 
+.navigation-button-aligner{
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-profile-icon{
+  height: 30px;
+  width: 30px;
+  margin: 3px;
+  cursor: pointer;
+}
 
 .profile{
   display: flex;
@@ -43,6 +44,7 @@
 
 .name{
   font-size: 24px;
+  cursor: pointer;
 }
 
 .bio{
@@ -89,7 +91,7 @@ ion-icon:hover{
 
 table{
   font-size: 16px;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 td{
