@@ -30,7 +30,9 @@ export class ViewComponent implements OnInit {
             this.user = data;
           })
         }
-        LoaderService.loader(false);
+        setTimeout(() => {
+          LoaderService.loader(false);
+        }, 1500)
       });
     } catch (error: any) {
       throw (error);
