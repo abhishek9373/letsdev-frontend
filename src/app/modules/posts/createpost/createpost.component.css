@@ -101,6 +101,7 @@ button {
   padding-top: 9rem;
   padding-left: 5rem;
   padding-right: 5rem;
+  overflow: hidden;
 }
 
 @media (max-width: 550px) {
@@ -125,7 +126,7 @@ button {
   }
 
   #selectedImage{
-    width: 100%;
+    /* width: 100%; */
     max-width: 80vw;
     max-height: 60vw;
     margin-top: 2rem;
