@@ -2,7 +2,8 @@
   <!-- <div class="main-content"> -->
 
   <div class="navigation-button-aligner">
-    <img src="assets/images/edit.png" routerLink="/profile/edit" class="edit-profile-icon" title="edit profile">
+    <img src="assets/images/edit.png" routerLink="/profile/edit" class="edit-profile-icon" title="edit profile" *ngIf="isMyProfile">
+    <img src="assets/images/back.png" routerLink="/profile/edit" class="edit-profile-icon" title="edit profile" *ngIf="!isMyProfile">
     <img src="assets/images/logout.png" class="edit" title="logout" (click)="logout()">
   </div>
 
@@ -37,6 +38,6 @@
       </tbody>
     </table>
 
-    <ion-icon name="logo-wechat"></ion-icon>
+    <ion-icon name="logo-wechat" *ngIf="!isMyProfile" routerLink="/chats/userId"></ion-icon>
     <!-- </div> -->
   </div>

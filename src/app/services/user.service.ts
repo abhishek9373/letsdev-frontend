@@ -3,6 +3,7 @@ import { BaseService } from './base.service';
 import { UserModel } from 'src/app/models/user.model';
 import { UserService as userService } from 'src/app/models/user.model';
 import { Observable } from 'rxjs'
+import { UpdateUser } from '../interfaces/Comment.interface';
 
 
 @Injectable({
@@ -29,6 +30,10 @@ export class UserService {
 
   getOnly(): Observable<any> {
     return this.baseservice.getUser({ method: "GET", url: "/user", options: {} });
+  }
+
+  update(data: UpdateUser): Observable<any>{
+    return this.baseservice.fetch({ method: "PATCH", url: "/user", options: { body: { ...data } }});
   }
 
 }

@@ -15,18 +15,24 @@ export class ViewComponent implements OnInit {
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private userService: UserService) { }
 
   userId!: string;
+  isMyProfile: boolean = false;
   user: any = { _id: "", branch: "", email: "", gender: 0, isVerified: true, name: "", stars: 0 };
   ngOnInit(): void {
     try {
       LoaderService.loader(true);
+      const MyId: string | null = localStorage.getItem('userId');
       this.activatedRoute.params.subscribe((param: any) => {
         this.userId = param.userId;
         if (this.userId) {
+          if(this.userId == MyId){
+            this.isMyProfile = true;
+          }
           this.userService.getById(this.userId).subscribe(data => {
             this.user = data;
           })
         } else {
           this.userService.getOnly().subscribe(data => {
+            this.isMyProfile = true;
             this.user = data;
           })
         }
