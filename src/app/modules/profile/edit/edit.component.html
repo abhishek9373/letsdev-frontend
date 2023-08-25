@@ -1,22 +1,27 @@
+<div class="sample">
+  <!-- <div class="main-content"> -->
+    <div class="navigation-button-aligner">
+      <img src="assets/images/back.png" class="back" title="go back" routerLink="/profile">
+      <img src="assets/images/save.png" class="back" title="update" (click)="update()">
+    </div>
+    <div class="profile-img-aligner">
+      <img src="assets/images/profile.png" alt="" class="user-avatar">
+    </div>
+    <div class="inputs">
+      <form [formGroup]="updateUserForm">
+        <label for="title">Name</label><span class="indicator" *ngIf="name && name.invalid && name.touched">name is reuired!</span>
+        <input type="text" id="title" name="name" class="input-area" [value]="user.name" formControlName="name"><br><br>
 
-<div class="main-content">
+        <label for="body">Email</label><span class="indicator" *ngIf="email && email.invalid && email.touched">email is reuired!</span><br>
+        <input type="text" id="title" name="email" class="input-area" formControlName="email"><br><br>
 
-  <button class="back">Update</button>
-  <img src="assets/images/profile.png" alt="" class="user-avatar">
+        <label for="tags">Branch</label><span class="indicator" *ngIf="branch && branch.invalid && branch.touched">branch is reuired!</span>
+        <input type="text" id="tags" class="input-area" name="branch" formControlName="branch"><br><br>
 
-  <div class="inputs">
-    <form>
-      <label for="title">Name</label>
-      <input type="text" id="title" name="title" class="input-area"><br><br>
-
-      <label for="body">Email</label><br>
-      <input type="text" id="title" name="title" class="input-area"><br><br>
-
-      <label for="tags">Branch</label>
-      <input type="text" id="tags" class="input-area" name="tags"><br><br>
-
-      <label for="image" class="img-text">Gender</label>
-      <input type="text" id="image" class="input-area" name="image"><br><br>
-    </form>
-  </div>
+        <label for="image" class="img-text">Gender</label><span class="indicator" *ngIf="gender && gender.invalid && gender.touched">gender is reuired!</span>
+        <input type="text" id="image" class="input-area" name="gender" formControlName="gender"><br><br>
+        <!-- <button class="button-style">update</button> -->
+      </form>
+    </div>
+  <!-- </div> -->
 </div>

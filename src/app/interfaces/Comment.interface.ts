@@ -19,3 +19,10 @@ export interface questionRequestObject{
   output: string,
   code: string
 }
+
+export interface UpdateUser{
+  name: string,
+  email: string,
+  gender: string,
+  branch: string,
+}

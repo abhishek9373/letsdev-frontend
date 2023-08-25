@@ -19,6 +19,12 @@ export class UserService {
 
   setUser(user: UserModel){
     this.user = user;
+    // also save userDetails to the localstorage
+    localStorage.setItem('name', this.user.name);
+    localStorage.setItem('email', this.user.email);
+    localStorage.setItem('gender', `${this.user.gender}`);
+    localStorage.setItem('branch', this.user.branch);
+    localStorage.setItem('userId', this.user._id);
   }
 
   getUser(){

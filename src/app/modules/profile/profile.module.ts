@@ -7,6 +7,7 @@ import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/models/user.model';
 import { EditComponent } from './edit/edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,12 @@ import { EditComponent } from './edit/edit.component';
   imports: [
     CommonModule,
     ProfileRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
     AuthService,
-    UserService,
+    UserService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
