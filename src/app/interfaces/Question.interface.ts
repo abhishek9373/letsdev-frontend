@@ -47,7 +47,7 @@ export interface Answer{
   votes: number,
   user:{
     name: string,
-    userId: string,
+    _id: string,
     stars: number,
     profileViews: number
   },

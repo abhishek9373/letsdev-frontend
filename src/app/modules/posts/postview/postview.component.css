@@ -39,6 +39,7 @@
 .user-info-aligner{
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .post-avatar{

@@ -141,7 +141,6 @@ code {
   display: inline-block;
   border-radius: 5px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: medium;
   display: inline-flex;
 }
 
@@ -151,10 +150,11 @@ code {
   align-items: center;
   margin-top: 0.3rem;
   margin-bottom: 0.8rem;
+  cursor: pointer;
 }
 
 .user-name-card{
-  font-size: large;
+  font-size: 14px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -173,8 +173,12 @@ code {
 
 @media (max-width: 290px) {
   .user-name {
-    font-size: medium;
+    font-size: 8px;
     padding: 5px;
+  }
+
+  .user-name-card{
+    font-size: 8px;
   }
 
   #profile-image{
@@ -184,18 +188,28 @@ code {
 
 @media (max-width: 192px){
   .container{
-      font-size: smaller;
+      font-size: 10px;
   }
 }
 
-@media (min-width: 290px){
+@media (min-width: 400px){
   .container{
-      width: 200px;
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 291px) and (max-width: 399px){
+  .container{
+    font-size: 10px;
+  }
+
+  .user-name-card{
+    font-size: 10px;
   }
 }
 
 .usercard-container{
   display: flex;
   justify-content: end;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }

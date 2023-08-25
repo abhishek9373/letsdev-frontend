@@ -13,7 +13,7 @@ import { LoaderService } from 'src/app/services/loader.service';
 })
 export class ViewComponent implements OnInit {
   questionId!: string;
-  answers: Array<Answer> = [{ _id: "", code: "", createdAt: new Date, description: "", user: { name: "", profileViews: 0, stars: 0, userId: "" }, votes: 0, preferences: 0 }]
+  answers: Array<Answer> = [{ _id: "", code: "", createdAt: new Date, description: "", user: { name: "", profileViews: 0, stars: 0, _id: "" }, votes: 0, preferences: 0 }]
   question: FinalQuestion = { _id: "", code: { code: "", language: "" }, createdAt: new Date, description: "", output: "", title: "", user: { _id: "", name: "", stars: 0, profileViews: 0 }, preferences: 0, answers: 0, views: 0, votes: 0 }
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private questionService: QuestionService) { }
   ngOnInit(): void {

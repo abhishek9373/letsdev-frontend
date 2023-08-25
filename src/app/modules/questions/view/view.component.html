@@ -6,7 +6,7 @@
   <div class="user-info-time-aligner">
     <div class="user-info">
       <img src="assets/images/profile.png" alt="" class="post-avatar">
-      <p class="user-name">{{question.user.name}}</p>
+      <p class="user-name" [routerLink]="['/profile', question.user._id]">{{question.user.name}}</p>
     </div>
     <!-- <p class="hastags">#nodejs #mongoDB #Express</p> -->
     <p class="upload-time">{{ question.createdAt.toString() | timeAgo }}</p>
@@ -78,13 +78,14 @@
             posted {{ answer.createdAt.toString() | timeAgo }}
             <div class="user-info-card">
               <img src="assets/images/profile.png" id="profile-image" alt="">
-              <span class="user-name-card">
+              <span class="user-name-card" [routerLink]="['/profile', answer.user._id]">
                 {{answer.user.name}}
               </span>
             </div>
             <div class="user-preferences">
               <span class="start">
-              </span>{{answer.user.stars}}⭐
+                {{answer.user.stars}}⭐
+              </span>
               <span class="views">
                 {{answer.user.profileViews}}👀
               </span>

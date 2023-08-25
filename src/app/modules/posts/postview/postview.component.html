@@ -3,7 +3,7 @@
     <img src="assets/images/back.png" class="back" routerLink="/posts">
   </div>
   <div class="user-info">
-    <div class="user-info-aligner">
+    <div class="user-info-aligner" [routerLink]="['/profile', post.user._id]">
       <img src="assets/images/profile.png" alt="" class="post-avatar">
       <p class="user-name">{{post.user.name}}</p>
       <!-- <p class="hastags">{{post.tags[0]}}</p> -->
