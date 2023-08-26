@@ -42,7 +42,7 @@ export class EditComponent implements OnInit{
 
   updateUserForm = new FormGroup({
     name: new FormControl(``, [Validators.required]),
-    email: new FormControl(``, [Validators.required]),
+    email: new FormControl({value:'', disabled: true}),
     branch: new FormControl(``, [Validators.required]),
     gender: new FormControl(``, [Validators.required])
   })
