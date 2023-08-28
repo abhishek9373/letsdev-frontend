@@ -6,6 +6,7 @@ import { UserModel } from '../models/user.model';
 import { Utility } from '../models/error.model';
 import { Inpute } from '../interfaces/fetch.inpute';
 import { Router } from '@angular/router';
+import { BASE_URL } from '../../../constants'
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,7 @@ export class BaseService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  private serverUrl: string = "https://devbuilder.tech/services";
-  // private serverUrl: string = "http://localhost:3015";
+  private serverUrl: string = BASE_URL;
 
   // main api service
   fetch(req: Inpute): Observable<any> {

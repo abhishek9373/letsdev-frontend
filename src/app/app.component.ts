@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { ToastService } from './services/toast.service';
-import { LoaderService } from './services/loader.service';
+import { ChatService } from './services/chat.service';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +14,7 @@ export class AppComponent implements AfterViewInit {
   toastText?: string;
   hideToast: boolean = true;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-
-  }
+  constructor(private router: Router, private route: ActivatedRoute, private chatService: ChatService) { }
 
   ngAfterViewInit(): void {
     ToastService.toaster$.subscribe((message: string) => {

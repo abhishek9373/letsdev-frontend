@@ -20,6 +20,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CustomRouteReuseStrategy } from './services/norefresh.service';
 import { PipeModule } from './pipes/pipe.module';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ChatService } from './services/chat.service';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { SOCKET_HOST } from '../../constants';
+
+
+const token: any = localStorage.getItem('authToken');
+const config: SocketIoConfig = {
+  url: SOCKET_HOST,
+  options: {
+    query: {
+      token
+    }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -36,16 +50,18 @@ import { LoaderComponent } from './components/loader/loader.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    PipeModule
+    PipeModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     AuthService,
     userService,
     UserService,
-    { provide: CustomRouteReuseStrategy, useClass: CustomRouteReuseStrategy }
+    { provide: CustomRouteReuseStrategy, useClass: CustomRouteReuseStrategy },
+    ChatService
   ],
   bootstrap: [AppComponent],
-  schemas : [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class AppModule { }
