@@ -1,137 +1,152 @@
-.header{
-  width: 100%;
-  height: 9rem;
-  position: fixed;
-  background-color: #102984;
-  display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
-  align-items: center;
-  z-index: 999;
-
-}
-
-.navbar-list{
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center;
-  list-style: none;
-  text-decoration: none;
-  font-size: 2.5rem;
-  font-family: Istok Web, Inter;
-
-
-
-}
-.navbar-list a{
-  text-decoration: none;
-  color: white;
-  font-family: Istok Web, Inter;
-}
-
-.avatar{
-  display: flex;
-  justify-content:flex-end;
-  align-items: center;
-  margin-right: 5em;
-}
-
-
-.avatar-image{
-  width: 28%;
-}
-
-.logo{
-  padding: 3rem;
-  font-size: 2.5rem;
-  color: white;
-
-
-}
-
-
-.main-content{
-  position: absolute;
-  top:9rem;
-  left: 20rem;
-  right:20rem;
-  /* bottom:0; */
-  background-color: white;
+.sample{
+  width: 80vw;
+  height: auto;
+  min-height: 100vh;
+  background-color: rgba(239,231,223,255);
+  margin: auto;
+  padding-top: 8.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 .user{
   display: flex;
-  width: 50%;
   justify-content: center;
   align-content: center;
   vertical-align: middle;
-  margin-left: 24rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
 }
 
 .user-avatar{
-  width: 15%;
+  width: 60px;
+  height: 55px;
 }
 
 .name{
   font-size: 20px;
-  font-family: Istok Web;
+  font-family: Inter;
   margin-top: 2rem;
   margin-left: 2rem;
 }
 
-.message1,.message2,.message3,.message4,.message5,
-.message6,.message7,.message8{
-  height: 4rem;
-  background-color: #d7d7d7;
-  width: 30%;
-  margin: 1rem;
+.main-chat-container{
+  font-size: 12px;
+  font-family: 'Roboto-Regular';
 }
 
-.message1, .message3, .message5, .message7{
-  position: relative;
-  left: 15rem;
+.chat-container-l{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
 }
 
-.message2, .message4, .message6, .message8{
-  position: relative;
-  left: 50rem;
+.chat-container-r{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2rem;
 }
 
-.current-mess{
-  position: fixed;
-  bottom: 1rem;
-  background-color: #102984;
-  left: 50rem;
-  height: 4rem;
-  width: 35%;
-  margin: 1rem;
-  font-size: 14px;
-  opacity: 0.9;
-  font-family: Istok Web;
-  padding: 1rem;
-  z-index: 998;
+.m {
+  max-width: 40vw;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.m-l{
+  background-color: #f5f6f7;
+}
+
+.m-r{
+  background-color: rgba(231,254,218,255);
 }
 
 .last-mess{
-  margin-left: 30rem;
-  margin-top: 2rem;
   display: flex;
-}
-
-ion-icon{
-  font-size: 3rem;
-  margin-top: 1.8rem;
+  justify-content: center;
   position: fixed;
-  bottom: 2.8rem;
-  right: 44rem;
-
+  bottom: 1rem;
+  width: 100%;
 }
 
+.current-mess{
+  background-color: #f5f6f7;
+  height: 4rem;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+  font-family: Inter;
+  z-index: 998;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 30vw;
+}
 
+.send-button{
+  height: 4rem;
+  font-size: 14px;
+  z-index: 998;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+  background-color: #f5f6f7;
+  outline: none;
+  padding-right: 6px;
+}
 
+.send-icon{
+  height: 23px;
+  width: 23px;
+}
 
+/* responsive code */
+@media (min-width: 500px) and (max-width: 930px) {
+  .sample{
+    width: 85vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
+  .current-mess{
+    width: 60vw;
+    font-size: 14px;
+  }
 
+  .m {
+    max-width: 50vw;
+  }
+}
 
+/* responsive code */
+@media (max-width: 499px) {
+  .sample{
+    width: 92vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
+  .current-mess{
+    width: 60vw;
+    font-size: 14px;
+  }
+
+  .m {
+    max-width: 50vw;
+  }
+}
+
+/* responsive code */
+@media (max-width: 350px) {
+  .m {
+    max-width: 75vw;
+  }
+
+  .current-mess{
+    width: 75vw;
+    font-size: 14px;
+  }
+}
