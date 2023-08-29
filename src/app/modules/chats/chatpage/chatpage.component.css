@@ -14,8 +14,14 @@
   justify-content: center;
   align-content: center;
   vertical-align: middle;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   margin-bottom: 3rem;
+  position: sticky;
+  top: 88px;
+  background-color: rgba(0,128,105,255);
+  border-radius: 3px;
+  z-index: 900;
+  padding: 1rem;
 }
 
 .user-avatar{
@@ -33,6 +39,9 @@
 .main-chat-container{
   font-size: 12px;
   font-family: 'Roboto-Regular';
+  min-height: 100vh;
+  margin-bottom: -2rem;
+  padding-bottom: 6rem;
 }
 
 .chat-container-l{
@@ -59,6 +68,15 @@
 
 .m-r{
   background-color: rgba(231,254,218,255);
+}
+
+.time{
+  position: relative;
+  right: 2px;
+  float: right;
+  font-weight: 550;
+  padding-top: 20px;
+
 }
 
 .last-mess{
@@ -101,6 +119,7 @@
 .send-icon{
   height: 23px;
   width: 23px;
+  cursor: pointer;
 }
 
 /* responsive code */

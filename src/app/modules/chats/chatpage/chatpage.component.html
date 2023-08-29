@@ -8,21 +8,93 @@
       <div class="chat-container-l">
         <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
-          reiciendis, non aspernatur? Explicabo dolor ipsum minima.</div>
+          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
+          <div class="time">9:13pm</div>
+        </div>
       </div>
     </div>
 
     <div>
       <div class="chat-container-r">
-        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil
-          ullam quaerat perferendis assumenda debitis exercitationem explicabo. Totam, fugit dolore. Voluptatibus,
-          necessitatibus laborum assumenda accusantium reprehenderit error eius dolor impedit sit!</div>
+        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="chat-container-l">
+        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
+          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="chat-container-r">
+        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="chat-container-l">
+        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
+          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="chat-container-r">
+        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="chat-container-l">
+        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
+          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="chat-container-r">
+        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="chat-container-l">
+        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
+          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
+          <div class="time">9:13pm</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="chat-container-r">
+        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
+          <div class="time">9:13pm</div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <div class="last-mess">
-  <input type="text" class="current-mess" placeholder="Type here...">
-  <button class="send-button"><img src="assets/images/send.png" class="send-icon"></button>
+  <form [formGroup]="newChatForm" (ngSubmit)="newChat()">
+  <input type="text" class="current-mess" placeholder="Type here..." formControlName="chat">
+</form>
+  <button class="send-button"><img src="assets/images/send.png" class="send-icon" (click)="newChat()"></button>
 </div>
