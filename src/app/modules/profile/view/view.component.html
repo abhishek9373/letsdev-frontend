@@ -38,6 +38,6 @@
       </tbody>
     </table>
 
-    <ion-icon name="logo-wechat" *ngIf="!isMyProfile" routerLink="/chats/userId"></ion-icon>
+    <ion-icon name="logo-wechat" *ngIf="!isMyProfile" [routerLink]="['/chats', userId]"></ion-icon>
     <!-- </div> -->
   </div>
