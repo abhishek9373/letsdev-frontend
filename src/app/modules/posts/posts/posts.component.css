@@ -80,8 +80,8 @@
 
 .post-image {
   width: 70%;
-  max-height: 32vw;
-  max-width: 30vw;
+  max-height: 25vw;
+  max-width: 25vw;
   border-radius: 2px;
 }
 
@@ -147,6 +147,8 @@ ion-icon {
   padding-top: 8.5rem;
   padding-left: 5rem;
   padding-right: 5rem;
+  padding-bottom: 3rem;
+  margin-bottom: -20px;
 }
 
 /* responsive code here */

@@ -1,6 +1,8 @@
 .main{
   height: 100vh;
   overflow: scroll;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .sample{

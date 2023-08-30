@@ -50,6 +50,7 @@ export class ChatpageComponent implements OnInit {
     // subscribe for new incomming chats
     this.chatService.subscribeToNewChats().subscribe((newChat: Chat) => {
       this.chats.push(newChat);
+      this.scrollToBottom();
     })
   }
 
@@ -96,6 +97,7 @@ export class ChatpageComponent implements OnInit {
       const new_chat: Chat = { created_at: new Date(Date.now()).toISOString(), updated_at: new Date(Date.now()).toISOString(), ...chat }
       this.chats.push(new_chat);
       this.newChatForm.reset();
+      this.scrollToBottom();
     } catch (error) {
       throw (error);
     }
