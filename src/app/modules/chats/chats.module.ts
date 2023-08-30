@@ -8,6 +8,7 @@ import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/models/user.model';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PipeModule } from 'src/app/pipes/pipe.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ChatsRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipeModule
   ],
   schemas : [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
