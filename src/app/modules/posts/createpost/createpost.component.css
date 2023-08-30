@@ -79,6 +79,13 @@
   cursor: pointer;
 }
 
+button {
+  background-color: white;
+  color: white;
+  font-size: 20px;
+  border: none;
+}
+
 /* responsive code here */
 .sample{
   width: 80vw;
