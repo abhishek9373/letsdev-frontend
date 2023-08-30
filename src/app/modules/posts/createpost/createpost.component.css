@@ -79,18 +79,6 @@
   cursor: pointer;
 }
 
-button {
-  background-color: rgba(43, 20, 133, 75%);
-  color: white;
-  font-family: Inter;
-  font-size: 20px;
-  border: none;
-  border-radius: 3px;
-  padding: 5px;
-  text-align: center;
-  margin-top: -13px;
-}
-
 /* responsive code here */
 .sample{
   width: 80vw;
