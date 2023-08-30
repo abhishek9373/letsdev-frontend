@@ -1,24 +1,26 @@
-<div class="sample">
-  <div class="user">
-    <img src="assets/images/profile.png" alt="" class="user-avatar">
-    <p class="name">{{Reciver.name}}</p>
-  </div>
-  <div class="main-chat-container" *ngFor="let chat of chats">
-    <div>
-      <div *ngIf="chat.sid == rid">
-        <div class="chat-container-l">
-          <div class="m m-l">
-            {{ chat.text }}
-            <div class="time">{{ chat.created_at | chatTimestamp }}</div>
+<div class="sample" id="baap" #scroll>
+  <div>
+    <div class="user">
+      <img src="assets/images/profile.png" alt="" class="user-avatar">
+      <p class="name">{{Reciver.name}}</p>
+    </div>
+    <div class="main-chat-container" *ngFor="let chat of chats">
+      <div>
+        <div *ngIf="chat.sid == rid">
+          <div class="chat-container-l">
+            <div class="m m-l">
+              {{ chat.text }}
+              <div class="time">{{ chat.created_at | chatTimestamp }}</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div *ngIf="chat.sid == myId">
-        <div class="chat-container-r">
-          <div class="m m-r">
-            {{chat.text}}
-            <div class="time">{{ chat.created_at | chatTimestamp }}</div>
+        <div *ngIf="chat.sid == myId">
+          <div class="chat-container-r">
+            <div class="m m-r">
+              {{chat.text}}
+              <div class="time">{{ chat.created_at | chatTimestamp }}</div>
+            </div>
           </div>
         </div>
       </div>
