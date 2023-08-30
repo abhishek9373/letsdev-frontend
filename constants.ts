@@ -1,5 +1,5 @@
 // production
-export const SOCKET_HOST: string = "https://devbuilder.tech/services";
+export const SOCKET_HOST: string = "https://devbuilder.tech";
 export const BASE_URL: string = "https://devbuilder.tech/services";
 
 
