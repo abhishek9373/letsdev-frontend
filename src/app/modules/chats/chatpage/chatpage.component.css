@@ -1,6 +1,10 @@
+.main{
+  height: 100vh;
+  overflow: scroll;
+}
+
 .sample{
   width: 80vw;
-  /* height: auto; */
   min-height: 100vh;
   background-color: rgba(239,231,223,255);
   margin: auto;
@@ -8,7 +12,6 @@
   padding-left: 5rem;
   padding-right: 5rem;
   padding-bottom: 8rem;
-  height: inherit;
 }
 
 .user{

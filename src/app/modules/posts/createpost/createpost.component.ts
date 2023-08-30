@@ -48,7 +48,6 @@ export class CreatepostComponent {
       LoaderService.loader(false);
       ToastService.toast(err.message);
     }
-
   }
 }
 export interface RawPost {

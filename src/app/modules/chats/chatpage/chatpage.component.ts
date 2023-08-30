@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chat, ReceiverInfo, outGoingChat } from 'src/app/interfaces/Chat.interface';
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './chatpage.component.html',
   styleUrls: ['./chatpage.component.css']
 })
-export class ChatpageComponent implements OnInit, AfterViewChecked {
+export class ChatpageComponent implements OnInit {
 
   myId: string = "";
   rid: string = "";
@@ -19,7 +19,6 @@ export class ChatpageComponent implements OnInit, AfterViewChecked {
   offset: number = Date.now();
   chats: [Chat] = [{ created_at: "", updated_at: "", sid: "", rid: "", text: "" }]
 
-  @ViewChild('scroll') messageContainer!: ElementRef;
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router, private chatService: ChatService) {
     // get recievers id
     try {
@@ -67,21 +66,14 @@ export class ChatpageComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  ngAfterViewChecked() {
-    this.scrollToBottom();
-  }
-
   private scrollToBottom() {
-    // setTimeout(()=>{
-    //   const scrollDiv: any = document.getElementById("baap");
-    //   scrollDiv.scrollTo({
-    //     top: scrollDiv.scrollHeight,
-    //     behavior: "smooth",
-    //   });
-    // }, 1000)
-
-    const container = this.messageContainer.nativeElement;
-    container.scrollTop = container.scrollHeight;
+    setTimeout(()=>{
+      const scrollDiv: any = document.getElementById("main");
+      scrollDiv.scrollTo({
+        top: scrollDiv.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 1000)
   }
 
   newChatForm = new FormGroup({
