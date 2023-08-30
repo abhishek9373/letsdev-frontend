@@ -27,7 +27,7 @@
 
 .avatar{
   display: flex;
-  justify-content:flex-end;
+  justify-content: flex-end;
   align-items: center;
   margin-right: 5em;
 }
@@ -186,7 +186,7 @@ textarea#code {
 
 .navigation-button{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 /* code to hide scrollbars */

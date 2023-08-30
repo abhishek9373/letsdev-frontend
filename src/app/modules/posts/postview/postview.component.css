@@ -14,7 +14,7 @@
 
 .navigation-button-container{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .upload-time{
@@ -25,7 +25,7 @@
 
 .upload-time-aligner{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .user-info{
@@ -137,8 +137,8 @@ ion-icon {
 
 .comment-sec{
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-bottom: 5rem;
 }
 
@@ -183,7 +183,7 @@ ion-icon {
 .comment-stats{
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   margin-top: 1rem;
 }
 
@@ -381,7 +381,7 @@ input:focus {
   .comment-stats{
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
     margin-top: 1rem;
   }
 

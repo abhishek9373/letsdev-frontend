@@ -39,27 +39,25 @@
 .main-chat-container{
   font-size: 12px;
   font-family: 'Roboto-Regular';
-  min-height: 100vh;
   margin-bottom: -2rem;
-  padding-bottom: 6rem;
+  padding-bottom: 2rem;
 }
 
 .chat-container-l{
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 2rem;
 }
 
 .chat-container-r{
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 2rem;
 }
 
 .m {
   max-width: 40vw;
   border-radius: 3px;
   padding: 10px;
+  margin-bottom: 1rem;
 }
 
 .m-l{
