@@ -1,7 +1,7 @@
 .sample{
   width: 80vw;
   /* height: auto; */
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgba(239,231,223,255);
   margin: auto;
   padding-top: 8.5rem;
