@@ -11,3 +11,12 @@ export interface outGoingChat{
   rid: string,
   text: string
 }
+
+export interface Chat{
+  sid: string,
+  rid: string,
+  text: string,
+  created_at: string,
+  updated_at: string,
+  id: number
+}

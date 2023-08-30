@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ReceiverInfo, outGoingChat } from 'src/app/interfaces/Chat.interface';
+import { Chat, ReceiverInfo, outGoingChat } from 'src/app/interfaces/Chat.interface';
 import { ChatService } from 'src/app/services/chat.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { UserService } from 'src/app/services/user.service';
@@ -11,11 +11,13 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './chatpage.component.html',
   styleUrls: ['./chatpage.component.css']
 })
-export class ChatpageComponent {
+export class ChatpageComponent implements OnInit{
 
-  myId!: string;
-  rid!: string;
-  Reciver!: ReceiverInfo;
+  myId: string = "";
+  rid: string = "";
+  Reciver: ReceiverInfo = { _id: "", branch: "", gender: "", isVerified: "", name: "" };
+  offset: number = Date.now();
+  chats: [Chat] = [ { id: 0, created_at: "", updated_at: "", sid: "", rid: "", text: "" } ]
 
   constructor(private userService: UserService, private activatedRoute: ActivatedRoute, private router: Router, private chatService: ChatService){
     // get recievers id
@@ -43,6 +45,18 @@ export class ChatpageComponent {
       });
     }catch(error){
       ToastService.toast("Error while grtting userInfo");
+    }
+  }
+
+  ngOnInit(): void {
+    // load initial chats for users
+    try{
+      this.chatService.loadChats({ rid: this.rid }).subscribe((data: any) => {
+        this.chats = data.data;
+      })
+    }catch(error){
+      ToastService.toast("error while loading chats");
+      throw(error);
     }
   }
 

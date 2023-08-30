@@ -1,91 +1,25 @@
 <div class="sample">
   <div class="user">
     <img src="assets/images/profile.png" alt="" class="user-avatar">
-    <p class="name">John Doe</p>
+    <p class="name">{{Reciver.name}}</p>
   </div>
-  <div class="main-chat-container">
+  <div class="main-chat-container" *ngFor="let chat of chats">
     <div>
-      <div class="chat-container-l">
-        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
-          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
-          <div class="time">9:13pm</div>
+      <div *ngIf="chat.sid == rid">
+        <div class="chat-container-l">
+          <div class="m m-l">
+            {{ chat.text }}
+            <div class="time">{{ chat.created_at | chatTimestamp }}</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div>
-      <div class="chat-container-r">
-        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="chat-container-l">
-        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
-          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="chat-container-r">
-        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="chat-container-l">
-        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
-          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="chat-container-r">
-        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="chat-container-l">
-        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
-          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="chat-container-r">
-        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="chat-container-l">
-        <div class="m m-l">Senders Message Lorem ipsum dolor Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Tenetur impedit laboriosam rem voluptatum facere vero eos voluptate perspiciatis dolor quas nihil, esse id
-          reiciendis, non aspernatur? Explicabo dolor ipsum minima.
-          <div class="time">9:13pm</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="chat-container-r">
-        <div class="m m-r">My message Lorem ipsum dolor, sit Lorem ipsum dolor,
-          <div class="time">9:13pm</div>
+      <div *ngIf="chat.sid == myId">
+        <div class="chat-container-r">
+          <div class="m m-r">
+            {{chat.text}}
+            <div class="time">{{ chat.created_at | chatTimestamp }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -94,7 +28,7 @@
 
 <div class="last-mess">
   <form [formGroup]="newChatForm" (ngSubmit)="newChat()">
-  <input type="text" class="current-mess" placeholder="Type here..." formControlName="chat">
-</form>
+    <input type="text" class="current-mess" placeholder="Type here..." formControlName="chat">
+  </form>
   <button class="send-button"><img src="assets/images/send.png" class="send-icon" (click)="newChat()"></button>
 </div>
