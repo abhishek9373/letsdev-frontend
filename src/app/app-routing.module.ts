@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
 import { CoursesComponent } from './modules/courses/courses.component';
-import { PlacementsComponent } from './modules/placements/placements.component';
+import { PlacementsComponent } from './modules/Jobs/listing.component';
 import { AuthGuard } from './guard/auth.guard';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { LoginGuard } from './guard/login.guard';
