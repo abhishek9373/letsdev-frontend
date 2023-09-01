@@ -7,13 +7,14 @@ import { UserService as UserModelService } from 'src/app/models/user.model';
 import { onboard } from '../interfaces/common.interface';
 import { ToastService } from './toast.service';
 import { Inpute } from '../interfaces/fetch.inpute';
+import { SocketConfigService } from './socket-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements OnInit {
 
-  constructor(private baseservice: BaseService, private userService: UserService, private userModelService: UserModelService) { }
+  constructor(private baseservice: BaseService, private userService: UserService, private userModelService: UserModelService, private socketConfigService: SocketConfigService) { }
 
   ngOnInit(): void { }
 
@@ -25,6 +26,7 @@ export class AuthService implements OnInit {
             if (response.data) {
               localStorage.setItem('authToken', `${response.data.accessToken}`);
               this.userService.get();
+              this.socketConfigService.updateSocketConfig();
             };
             return false;
           }

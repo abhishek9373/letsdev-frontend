@@ -55,6 +55,7 @@ export class BaseService {
     if(statusCode == 401){
       localStorage.clear();
       this.router.navigate(['/auth']);
+      window.location.reload();
     }
     if(error.error?.message){
       Utility.decide(statusCode, error.error.message);
