@@ -1,201 +1,37 @@
-<div class="main-content">
-  <div class="main-content-header">
-    <p class="all-teams">Connections</p>
-    <input class="search-bar" type="text" id="searchInput" placeholder="Search for team">
-    <span class="search-icon">🔍</span>
-
+<div class="sample">
+  <div class="header-wrapper">
+    <div class="main-content-header">
+      <p class="all-teams">Your connections</p>
+      <input class="search-bar" type="text" id="searchInput" placeholder="Search for team">
+      <span class="search-icon">🔍</span>
+    </div>
   </div>
-
-  <div class="teams">
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
+  <div class="wrapper" *ngIf="connections">
+    <div class="user-card" *ngFor="let con of connections" [routerLink]="['/chats', con.user._id]">
+      <div class="notification">
+        <div class="bubble">{{con.notifications}}</div>
+      </div>
+      <div class="image-name-aligner">
+        <img src="assets/images/profile.png" alt="" class="profile-image">
+        <div>
+          <span class="name" [routerLink]="['/profile', con.user._id]">
+            {{con.user.name}}
+          </span>
+          <br>
+          <div class="last-message">
+            <span class="msg-text">
+              {{con.last_message}}
+            </span>
+            <span class="msg-time">
+              {{ con.last_message_date | chatTimestamp }}
+            </span>
+          </div>
         </div>
       </div>
-
-
-      <div class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></div>
-
-      <div class="team-time">7:15pm</div>
-
-    </div>
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
+      <div class="status">
+        <div class="status-dot"></div>
+        online
       </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
-    </div>
-    <div class="teams-temp">
-
-      <div class="chat-content">
-        <div class="chat-avatar">
-          <img src="assets/images/profile.png" alt="" class="chat-avatar-img">
-        </div>
-        <div class="messages">
-          <p class="name">John Doe</p>
-          <p class="message">how to connect java server...</p>
-        </div>
-      </div>
-
-
-      <p class="notifications">3&nbsp;<ion-icon name="notifications"></ion-icon></p>
-
-      <p class="team-time">7:15pm</p>
-
     </div>
   </div>
 </div>

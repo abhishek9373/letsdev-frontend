@@ -1,86 +1,40 @@
-.header{
-  width: 100%;
-  height: 9rem;
-  position: fixed;
-  background-color: #102984;
-  display: grid;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
-  align-items: center;
-  z-index: 999;
-
-}
-
-.navbar-list{
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center;
-  list-style: none;
-  text-decoration: none;
-  font-size: 2.5rem;
-  font-family: Istok Web, Inter;
-
-
-
-}
-.navbar-list a{
-  text-decoration: none;
-  color: white;
-  font-family: Istok Web, Inter;
-}
-
-.avatar{
-  display: flex;
-  justify-content:flex-end;
-  align-items: center;
-  margin-right: 5em;
-}
-
-
-.avatar-image{
-  width: 28%;
-}
-
-.logo{
-  padding: 3rem;
-  font-size: 2.5rem;
-  color: white;
-
-
-}
-
-
-.main-content{
-  /* position: absolute;
-  top:9rem;
-  left: 20rem;
-  right:20rem;
-  bottom: 0;
-  background-color: white; */
-
-  position: relative;
-  padding-top: 9rem;
-  margin-left: 20rem;
-  margin-right: 20rem;
-  padding-bottom: 2rem;
+.sample{
+  width: 80vw;
+  min-height: 100vh;
   background-color: white;
-  overflow: hidden;
+  margin: auto;
+  padding-top: 9rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 8rem;
+}
+
+.header-wrapper{
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 9rem;
+    background-color: rgba(239,231,223,255);
+    z-index: 999;
+    opacity: 0.8;
+}
+
+.all-teams{
+  font-size: large;
 }
 
 .main-content-header{
-  position: fixed;
-  background-color: white;
+  position: relative;
   display: flex;
-  width: 68%;
+  width: 90%;
   justify-content: space-between;
+  align-items: center;
   height: 5rem;
   padding-left: 2rem;
   padding-right:2rem ;
   z-index: 888;
   opacity: 0.9;
-  margin-right: 1rem;
 }
-
-
 
 
 .search-icon {
@@ -98,11 +52,10 @@
   background-color:#D9D9D9;
   border: none;
   outline: none;
-  width: 25%;
+  width: 40%;
   border-radius: 5px;
   opacity: 0.9;
   padding:1rem;
-
 }
 
 .search-bar::placeholder{
@@ -110,107 +63,170 @@
   opacity: 0.9;
 }
 
-.all-teams{
-  font-family: Inter;
-  font-size: 2rem;
-  padding-top: 1rem;
-  color: black;
-}
-
-
-
-.teams{
-  position: relative;
-  top:6rem;
-  left:13rem;
-  width: 70%;
-  margin-bottom: 5rem;
-}
-
-.notifications{
-  position: relative;
-  display: flex;
-  /* align-items: center; */
-  top:-9rem;
-  right: -72rem;
-  vertical-align: middle;
-  font-size: 12px;
-
-  font-family: Istok web;
-}
-
-ion-icon {
-  font-size: 1.7rem;
-  /* padding-top:rem ; */
-}
-
-.teams-temp{
-  background-color: #D9D9D9;
-  height:12em;
-  padding: 2rem;
-  font-family: Istok Web;
-  border-radius: 3px;
-  margin-bottom: 1rem;
-}
-
-.chat-content{
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-
-}
-.chat-avatar-img{
-  width: 50%;
-  margin-top: 1.5rem;
-}
-
-
-.messages{
+.wrapper{
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
-  align-items:flex-start;
+  width: 100%;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.user-card{
+  background-color: rgba(239,231,223,255);
+  width: 50%;
+  height: 150px;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.image-name-aligner{
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.profile-image{
+  width: 75px;
+  height: 70px;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .name{
-  margin-top: 1.5rem;
-  margin-left: -2rem;
-  font-size: 16px;
-  font-family: Istok web;
+  font-size: large;
 }
 
-.message{
-  margin-top: -2rem;
-  margin-left: -2rem;
-  font-size: 14px;
-  font-family: Istok web;
+.bubble{
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: medium;
+  float: right;
+  clear: left;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  padding-top: 5px;
 }
 
-
-.team-title{
-  font-size: 20px;
-  margin-bottom: 1rem;
+.last-message{
+  margin-top: 2rem;
+  font-size: 13px;
 }
 
-.team-sub-title{
-  font-size: 16px;
-  margin-bottom: 1rem;
-}
-
-.team-question{
-  font-size: 16px;
-}
-
-.team-time{
+.status{
   display: flex;
+  align-items: center;
+  font-size: 12px;
   position: relative;
-  top:-4rem;
-  right:-71rem;
-  font-size: 14px;
-  font-family: istok web;
+  bottom: -1.5rem;
+  left: 1rem;
 }
 
+.status-dot{
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  background-color: green;
+  margin-right: 7px;
+}
 
+/* responsive code from here */
 
+@media (min-width: 1020px) {
+  .user-card{
+    width: 500px;
+  }
+}
 
+@media (min-width: 700px) and (max-width: 1019px) {
+  .sample{
+    width: 80vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
+  .user-card{
+    width: 70%;
+  }
+}
 
+@media (min-width: 500px) and (max-width: 699px) {
+  .sample{
+    width: 90vw;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .user-card{
+    width: 75%;
+  }
+
+  .search-bar{
+    width: 50%;
+  }
+
+  .all-teams{
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 200px) and (max-width: 499px) {
+  .sample{
+    width: 98vw;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .user-card{
+    width: 85%;
+    height: auto;
+  }
+
+  .last-message{
+    margin-top: 1rem;
+    font-size: 12px;
+  }
+
+  .name{
+    font-size: 16px;
+  }
+
+  .profile-image{
+    width: 65px;
+    height: 60px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .status{
+    font-size: 10px;
+    bottom: 2px;
+    left: 3px;
+    margin-top: 4px;
+  }
+
+  .image-name-aligner{
+    margin-top: 1rem;
+  }
+
+  .search-bar{
+    width: 80%;
+    font-size: 9px;
+    height: 3.5rem;
+  }
+
+  .all-teams{
+    font-size: 10px;
+  }
+
+  .main-content-header{
+    height: 6rem;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
