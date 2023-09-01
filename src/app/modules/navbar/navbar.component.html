@@ -9,11 +9,11 @@
 
     <nav class="navbar" [ngClass]="{'show': mobileMenuOpen}">
       <ul class="navbar-list">
-        <li><a class="navbar-link" routerLink="posts" routerLinkActive="active">Posts &nbsp;&nbsp;&nbsp;</a>|</li>
-        <li><a class="navbar-link" routerLink="questions" routerLinkActive="active">Questions &nbsp;&nbsp;&nbsp;</a>|</li>
-        <li><a class="navbar-link" routerLink="chats" routerLinkActive="active">Chat &nbsp;&nbsp;&nbsp;</a>|</li>
+        <li><a class="navbar-link" (click)="toggleMenu()" routerLink="posts" routerLinkActive="active">Posts &nbsp;&nbsp;&nbsp;</a></li>
+        <li><a class="navbar-link" (click)="toggleMenu()" routerLink="questions" routerLinkActive="active">Questions &nbsp;&nbsp;&nbsp;</a></li>
+        <li><a class="navbar-link" (click)="toggleMenu()" routerLink="chats" routerLinkActive="active">Chat &nbsp;&nbsp;&nbsp;</a></li>
         <!-- <li><a class="navbar-link" routerLink="courses" routerLinkActive="active">Courses &nbsp;&nbsp;&nbsp;</a>|</li> -->
-        <li><a class="navbar-link" routerLink="placements" routerLinkActive="active">Jobs</a></li>
+        <li><a class="navbar-link" (click)="toggleMenu()" routerLink="placements" routerLinkActive="active">Jobs</a></li>
       </ul>
     </nav>
     <!-- postion of profile icon is going to be fixed to reponsive for laptop and mobile sizes -->
