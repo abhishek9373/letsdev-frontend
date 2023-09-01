@@ -23,6 +23,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ChatService } from './services/chat.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { SOCKET_HOST } from '../../constants';
+import { PlacementsComponent } from './modules/Jobs/listing.component';
 
 
 const token: any = localStorage.getItem('authToken');
@@ -41,6 +42,7 @@ const config: SocketIoConfig = {
     LandingPageComponent,
     NavbarComponent,
     LoaderComponent,
+    PlacementsComponent
   ],
   imports: [
     BrowserModule,
