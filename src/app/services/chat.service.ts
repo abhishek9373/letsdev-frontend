@@ -34,4 +34,8 @@ export class ChatService {
   loadChats({ rid }: { rid: string }) {
     return this.baseService.fetch({ method: 'GET', url: `/chat?rid=${rid}`, options: {} });
   }
+
+  loadConnections(){
+      return this.baseService.fetch({ method: 'GET', url: `/chat/connections`, options: {} });
+  }
 }
