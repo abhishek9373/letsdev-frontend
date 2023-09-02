@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs'; // Import Observable and Subject
 import { Chat, outGoingChat } from '../interfaces/Chat.interface'; // Assuming 'Chat' is the correct type
 import { BaseService } from './base.service';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,10 @@ import { BaseService } from './base.service';
 export class ChatService {
   private newChatSubject = new Subject<Chat>(); // Create a Subject for new chats
 
-  constructor(private socket: Socket, private baseService: BaseService) {
+  constructor(private socket: Socket, private baseService: BaseService, private notificationService: NotificationService) {
     this.getMessage().subscribe((newChat: Chat) => {
       this.newChatSubject.next(newChat);
+      this.notificationService.playNotificationSound();
     });
   }
 
