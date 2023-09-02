@@ -1,3 +1,7 @@
+.main{
+  color: white;
+}
+
 .heading-title{
   font-size: 8rem;
   margin-top: 5rem;
@@ -14,25 +18,14 @@ color: #AB34B5;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 2.2rem;
   margin-top: 1rem;
-  margin-left: 5rem;
+  margin-left: 25rem;
   color: white;
-}
-
-.avatar{
-  max-width: 40vw;
-  /* width: 20vw; */
-  margin-top: 8rem;
-}
-
-.avtar-aligner{
-  display: flex;
-  justify-content: center;
 }
 
 .services{
   font-family: Inter;
   font-size: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 7rem;
   text-align:center;
   letter-spacing:2px;
   color: white;
@@ -41,34 +34,33 @@ color: #AB34B5;
 .footer{
   display: flex;
   flex-direction: row;
-  justify-content:center;
-  margin-left:5rem;
+  justify-content: flex-end;
   margin-top: 5rem;
+  padding-left: 2rem;
 }
 
 .footer-text{
   font-family: Inter;
-  font-size: 28px;
+  font-size: 22px;
   color: white;
-  margin-right: 4rem;
+  margin-right: 2rem;
   text-transform:capitalize;
 }
 
 .Lets-Start{
-  height: 40px;
+  min-width: 120px;
   border: 1px;
   background: transparent;
   border-color: white;
   border-radius: 5px;
   border-style: solid;
   font-weight: bold;
-  font-size: 1.8rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
   cursor: pointer;
   letter-spacing: 1px;
   color: white;
   margin-right: 1rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
 }
 
 .Lets-Start:hover{
@@ -82,95 +74,235 @@ color: #AB34B5;
   justify-content: flex-end;
 }
 
+.service-content{
+  margin-top: 10rem;
+}
+
+.posts{
+  display:flex;
+  justify-content: space-around;
+  margin-bottom: 18rem;
+}
+
+.intro-image{
+  max-width: 45vw;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.info-text{
+  margin-bottom: 2rem;
+}
+
+.title{
+  font-size: large;
+  color: red;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.text{
+  font-size: 16px;
+  font-family: Inter;
+}
+
+.chats{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.chat-img-container{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7rem;
+}
+
+.chat-img{
+  margin: 2rem;
+}
+
+.page-footer{
+  height: 200px;
+  width: 100vw;
+  background-color: #2B1616;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.ft-title{
+  font-size: large;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.ft-sub-text{
+  font-size: 15px;
+  text-align: center;
+  padding-top: 3rem;
+  letter-spacing: 1.5px;
+  font-family: Inter;
+}
 
 /* responsive code here */
 
-@media (min-width: 700px) {
-
-  .avatar{
-      max-width: 30vw;
-      margin-top: 8rem;
+@media (min-width: 800px) and (max-width: 1260px) {
+  .text{
+    font-size: medium;
   }
-}
 
-@media (min-width: 500px) and (max-width: 699px) {
-  .heading-title{
-    font-size: 5rem;
+  .posts{
+    margin-bottom: 12rem;
+  }
+
+  .chats div p {
     margin-bottom: 3rem;
   }
 
-  .avatar{
-    margin-bottom: 2rem;
-    max-width: 40vw;
-    margin-top: 8rem;
+  .heading-title{
+    font-size: 6rem;
+    margin-bottom: 3rem;
+    font-family: Inter;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 799px) {
+  .text{
+    font-size: 14px;
+  }
+
+  .posts{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8rem;
+  }
+
+  .p-r{
+    flex-direction: column-reverse;
+  }
+
+  .chats div p {
+    margin-bottom: 3rem;
+  }
+
+  .heading-title{
+    font-size: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .sub-heading{
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-left: 25rem;
+    color: white;
   }
 
   .footer{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    margin-left:3rem;
-    margin-top: 3rem;
+    padding-left: 1rem;
   }
 
   .footer-text{
-    font-family: Inter;
-    font-size: 22px;
-    color: white;
-    margin-right: 4rem;
-    text-transform:capitalize;
+    font-size: 17px;
+    margin-right: 1rem;
   }
 
-  .Lets-Start{
-    margin-top: 3rem;
-    width: 20vw;
+  .intro-image{
+    max-width: 85vw;
+  }
+
+  .chat-img-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 7rem;
+  }
+
+  .services{
+    font-size: 1.2rem;
+    margin-top: 5rem;
   }
 }
 
-@media (max-width: 499px) {
-  .heading-title{
-    font-size: 30px;
+@media (min-width: 250px) and (max-width: 599px) {
+  .text{
+    font-size: 13px;
+  }
+
+  .posts{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8rem;
+  }
+
+  .p-r{
+    flex-direction: column-reverse;
+  }
+
+  .chats div p {
     margin-bottom: 3rem;
-    margin-left: 5px;
-    margin-right: 2px;
+  }
+
+  .heading-title{
+    font-size: 2rem;
     margin-top: 1rem;
   }
 
   .sub-heading{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
+    font-size: 12px;
     margin-top: 1rem;
-    margin-left: 5px;
-    color: white;
-  }
-
-  .avatar{
-    margin-bottom: 1rem;
-    max-width: 90vw;
-    margin-top: 3rem;
-  }
-
-  .services{
-    font-size: 13px;
-    line-height: 30px;
+    margin-left: 9rem;
   }
 
   .footer{
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    margin-left: 5px;
-    margin-top: 3rem;
+    padding-left: 1rem;
   }
 
   .footer-text{
-    font-size: 18px;
-    margin-right: 8px;
-    text-transform:capitalize;
-    line-height: 3rem;
+    font-size: 12px;
+    margin-right: 1rem;
+  }
+
+  .intro-image{
+    max-width: 85vw;
+  }
+
+  .chat-img-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 7rem;
+  }
+
+  .services{
+    font-size: 1rem;
   }
 
   .Lets-Start{
-    margin-top: 3rem;
+    min-width: 90px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 3rem;
+  }
+
+  .ft-title{
+    font-size: medium;
+  }
+
+  .ft-sub-text{
+    font-size: 10px;
+    padding: 1rem;
+  }
+
+  .service-content{
+    margin-top: 5rem;
   }
 }
