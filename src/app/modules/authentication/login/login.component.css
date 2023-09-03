@@ -123,6 +123,7 @@
 .indicator{
   padding-left: 2rem;
   padding-top: 0.5rem;
+  max-width: 70vw;
   color: red;
 }
 
@@ -148,15 +149,11 @@
 
 @media (max-width: 500px){
   #email, #password{
-    min-width: 97vw;
-  }
-  .container{
-    padding: 3px;
+    min-width: 80vw;
   }
 
   .login-w-google, .login-w-facebook{
     font-size: 9px;
-    /* width: 100vw; */
   }
 
   .login-provider-aligner{

@@ -6,13 +6,13 @@
       </div>
       <div class="email">
         <label for="email" class="email-text">Email</label>
-        <span *ngIf="email && email.invalid && email.touched" class="indicator">email field is required</span>
+        <span *ngIf="email && email.invalid && email.touched" class="indicator">missing "@" symbol or incorrect domain format</span>
         <input type="email" id="email" name="email" placeholder="Enter your email" formControlName="email">
       </div>
       <div class="password">
         <label for="password" class="password-text">Password</label>
-        <span *ngIf="password && password.invalid && password.touched" class="indicator">password field is
-          required</span>
+        <span *ngIf="password && password.invalid && password.touched" class="indicator">Password must contain at least one lowercase letter, one uppercase letter, one digit,
+           one special character, and be at least 5 characters long.</span>
         <input type="password" id="password" name="password" placeholder="Enter your password"
           formControlName="password">
       </div>
