@@ -10,12 +10,27 @@
       <div class="password">
         <label for="password" class="password-text">Gender</label>
         <span *ngIf="gender && gender.invalid && gender.touched" class="indicator">these field is required</span>
-        <input type="text" id="password" name="gender" placeholder="Gender" formControlName="gender" required>
+        <!-- <input type="text" id="password" name="gender" placeholder="Gender" formControlName="gender" required> -->
+        <select formControlName="gender" name="gender" required id="password">
+          <option value="option1">Male</option>
+          <option value="option2">Female</option>
+          <option value="option3">Prefer not to say</option>
+        </select>
       </div>
       <div class="password">
         <label for="password" class="password-text">Branch</label>
         <span *ngIf="branch && branch.invalid && branch.touched" class="indicator">these field is required</span>
-        <input type="text" id="password" name="branch" placeholder="Branch" formControlName="branch" required>
+        <!-- <input type="text" id="password" name="branch" placeholder="Branch" formControlName="branch" required> -->
+        <select formControlName="branch" name="branch" required id="password">
+          <option value="option1">Computer</option>
+          <option value="option2">IT</option>
+          <option value="option3">ENTC</option>
+          <option value="option3">Civil</option>
+          <option value="option3">Aerospace</option>
+          <option value="option3">MBA</option>
+          <option value="option3">BSC</option>
+          <option value="option3">BCA</option>
+        </select>
       </div>
       <button class="login-button">Submit</button>
     </div>

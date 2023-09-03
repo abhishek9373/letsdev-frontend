@@ -19,12 +19,31 @@ export class OnboardComponent {
     branch: new FormControl('', [Validators.required])
   });
 
+  branchOptions: any = {
+    option1: "Computer",
+    option2: "IT",
+    option3: "ENTC",
+    option4: "Civil",
+    option5: "Aerospace",
+    option6: "MBA",
+    option7: "BSC",
+    option8: "BCA",
+  }
+
+  genderOptions: any = {
+    option1: "Male",
+    option2: "Female",
+    option3: "Prefer Not to say"
+  }
+
   onboard(){
     if(this.onboardForm.invalid){
       ToastService.toast("Please fill required fields");
       return 0;
     }
     const data: any = this.onboardForm.value;
+    data.gender = this.genderOptions[data.gender];
+    data.branch = this.branchOptions[data.branch];
     try{
       this.authenticationService.onboard(data).subscribe((data)=>{
         this.router.navigate(['/posts']);

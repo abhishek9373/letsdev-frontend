@@ -114,3 +114,9 @@
     max-width: 600px;
   }
 }
+
+option{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 16px;
+}
