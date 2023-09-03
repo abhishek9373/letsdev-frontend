@@ -358,3 +358,94 @@
     margin-top: 5rem;
   }
 }
+
+/*  */
+
+/* Add CSS animations to your HTML elements */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(40px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(40px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+      opacity: 0;
+      transform: translateY(40px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Apply animations to specific elements */
+.heading-title {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.heading-sub-title {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.sub-heading {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.services {
+  animation: slideInUp 1s ease-in-out;
+}
+
+.posts, .p-r, .chats {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.post-image, .chat-img {
+  animation: slideInRight 1s ease-in-out;
+}
+
+.Lets-Start {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.page-footer {
+  animation: slideInUp 1s ease-in-out;
+}
