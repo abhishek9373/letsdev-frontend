@@ -27,10 +27,15 @@ export class EmailverificationComponent implements OnInit, OnDestroy{
       }catch(err: any){
         // ToastService.toast(err.message);
         this.router.navigate(['/auth']);
+        throw(err);
 
       }
 
     }, 3000)
+  }
+
+  changeEmail(){
+    localStorage.clear();
   }
 
   ngOnDestroy(): void {
