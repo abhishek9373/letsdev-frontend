@@ -7,13 +7,14 @@ import { Utility } from '../models/error.model';
 import { Inpute } from '../interfaces/fetch.inpute';
 import { Router } from '@angular/router';
 import { BASE_URL } from '../../../constants'
+import { SocketConfigService } from './socket-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private socketService: SocketConfigService) { }
 
   private serverUrl: string = BASE_URL;
 
@@ -54,8 +55,9 @@ export class BaseService {
     const message = error.message || '';
     if(statusCode == 401){
       localStorage.clear();
+      // disconnect socket
+      this.socketService.disconnect();
       this.router.navigate(['/auth']);
-      window.location.reload();
     }
     if(error.error?.message){
       Utility.decide(statusCode, error.error.message);

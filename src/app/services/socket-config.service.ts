@@ -16,4 +16,7 @@ export class SocketConfigService {
     };
     this.socket.connect()
   }
+  disconnect(){
+    this.socket.disconnect();
+  }
 }
